@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Case Interview</title>
+  <meta name="description" content="How to take a monitoring business idea from ideation to commercialization. A step-by-step guide for product thinking in observability.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="terminal">
+  <div class="titlebar">
+    <div class="dots">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+    </div>
+    <div class="titlebar-text">case.mreider.com</div>
+  </div>
+
+  <div class="content">
+
+    <h1>The Case Interview</h1>
+    <p class="subtitle">Product Thinking for Observability</p>
+
+    <nav class="toc">
+      <div class="toc-label">Contents</div>
+      <ol>
+        <li><a href="#the-question"><span class="num">1</span> The Question</a></li>
+        <li><a href="#the-industry"><span class="num">2</span> The Industry</a></li>
+        <li><a href="#listen-first"><span class="num">3</span> Listen First</a></li>
+        <li><a href="#the-persona"><span class="num">4</span> The Persona</a></li>
+        <li><a href="#the-pain"><span class="num">5</span> The Pain</a></li>
+        <li><a href="#the-landscape"><span class="num">6</span> The Landscape</a></li>
+        <li><a href="#the-wedge"><span class="num">7</span> The Wedge</a></li>
+        <li><a href="#the-market"><span class="num">8</span> The Market</a></li>
+        <li><a href="#validate-first"><span class="num">9</span> Validate First</a></li>
+        <li><a href="#the-mvp"><span class="num">10</span> The MVP</a></li>
+        <li><a href="#go-to-market"><span class="num">11</span> Go-to-Market</a></li>
+        <li><a href="#pricing"><span class="num">12</span> Pricing</a></li>
+        <li><a href="#success"><span class="num">13</span> Success</a></li>
+      </ol>
+    </nav>
+
+    <!-- ——————————————————————————— -->
+    <div class="phase">Understand the Game</div>
+    <!-- ——————————————————————————— -->
+
+    <div class="entry" id="the-question">
+      <div class="entry-head"><span class="entry-num">1.</span> The Question</div>
+      <p>A product manager sits across from you and describes a business idea related to monitoring. They ask you to walk through how you'd take it from ideation to commercialization. This is the interview.</p>
+      <p>The first thing to understand is what they're actually testing. It is not the quality of your idea. The PM already has the idea. They want to see <span class="term">your process</span> &mdash; how you think through an unfamiliar problem in a structured way. Can you break ambiguity into concrete steps? Do you ask the right questions? Do you make reasonable trade-offs?</p>
+      <p>The ideal answer is not a pitch deck. It is a conversation. You are thinking out loud, showing your work, and making the interviewer feel like they'd want to build something with you.</p>
+    </div>
+
+    <div class="entry" id="the-industry">
+      <div class="entry-head"><span class="entry-num">2.</span> The Industry</div>
+      <p>Before you walk into the room, you need just enough context about the monitoring industry to have a credible conversation. Not deep expertise. Just the shape of the landscape.</p>
+      <p><span class="term">Monitoring</span> means watching systems to detect problems. <span class="term">Observability</span> means understanding <span class="it">why</span> systems have problems. The industry has shifted from the first to the second over the past decade, driven by cloud-native architectures that are too dynamic and distributed for simple threshold-based alerts.</p>
+      <p>The market is large and growing. Major players include Datadog, Splunk, Grafana Labs, New Relic, and Dynatrace. Open-source tools like Prometheus and OpenTelemetry have reshaped how telemetry is collected. The buyers are engineering teams &mdash; SREs, platform engineers, developers &mdash; and the budgets come from infrastructure or engineering leadership.</p>
+      <p class="note">You do not need to memorize market-cap figures. You need to know that this is a crowded, growing space where differentiation matters.</p>
+    </div>
+
+    <!-- ——————————————————————————— -->
+    <div class="phase">Discover</div>
+    <!-- ——————————————————————————— -->
+
+    <div class="entry" id="listen-first">
+      <div class="entry-head"><span class="entry-num">3.</span> Listen First</div>
+      <p>The PM describes the idea. Your instinct will be to react immediately &mdash; to start solving, to say what you'd build. Resist that instinct. The single most important thing you can do in the first thirty seconds is <span class="term">listen</span>.</p>
+      <p>When they finish, repeat the idea back in your own words. This does two things: it confirms you understood correctly, and it gives you time to think. Then ask clarifying questions. Three are usually enough to start:</p>
+      <div class="ex">"Who is the primary user you have in mind?"
+"What's the core problem this solves for them?"
+"Why do you think now is the right time for this?"</div>
+      <p>These questions signal that you think about products from the user's perspective, not from the technology outward. That matters more than any framework you'll use later.</p>
+    </div>
+
+    <div class="entry" id="the-persona">
+      <div class="entry-head"><span class="entry-num">4.</span> The Persona</div>
+      <p>Every monitoring product serves a specific person. Before you can evaluate an idea, you need to know who that person is. This is the <span class="term">persona</span>.</p>
+      <p>In the monitoring industry, the common personas are:</p>
+      <dl class="defs">
+        <dt>SRE</dt>
+        <dd>Keeps services reliable. Cares about uptime, incident response, SLOs. On-call rotation shapes their life.</dd>
+        <dt>Platform Eng.</dt>
+        <dd>Builds internal tools and infrastructure. Cares about standardization, developer experience, reducing toil.</dd>
+        <dt>Developer</dt>
+        <dd>Writes application code. Wants to debug fast and ship features. Observability is a means to an end, not a goal.</dd>
+        <dt>Eng. Manager</dt>
+        <dd>Owns budget and headcount. Cares about cost, team velocity, and whether tools are actually being used.</dd>
+      </dl>
+      <p>The persona determines everything downstream &mdash; the pain points you target, the channels you use to reach them, the language on your landing page, the pricing model. Get this wrong and nothing else matters.</p>
+    </div>
+
+    <div class="entry" id="the-pain">
+      <div class="entry-head"><span class="entry-num">5.</span> The Pain</div>
+      <p>A product only matters if it solves a <span class="term">pain</span> that already exists. The sharper the pain, the easier the sale. So once you know the persona, ask: how badly does this problem hurt them today?</p>
+      <p>Pain has levels. At the bottom, it's a mild inconvenience &mdash; something people grumble about but tolerate. At the top, it's costing real money, waking people up at night, or blocking critical work. Products that address tolerable inconveniences struggle to get adopted. Products that stop the bleeding get pulled in by customers.</p>
+      <div class="ex">Mild    "It takes a few extra clicks to correlate logs and traces."
+Medium  "We spend 2 hours per incident digging through dashboards."
+Severe  "We can't meet our SLOs and we're losing customer trust."</div>
+      <p>In your answer, name the pain level explicitly. If the idea addresses a mild pain, acknowledge it and explain how you'd validate whether it's actually severe enough to build for. This shows maturity &mdash; not every idea is worth building.</p>
+    </div>
+
+    <!-- ——————————————————————————— -->
+    <div class="phase">Analyze</div>
+    <!-- ——————————————————————————— -->
+
+    <div class="entry" id="the-landscape">
+      <div class="entry-head"><span class="entry-num">6.</span> The Landscape</div>
+      <p>No idea exists in a vacuum. Before you can position a product, you need to understand <span class="term">what exists today</span>. This means looking at three things:</p>
+      <dl class="defs">
+        <dt>Direct</dt>
+        <dd>Products that solve the same problem for the same persona. If the idea is an incident management tool, that's PagerDuty, Opsgenie, Rootly, FireHydrant.</dd>
+        <dt>Adjacent</dt>
+        <dd>Products that solve a related problem and could expand into yours. Datadog started with infrastructure monitoring and moved into APM, logs, security, and incident management.</dd>
+        <dt>Do Nothing</dt>
+        <dd>The most common competitor. Spreadsheets, Slack threads, tribal knowledge. People tolerate bad processes for years. You are competing against inertia.</dd>
+      </dl>
+      <p>When you describe the landscape in your answer, don't just list names. Explain <span class="it">where the gaps are</span>. What are existing products bad at? Where do users complain? That's where the opportunity lives.</p>
+    </div>
+
+    <div class="entry" id="the-wedge">
+      <div class="entry-head"><span class="entry-num">7.</span> The Wedge</div>
+      <p>You cannot launch a product that does everything. You need a <span class="term">wedge</span> &mdash; the smallest possible product that is dramatically better than the status quo for one specific use case.</p>
+      <p>The wedge is how you get your first users. It's narrow enough that you can build it well, and sharp enough that people switch from their current tool (or non-tool) because the difference is obvious. Once you have those first users, you expand.</p>
+      <div class="ex">Datadog's wedge:    infrastructure metrics with a beautiful UI
+                        (when the alternative was command-line Nagios)
+
+Honeycomb's wedge:  high-cardinality event exploration
+                        (when everyone else pre-aggregated data)
+
+Grafana's wedge:    open-source dashboards for Prometheus
+                        (when the alternative was PromQL in a terminal)</div>
+      <p>In your answer, define the wedge clearly. Say what's in scope and what's explicitly out. A good wedge makes the interviewer nod &mdash; it's so focused that it's obviously right for that one use case.</p>
+    </div>
+
+    <div class="entry" id="the-market">
+      <div class="entry-head"><span class="entry-num">8.</span> The Market</div>
+      <p>The interviewer wants to know: is this opportunity big enough to matter? You need a quick, honest <span class="term">market size</span>. Not a number from a Gartner report. A number you can defend.</p>
+      <p>The simplest approach is bottom-up. Start with the persona, estimate how many of them exist, and multiply by what they'd pay.</p>
+      <div class="ex">Persona:  SREs at mid-to-large companies
+Count:    ~50,000 companies with 100+ engineers globally
+Seats:    average 5 SREs per company = 250,000 SREs
+Price:    $50/seat/month = $150M ARR addressable
+
+This is your SAM (Serviceable Addressable Market).
+Your SOM (obtainable in year 1-2) might be 1-2% of that.</div>
+      <p>Don't over-engineer this. The point is to show that you think about market size with discipline, not that you have the exact right number. Round numbers are fine. Honesty about assumptions is better than precision.</p>
+    </div>
+
+    <!-- ——————————————————————————— -->
+    <div class="phase">Build</div>
+    <!-- ——————————————————————————— -->
+
+    <div class="entry" id="validate-first">
+      <div class="entry-head"><span class="entry-num">9.</span> Validate First</div>
+      <p>You have a persona, a pain, a wedge, and a market size. The temptation is to start building. Don't. First, <span class="term">validate</span> &mdash; find the cheapest way to test whether your riskiest assumption is true.</p>
+      <p>Every product idea rests on assumptions. The riskiest one is usually about demand: do enough people have this pain, and would they pay to solve it? You can test this without writing a line of code.</p>
+      <dl class="defs">
+        <dt>Design partners</dt>
+        <dd>Find 5-10 companies that match your persona. Interview them. Do they have this pain? How do they deal with it today? Would they use a solution like this?</dd>
+        <dt>Landing page</dt>
+        <dd>Describe the product and put up a signup form. Drive traffic with a blog post or a targeted ad. Measure signups.</dd>
+        <dt>Concierge MVP</dt>
+        <dd>Solve the problem manually for a few customers. If they keep coming back and asking for more, the demand is real.</dd>
+      </dl>
+      <p>In your answer, name the riskiest assumption explicitly and describe one validation method. This shows the interviewer that you don't fall in love with ideas &mdash; you test them.</p>
+    </div>
+
+    <div class="entry" id="the-mvp">
+      <div class="entry-head"><span class="entry-num">10.</span> The MVP</div>
+      <p>Validation passed. Now you build the <span class="term">minimum viable product</span> &mdash; the smallest thing that delivers on the wedge. Not a prototype. Not a demo. A real product that a real user can rely on.</p>
+      <p>The hardest part of defining an MVP is deciding what to leave out. A useful exercise: list every feature you can imagine, then cut it in half. Then cut it in half again. What remains is probably still too much, but you're closer.</p>
+      <div class="ex">In scope:     ingest OTLP traces, search by service + duration,
+              show a flame graph for any trace, 7-day retention
+
+Out of scope:  alerting, dashboards, custom metrics,
+              role-based access, SSO, on-prem deployment
+
+Success metric: 3 design partners using it daily after 30 days</div>
+      <p>The MVP must be good enough that your wedge use case works beautifully. It's okay to be missing entire categories of functionality. It is not okay to be bad at the one thing you promised to be good at.</p>
+    </div>
+
+    <!-- ——————————————————————————— -->
+    <div class="phase">Commercialize</div>
+    <!-- ——————————————————————————— -->
+
+    <div class="entry" id="go-to-market">
+      <div class="entry-head"><span class="entry-num">11.</span> Go-to-Market</div>
+      <p>You have a product. Now it needs to reach the right people. This is your <span class="term">go-to-market</span> strategy, and in the monitoring industry, it usually follows one of two patterns.</p>
+      <dl class="defs">
+        <dt>Product-Led</dt>
+        <dd>Users find the product, try it for free, and adopt it bottom-up. Self-serve signup, generous free tier, quick time-to-value. This is how Grafana and Prometheus grew &mdash; developers chose them before anyone signed a contract.</dd>
+        <dt>Sales-Led</dt>
+        <dd>An outbound sales team targets engineering leadership. Demos, POCs, procurement cycles. This is how Dynatrace and Splunk sell &mdash; large contracts, long cycles, high deal sizes.</dd>
+      </dl>
+      <p>Most modern observability companies use a <span class="term">hybrid</span>: product-led adoption to get in the door, sales-assisted expansion to grow the account. The free tier converts developers. The sales team converts their managers.</p>
+      <p>In your answer, pick a GTM motion that matches your persona and wedge. If you're targeting individual developers, product-led is right. If you're targeting platform teams at large enterprises, you'll need sales. Explain why.</p>
+    </div>
+
+    <div class="entry" id="pricing">
+      <div class="entry-head"><span class="entry-num">12.</span> Pricing</div>
+      <p>How monitoring products make money is not obvious from the outside. The industry uses several models, and each one sends a different signal about what the product values.</p>
+      <dl class="defs">
+        <dt>Usage-based</dt>
+        <dd>Pay for what you ingest or query. GB of logs, millions of spans, custom metric time series. Datadog and New Relic use this. It scales with the customer but makes bills unpredictable.</dd>
+        <dt>Seat-based</dt>
+        <dd>Pay per user. Simple and predictable. But it creates friction &mdash; teams limit who gets access, which limits adoption and value.</dd>
+        <dt>Tier-based</dt>
+        <dd>Free, Pro, Enterprise. Features unlock at each tier. Grafana Cloud uses this. Good for product-led growth because the free tier gets people in.</dd>
+      </dl>
+      <p><span class="term">Pricing signals value.</span> If you charge by data volume, you're saying the product is about data. If you charge by seat, you're saying it's about collaboration. If you charge by tier, you're saying advanced capabilities are the premium.</p>
+      <p>In your answer, pick a model and explain the trade-off. There's no right answer &mdash; but there should be a reason.</p>
+    </div>
+
+    <div class="entry" id="success">
+      <div class="entry-head"><span class="entry-num">13.</span> Success</div>
+      <p>The interviewer will want to know: how do you know this is working? You need <span class="term">success metrics</span> &mdash; specific, measurable signals that the product is on the right track.</p>
+      <p>Good metrics come in pairs: a leading indicator that tells you if you're heading in the right direction, and a lagging indicator that confirms you arrived.</p>
+      <dl class="defs">
+        <dt>Activation</dt>
+        <dd>Did the user get value? For a tracing product: did they send their first trace within 30 minutes of signup? Leading indicator of retention.</dd>
+        <dt>Retention</dt>
+        <dd>Do they keep coming back? Weekly active users who query traces at least once. The core health metric for any product.</dd>
+        <dt>Expansion</dt>
+        <dd>Do accounts grow over time? More seats, more data, upgraded tiers. This is how monitoring products become large revenue streams.</dd>
+        <dt>NPS / CSAT</dt>
+        <dd>Do users recommend it? A qualitative signal that complements the quantitative ones. Especially important in developer tools, where word-of-mouth drives adoption.</dd>
+      </dl>
+      <p>End your answer here. Name two or three metrics, explain what each one tells you, and describe what "good" looks like in the first six months. This closes the loop &mdash; you started with a vague idea and ended with a measurable plan.</p>
+    </div>
+
+    <footer>
+      <p>Matthew Reider &middot; <a href="https://github.com/mreider/case">Source</a></p>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>
