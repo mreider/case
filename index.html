@@ -49,8 +49,15 @@
       <div class="entry-head"><span class="entry-num">2.</span> The Industry</div>
       <p>Before you walk into the room, you need just enough context about the monitoring industry to have a credible conversation. Not deep expertise. Just the shape of the landscape.</p>
       <p><span class="term">Monitoring</span> means watching systems to detect problems. <span class="term">Observability</span> means understanding <span class="it">why</span> systems have problems. The industry has shifted from the first to the second over the past decade, driven by cloud-native architectures that are too dynamic and distributed for simple threshold-based alerts.</p>
-      <p>The market is large and growing. Major players include Datadog, Splunk, Grafana Labs, New Relic, and Dynatrace. Open-source tools like Prometheus and OpenTelemetry have reshaped how telemetry is collected. The buyers are engineering teams &mdash; SREs, platform engineers, developers &mdash; and the budgets come from infrastructure or engineering leadership.</p>
-      <p class="note">You do not need to memorize market-cap figures. You need to know that this is a crowded, growing space where differentiation matters.</p>
+      <p>The core observability market is roughly $3&ndash;5B today, but the major vendors &mdash; Datadog ($3.4B revenue), Dynatrace ($1.7B), Elastic ($1.5B), New Relic (~$1B), Grafana Labs ($400M+ ARR) &mdash; collectively earn over $12B by spanning APM, logs, security analytics, and infrastructure monitoring. The broader market is $25&ndash;60B depending on where you draw the boundary. Growth runs 15&ndash;20% annually, with cloud-native players growing faster. Open-source tools like Prometheus and OpenTelemetry have reshaped how telemetry is collected.</p>
+      <p>The buyers are engineering teams &mdash; SREs, platform engineers, developers &mdash; and the budgets come from infrastructure or engineering leadership.</p>
+      <p class="note">You do not need to memorize every number. You need to know that this is a large, crowded, growing space where differentiation matters &mdash; and that new categories keep emerging at the edges.</p>
+      <p>To make the rest of this guide concrete, we will follow three hypothetical ideas through every step. Each one represents a different emerging category in the monitoring space. Use the tabs below each section to see how the same thinking process applies to very different products.</p>
+      <div class="scenario-legend">
+        <div class="legend-item"><span class="legend-dot" style="background:var(--foam)"></span> <strong>LLM Observability</strong> &mdash; monitoring AI-powered applications</div>
+        <div class="legend-item"><span class="legend-dot" style="background:var(--gold)"></span> <strong>DORA Metrics</strong> &mdash; measuring engineering delivery performance</div>
+        <div class="legend-item"><span class="legend-dot" style="background:var(--iris)"></span> <strong>Carbon Emissions</strong> &mdash; tracking infrastructure sustainability</div>
+      </div>
     </div>
 
     <!-- ——————————————————————————— -->
@@ -65,6 +72,38 @@
 "What's the core problem this solves for them?"
 "Why do you think now is the right time for this?"</div>
       <p>These questions signal that you think about products from the user's perspective, not from the technology outward. That matters more than any framework you'll use later.</p>
+
+      <div class="scenarios">
+        <div class="tab-bar">
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
+          <button class="tab" data-scenario="dora">DORA Metrics</button>
+          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+        </div>
+        <div class="scenario active" data-scenario="llm">
+          <p>The PM says: <span class="it">"We should build observability for LLM-powered applications &mdash; traces, costs, quality metrics."</span></p>
+          <div class="ex">You ask:
+"Who's the primary user &mdash; ML engineers or app developers?"
+"What's the core pain &mdash; cost surprises, latency, or hallucinations?"
+"Are target customers already in production, or still prototyping?"</div>
+          <p>These questions cut to the heart of the opportunity. An ML engineer fine-tuning models needs very different tooling than an app developer calling the OpenAI API. Production teams have urgent pain; prototyping teams have curiosity.</p>
+        </div>
+        <div class="scenario" data-scenario="dora">
+          <p>The PM says: <span class="it">"We should build a product that automatically tracks DORA metrics for engineering organizations."</span></p>
+          <div class="ex">You ask:
+"Who's the buyer &mdash; eng managers or VP/Director-level?"
+"What's driving demand &mdash; internal improvement or leadership pressure?"
+"What source control and CI/CD tools are most common in our target?"</div>
+          <p>DORA metrics (Deployment Frequency, Lead Time, Change Failure Rate, MTTR) are well-defined, but the buyer and the motivation vary enormously. A team lead who wants to improve is a different user than a VP who needs a dashboard for the board.</p>
+        </div>
+        <div class="scenario" data-scenario="carbon">
+          <p>The PM says: <span class="it">"We should help engineering teams track and reduce the carbon emissions of their cloud infrastructure."</span></p>
+          <div class="ex">You ask:
+"Who owns this problem &mdash; platform engineering, finance, or sustainability?"
+"Is demand driven by regulation or voluntary ESG commitments?"
+"Are target customers mostly single-cloud or multi-cloud?"</div>
+          <p>Carbon monitoring sits at the intersection of engineering and compliance. The answer to "who owns it" determines whether you're building a developer tool or an enterprise reporting product &mdash; two very different businesses.</p>
+        </div>
+      </div>
     </div>
 
     <div class="entry" id="the-persona">
@@ -82,6 +121,26 @@
         <dd>Owns budget and headcount. Cares about cost, team velocity, and whether tools are actually being used.</dd>
       </dl>
       <p>The persona determines everything downstream &mdash; the pain points you target, the channels you use to reach them, the language on your landing page, the pricing model. Get this wrong and nothing else matters.</p>
+
+      <div class="scenarios">
+        <div class="tab-bar">
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
+          <button class="tab" data-scenario="dora">DORA Metrics</button>
+          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+        </div>
+        <div class="scenario active" data-scenario="llm">
+          <p><strong>Primary:</strong> The <span class="term">AI application developer</span>. They call LLM APIs (OpenAI, Anthropic, Bedrock) to build features &mdash; chatbots, search, summarization. They ship to production and are responsible for cost, latency, and quality, but have almost no visibility into what happens inside their LLM pipeline.</p>
+          <p><strong>Secondary:</strong> AI platform teams who manage model-serving infrastructure across multiple application teams. They care about standardization and cost governance.</p>
+        </div>
+        <div class="scenario" data-scenario="dora">
+          <p><strong>Primary:</strong> The <span class="term">engineering manager</span>. They manage 1&ndash;3 teams, run sprint planning and retros, and are increasingly asked to quantify delivery performance. They want data to back up their instincts and advocate for their teams.</p>
+          <p><strong>Secondary:</strong> VP/Director of Engineering who needs an org-wide view to identify bottlenecks across teams and justify headcount or process changes to leadership.</p>
+        </div>
+        <div class="scenario" data-scenario="carbon">
+          <p><strong>Primary:</strong> The <span class="term">platform engineer with a sustainability mandate</span>. They already manage Kubernetes, cloud costs, and infrastructure. Carbon monitoring is a new responsibility being pushed to them by leadership or regulation.</p>
+          <p><strong>Secondary:</strong> The sustainability/ESG lead who needs data for compliance reports but lacks the technical depth to collect it from infrastructure systems.</p>
+        </div>
+      </div>
     </div>
 
     <div class="entry" id="the-pain">
@@ -92,6 +151,34 @@
 Medium  "We spend 2 hours per incident digging through dashboards."
 Severe  "We can't meet our SLOs and we're losing customer trust."</div>
       <p>In your answer, name the pain level explicitly. If the idea addresses a mild pain, acknowledge it and explain how you'd validate whether it's actually severe enough to build for. This shows maturity &mdash; not every idea is worth building.</p>
+
+      <div class="scenarios">
+        <div class="tab-bar">
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
+          <button class="tab" data-scenario="dora">DORA Metrics</button>
+          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+        </div>
+        <div class="scenario active" data-scenario="llm">
+          <p><strong>Severity: High.</strong> A single LLM call can cost $0.10 or $10.00 depending on the prompt, model, and token count. Teams ship an AI feature and their cloud bill triples &mdash; and they cannot tell which queries are expensive or why. Latency swings from 200ms to 30 seconds. Hallucinations reach production users and nobody knows the rate.</p>
+          <div class="ex">"We shipped an AI feature and our API costs tripled overnight.
+ We have no idea which prompts are causing it."</div>
+          <p>This is severe, active pain tied directly to money. Teams will pull in a solution.</p>
+        </div>
+        <div class="scenario" data-scenario="dora">
+          <p><strong>Severity: Medium.</strong> Most engineering leaders know they should measure delivery performance but tolerate not having the data. The pain spikes during reorgs, performance reviews, or when a VP asks "how fast do we ship?" and nobody has an answer. It is chronic, not acute.</p>
+          <div class="ex">"Every quarter my VP asks for deployment frequency and
+ I spend two days pulling data from three tools to give
+ a rough estimate that nobody really trusts."</div>
+          <p>Medium pain means slower adoption. You need to validate whether the pain is severe enough to drive a purchase, or just a nice-to-have.</p>
+        </div>
+        <div class="scenario" data-scenario="carbon">
+          <p><strong>Severity: Medium, trending toward severe.</strong> Today it is a compliance checkbox &mdash; annoying but manageable with rough estimates. But regulation is tightening. The EU Corporate Sustainability Reporting Directive (CSRD) requires auditable Scope 3 emissions data. Companies that cannot attribute cloud carbon to specific services will fail audits.</p>
+          <div class="ex">"We report an estimate to our sustainability team.
+ Nobody trusts the number, but nobody has been
+ asked to verify it &mdash; yet."</div>
+          <p>Regulation is the forcing function. Pain that is medium today becomes severe on a known deadline.</p>
+        </div>
+      </div>
     </div>
 
     <!-- ——————————————————————————— -->
@@ -110,6 +197,47 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
         <dd>The most common competitor. Spreadsheets, Slack threads, tribal knowledge. People tolerate bad processes for years. You are competing against inertia.</dd>
       </dl>
       <p>When you describe the landscape in your answer, don't just list names. Explain <span class="it">where the gaps are</span>. What are existing products bad at? Where do users complain? That's where the opportunity lives.</p>
+
+      <div class="scenarios">
+        <div class="tab-bar">
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
+          <button class="tab" data-scenario="dora">DORA Metrics</button>
+          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+        </div>
+        <div class="scenario active" data-scenario="llm">
+          <dl class="defs">
+            <dt>Direct</dt>
+            <dd>LangSmith, Helicone, Arize Phoenix, Braintrust, HumanLoop &mdash; purpose-built LLM tracing and eval tools.</dd>
+            <dt>Adjacent</dt>
+            <dd>Datadog LLM Monitoring, New Relic AI Monitoring &mdash; bolted onto existing APM. Treat LLM calls as generic HTTP spans.</dd>
+            <dt>Do Nothing</dt>
+            <dd>Print statements, custom OpenTelemetry instrumentation, spreadsheets tracking monthly API spend.</dd>
+          </dl>
+          <p><strong>The gap:</strong> Direct tools are tightly coupled to specific frameworks (LangSmith to LangChain). Adjacent tools lack LLM-specific context (token costs, prompt content, quality signals). Neither gives you cost attribution + quality + trace context in one view.</p>
+        </div>
+        <div class="scenario" data-scenario="dora">
+          <dl class="defs">
+            <dt>Direct</dt>
+            <dd>Sleuth, LinearB, Swarmia, Jellyfish, Faros AI &mdash; developer productivity and DORA tracking platforms.</dd>
+            <dt>Adjacent</dt>
+            <dd>GitHub Insights, GitLab Analytics, Pluralsight Flow, Backstage plugins &mdash; partial metrics within existing tools.</dd>
+            <dt>Do Nothing</dt>
+            <dd>Quarterly surveys, manual spreadsheet tracking, gut feel at retrospectives. Most common by far.</dd>
+          </dl>
+          <p><strong>The gap:</strong> Direct tools require extensive configuration &mdash; mapping deployments to services, tagging incidents, defining what counts as a "change." Most teams try them, get frustrated by setup time, and abandon. The gap is <span class="term">zero-config accuracy</span>.</p>
+        </div>
+        <div class="scenario" data-scenario="carbon">
+          <dl class="defs">
+            <dt>Direct</dt>
+            <dd>Cloud Carbon Footprint (open-source, Thoughtworks), Climatiq API, Scope3 &mdash; carbon estimation tools.</dd>
+            <dt>Adjacent</dt>
+            <dd>Kubecost, CloudHealth, Vantage &mdash; cloud cost tools that could add carbon as a dimension.</dd>
+            <dt>Do Nothing</dt>
+            <dd>AWS Customer Carbon Footprint Tool, GCP Carbon Sense &mdash; delayed 3 months, region-level only, no workload attribution.</dd>
+          </dl>
+          <p><strong>The gap:</strong> Open-source tools require manual setup with wide error bars. Cloud provider tools are too coarse and too delayed. Nobody does <span class="term">real-time, workload-level attribution</span> integrated with the existing observability stack.</p>
+        </div>
+      </div>
     </div>
 
     <div class="entry" id="the-wedge">
@@ -125,6 +253,39 @@ Honeycomb's wedge:  high-cardinality event exploration
 Grafana's wedge:    open-source dashboards for Prometheus
                         (when the alternative was PromQL in a terminal)</div>
       <p>In your answer, define the wedge clearly. Say what's in scope and what's explicitly out. A good wedge makes the interviewer nod &mdash; it's so focused that it's obviously right for that one use case.</p>
+
+      <div class="scenarios">
+        <div class="tab-bar">
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
+          <button class="tab" data-scenario="dora">DORA Metrics</button>
+          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+        </div>
+        <div class="scenario active" data-scenario="llm">
+          <p><strong>The wedge:</strong> Cost-per-query tracing for LLM chains. One SDK call wraps your LLM client. Every call is traced with: model, tokens in/out, dollar cost, and latency. You see a flame graph of your RAG pipeline &mdash; retrieval, reranking, LLM call, post-processing &mdash; with cost at each step.</p>
+          <div class="ex">In scope:    OpenAI + Anthropic SDK auto-instrumentation,
+             cost + latency breakdown, trace viewer
+
+Out of scope: quality/eval scoring, fine-tuning analytics,
+             custom model hosting, prompt management</div>
+        </div>
+        <div class="scenario" data-scenario="dora">
+          <p><strong>The wedge:</strong> Zero-config DORA metrics from GitHub + CI. Connect your GitHub org and CI tool. Within five minutes, see all four DORA metrics &mdash; deployment frequency, lead time, change failure rate, MTTR &mdash; benchmarked against the DORA report's Elite/High/Medium/Low categories. No manual tagging required.</p>
+          <div class="ex">In scope:    GitHub + GitHub Actions + CircleCI integration,
+             auto-detection of deploys and failures,
+             DORA benchmark comparison
+
+Out of scope: Jira/Linear integration, custom workflow
+             definitions, sprint velocity, code quality</div>
+        </div>
+        <div class="scenario" data-scenario="carbon">
+          <p><strong>The wedge:</strong> Real-time carbon attribution per Kubernetes workload. A lightweight agent reads resource usage per pod, maps it to the cloud region's grid carbon intensity, and produces a CO2-per-service estimate updated hourly. Integrates as a Grafana datasource or OTLP exporter.</p>
+          <div class="ex">In scope:    Kubernetes, AWS/GCP/Azure region grid data,
+             namespace-level CO2 attribution, hourly updates
+
+Out of scope: Scope 1 &amp; 2 emissions, supply chain carbon,
+             hardware embodied carbon, optimization recs</div>
+        </div>
+      </div>
     </div>
 
     <div class="entry" id="the-market">
@@ -139,6 +300,44 @@ Price:    $50/seat/month = $150M ARR addressable
 This is your SAM (Serviceable Addressable Market).
 Your SOM (obtainable in year 1-2) might be 1-2% of that.</div>
       <p>Don't over-engineer this. The point is to show that you think about market size with discipline, not that you have the exact right number. Round numbers are fine. Honesty about assumptions is better than precision.</p>
+
+      <div class="scenarios">
+        <div class="tab-bar">
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
+          <button class="tab" data-scenario="dora">DORA Metrics</button>
+          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+        </div>
+        <div class="scenario active" data-scenario="llm">
+          <div class="ex">Persona:  AI application developers in production
+Count:    ~30,000 companies actively using LLM APIs
+Seats:    average 3 AI devs per company = 90,000
+Price:    usage-based, ~$100/seat equiv/month
+SAM:      ~$108M ARR
+
+SOM year 1: 1-2% = $1-2M ARR</div>
+          <p>But the real lever is usage-based pricing &mdash; heavy users trace millions of LLM calls. Top-down, the AI infrastructure market is $10B+ and growing 40%+ annually. Observability is a fast-growing slice of that.</p>
+        </div>
+        <div class="scenario" data-scenario="dora">
+          <div class="ex">Persona:  Engineering managers at 50+ dev orgs
+Count:    ~80,000 companies with 50+ engineers
+Seats:    $30/contributor/month, avg 60 contributors
+Price:    ~$1,800/month per org
+SAM:      ~$1.7B ARR
+
+SOM year 1: 0.5% = ~$8.5M ARR</div>
+          <p>Large SAM, but medium pain means slower conversion. The question to answer for the interviewer: is the TAM growing because more orgs <span class="it">want</span> DORA metrics, or because they're being <span class="it">required</span> to measure them? The forcing function matters.</p>
+        </div>
+        <div class="scenario" data-scenario="carbon">
+          <div class="ex">Persona:  Platform eng + sustainability at cloud-heavy orgs
+Count:    ~15,000 companies with &gt;$1M cloud spend
+          AND sustainability reporting obligations
+Price:    ~$2,000/month avg contract value
+SAM:      ~$360M ARR
+
+SOM year 1: 0.5% = ~$1.8M ARR</div>
+          <p>Smaller addressable base today, but regulation is the tailwind. EU CSRD compliance deadlines create a forcing function that grows the market on a predictable schedule. Every year, more companies fall into scope.</p>
+        </div>
+      </div>
     </div>
 
     <!-- ——————————————————————————— -->
@@ -158,20 +357,91 @@ Your SOM (obtainable in year 1-2) might be 1-2% of that.</div>
         <dd>Solve the problem manually for a few customers. If they keep coming back and asking for more, the demand is real.</dd>
       </dl>
       <p>In your answer, name the riskiest assumption explicitly and describe one validation method. This shows the interviewer that you don't fall in love with ideas &mdash; you test them.</p>
+
+      <div class="scenarios">
+        <div class="tab-bar">
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
+          <button class="tab" data-scenario="dora">DORA Metrics</button>
+          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+        </div>
+        <div class="scenario active" data-scenario="llm">
+          <p><strong>Riskiest assumption:</strong> Teams running LLMs in production cannot see their cost per query &mdash; and would pay to fix it.</p>
+          <p><strong>Validation:</strong> Interview 10 teams running LLM features. Ask: "Do you know your cost per user query? Can you trace a slow response to a specific LLM call?" If 7+ say no and express frustration, the demand is real.</p>
+          <p><strong>Cheapest test:</strong> Open-source a Python SDK that prints cost-per-call to stdout. If developers adopt it without a product behind it, the pain is confirmed.</p>
+        </div>
+        <div class="scenario" data-scenario="dora">
+          <p><strong>Riskiest assumption:</strong> Engineering managers will trust automated DORA metrics without manual configuration or tagging.</p>
+          <p><strong>Validation:</strong> Build a read-only GitHub App that analyzes 90 days of history for a single repo. Show the output to 10 eng managers. Ask: "Are these numbers accurate? Would you show this to your VP?"</p>
+          <p><strong>Cheapest test:</strong> A free web tool &mdash; "Paste your GitHub org URL, get your DORA score in 5 minutes." Measure how many people use it and share it.</p>
+        </div>
+        <div class="scenario" data-scenario="carbon">
+          <p><strong>Riskiest assumption:</strong> Sustainability leads will act on workload-level carbon data, rather than just needing a single aggregate number for compliance.</p>
+          <p><strong>Validation:</strong> Interview 10 sustainability leads and platform engineers. Ask: "If you could see CO2 per service per hour, what would you <span class="it">do</span> with that data?" If they describe specific optimization actions, the granularity matters. If they just need a number for a report, the wedge is wrong.</p>
+          <p><strong>Cheapest test:</strong> Manually build a static carbon report for one company's Kubernetes cluster. Show them per-namespace attribution. Watch their reaction.</p>
+        </div>
+      </div>
     </div>
 
     <div class="entry" id="the-mvp">
       <div class="entry-head"><span class="entry-num">10.</span> The MVP</div>
       <p>Validation passed. Now you build the <span class="term">minimum viable product</span> &mdash; the smallest thing that delivers on the wedge. Not a prototype. Not a demo. A real product that a real user can rely on.</p>
       <p>The hardest part of defining an MVP is deciding what to leave out. A useful exercise: list every feature you can imagine, then cut it in half. Then cut it in half again. What remains is probably still too much, but you're closer.</p>
-      <div class="ex">In scope:     ingest OTLP traces, search by service + duration,
-              show a flame graph for any trace, 7-day retention
-
-Out of scope:  alerting, dashboards, custom metrics,
-              role-based access, SSO, on-prem deployment
-
-Success metric: 3 design partners using it daily after 30 days</div>
       <p>The MVP must be good enough that your wedge use case works beautifully. It's okay to be missing entire categories of functionality. It is not okay to be bad at the one thing you promised to be good at.</p>
+
+      <div class="scenarios">
+        <div class="tab-bar">
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
+          <button class="tab" data-scenario="dora">DORA Metrics</button>
+          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+        </div>
+        <div class="scenario active" data-scenario="llm">
+          <div class="ex">In scope:
+  Python SDK, auto-instruments OpenAI + Anthropic clients
+  Trace viewer: flame graph of LLM call chains
+  Dashboard: total cost, p50/p99 latency, error rate
+  Cost-per-query breakdown over time
+  7-day retention
+
+Out of scope:
+  Quality/eval scoring, prompt versioning, JS SDK,
+  custom model support, alerting, SSO
+
+Success metric:
+  5 design partners sending &gt;1,000 traces/day after 30 days</div>
+        </div>
+        <div class="scenario" data-scenario="dora">
+          <div class="ex">In scope:
+  GitHub App (read-only, installs in 2 minutes)
+  All four DORA metrics, auto-detected from git + CI
+  Weekly trend charts
+  Team-level breakdown
+  DORA benchmark comparison (Elite/High/Medium/Low)
+
+Out of scope:
+  GitLab/Bitbucket, Jira integration, custom deploy
+  detection rules, alerting, API access, SSO
+
+Success metric:
+  10 orgs installed, eng manager views dashboard
+  weekly after 30 days</div>
+        </div>
+        <div class="scenario" data-scenario="carbon">
+          <div class="ex">In scope:
+  Kubernetes DaemonSet, collects CPU/memory per pod
+  Maps to cloud region grid carbon intensity
+    (electricityMap / WattTime public data)
+  Dashboard: CO2 by namespace, by hour, 30-day trend
+  CSV export for sustainability reporting
+
+Out of scope:
+  Multi-cloud, non-K8s workloads, Scope 1 &amp; 2,
+  embodied carbon, automated optimization, alerting
+
+Success metric:
+  3 companies running the agent in production,
+  sustainability lead pulls monthly report after 60 days</div>
+        </div>
+      </div>
     </div>
 
     <!-- ——————————————————————————— -->
@@ -189,6 +459,42 @@ Success metric: 3 design partners using it daily after 30 days</div>
       </dl>
       <p>Most modern observability companies use a <span class="term">hybrid</span>: product-led adoption to get in the door, sales-assisted expansion to grow the account. The free tier converts developers. The sales team converts their managers.</p>
       <p>In your answer, pick a GTM motion that matches your persona and wedge. If you're targeting individual developers, product-led is right. If you're targeting platform teams at large enterprises, you'll need sales. Explain why.</p>
+
+      <div class="scenarios">
+        <div class="tab-bar">
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
+          <button class="tab" data-scenario="dora">DORA Metrics</button>
+          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+        </div>
+        <div class="scenario active" data-scenario="llm">
+          <p><strong>Motion: Product-led.</strong> AI developers are early adopters who try open-source tools, read blog posts, and share what works on Twitter/X and Discord.</p>
+          <div class="ex">Channel 1: Open-source the SDK. Zero-friction instrumentation.
+Channel 2: Content &mdash; "We traced our RAG pipeline and cut
+           LLM costs 60%" gets shared in every AI Discord.
+Channel 3: Framework integrations &mdash; LangChain, LlamaIndex,
+           Haystack plugins.</div>
+          <p>Free tier converts individual developers. They prove value internally. Their manager approves the paid tier.</p>
+        </div>
+        <div class="scenario" data-scenario="dora">
+          <p><strong>Motion: Hybrid.</strong> Product-led for small teams (install the GitHub App, see your metrics). Sales-assisted for org-wide rollout when a VP wants it across 20 teams.</p>
+          <div class="ex">Channel 1: Free tool &mdash; "Get your DORA score in 5 minutes."
+Channel 2: Conference talks at DevOpsDays, QCon, LeadDev
+           targeting eng managers who feel the pain.
+Channel 3: Partnerships with consulting firms who do
+           engineering effectiveness assessments.</div>
+          <p>The free tier acquires eng managers. Sales converts the VP who wants the org-wide view.</p>
+        </div>
+        <div class="scenario" data-scenario="carbon">
+          <p><strong>Motion: Sales-led.</strong> The buyer (VP Platform or Sustainability Lead) has budget, a compliance deadline, and needs a vendor they can point auditors to. This is not a bottom-up developer tool.</p>
+          <div class="ex">Channel 1: Direct outreach to companies with public
+           sustainability commitments and cloud-heavy infra.
+Channel 2: Partnerships with cloud providers' sustainability
+           programs (AWS, GCP, Azure partner networks).
+Channel 3: Industry events &mdash; KubeCon sustainability track,
+           GreenOps community, ESG conferences.</div>
+          <p>Compliance deadlines create urgency. The sales cycle is long (3&ndash;6 months) but the contracts are large and sticky.</p>
+        </div>
+      </div>
     </div>
 
     <div class="entry" id="pricing">
@@ -204,6 +510,37 @@ Success metric: 3 design partners using it daily after 30 days</div>
       </dl>
       <p><span class="term">Pricing signals value.</span> If you charge by data volume, you're saying the product is about data. If you charge by seat, you're saying it's about collaboration. If you charge by tier, you're saying advanced capabilities are the premium.</p>
       <p>In your answer, pick a model and explain the trade-off. There's no right answer &mdash; but there should be a reason.</p>
+
+      <div class="scenarios">
+        <div class="tab-bar">
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
+          <button class="tab" data-scenario="dora">DORA Metrics</button>
+          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+        </div>
+        <div class="scenario active" data-scenario="llm">
+          <p><strong>Model: Usage-based</strong> on LLM spans ingested. $2 per 1,000 spans.</p>
+          <div class="ex">Free:       10,000 spans/month (a side project)
+Pro:        pay-as-you-go, volume discounts at scale
+Enterprise: committed spend + SSO + support</div>
+          <p><strong>Why:</strong> LLM costs already scale with usage, so observability costs should too. A startup tracing 50K calls/month pays ~$100. An enterprise tracing 10M calls/month pays ~$20K. This feels fair relative to their LLM spend and creates natural expansion as adoption grows.</p>
+        </div>
+        <div class="scenario" data-scenario="dora">
+          <p><strong>Model: Seat-based</strong> per contributor tracked. $15/contributor/month.</p>
+          <div class="ex">Free:       up to 10 contributors
+Pro:        $15/contributor/month
+Enterprise: custom pricing + SSO + API access</div>
+          <p><strong>Why:</strong> DORA metrics scale with team size, not data volume. An org with 200 engineers pays ~$3K/month &mdash; easily justified if it eliminates one "how fast do we ship?" fire drill per quarter. Seat-based also aligns incentives: you want the org to add more teams, not worry about data volume.</p>
+        </div>
+        <div class="scenario" data-scenario="carbon">
+          <p><strong>Model: Tier-based</strong> with an open-source core.</p>
+          <div class="ex">Open source: basic estimation, single cluster, community
+Pro:         $1,500/month &mdash; real-time attribution,
+             multi-cluster, team breakdown
+Enterprise:  $5,000+/month &mdash; audit-ready reports,
+             multi-cloud, API, dedicated support</div>
+          <p><strong>Why:</strong> The open-source core builds credibility and community in a space where trust matters (sustainability claims are scrutinized). The paid tiers unlock the features compliance teams need. Regulation creates the upgrade trigger &mdash; when the audit deadline hits, they need the Enterprise tier.</p>
+        </div>
+      </div>
     </div>
 
     <div class="entry" id="success">
@@ -221,6 +558,56 @@ Success metric: 3 design partners using it daily after 30 days</div>
         <dd>Do users recommend it? A qualitative signal that complements the quantitative ones. Especially important in developer tools, where word-of-mouth drives adoption.</dd>
       </dl>
       <p>End your answer here. Name two or three metrics, explain what each one tells you, and describe what "good" looks like in the first six months. This closes the loop &mdash; you started with a vague idea and ended with a measurable plan.</p>
+
+      <div class="scenarios">
+        <div class="tab-bar">
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
+          <button class="tab" data-scenario="dora">DORA Metrics</button>
+          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+        </div>
+        <div class="scenario active" data-scenario="llm">
+          <dl class="defs">
+            <dt>Activation</dt>
+            <dd>First LLM trace received within 15 minutes of signup. If instrumentation takes longer, the SDK is too hard.</dd>
+            <dt>Retention</dt>
+            <dd>User queries the trace viewer at least once per week. Shows it's part of their workflow, not a one-time curiosity.</dd>
+            <dt>Expansion</dt>
+            <dd>Account grows from 1 instrumented service to 3+ within 60 days. Cost data is being shared in team Slack channels.</dd>
+          </dl>
+          <div class="ex">Six-month target:
+  200 teams sending traces
+  40% weekly retention
+  $150K ARR</div>
+        </div>
+        <div class="scenario" data-scenario="dora">
+          <dl class="defs">
+            <dt>Activation</dt>
+            <dd>GitHub App installed and first DORA metrics visible within 1 day. If it takes longer, zero-config is not working.</dd>
+            <dt>Retention</dt>
+            <dd>Engineering manager views dashboard at least once per week. Shows the metrics are influencing decisions, not collecting dust.</dd>
+            <dt>Expansion</dt>
+            <dd>Org grows from 1 team tracked to 5+ teams within 90 days. VP asks for org-wide rollout.</dd>
+          </dl>
+          <div class="ex">Six-month target:
+  50 orgs active
+  30% weekly retention among eng managers
+  $80K ARR</div>
+        </div>
+        <div class="scenario" data-scenario="carbon">
+          <dl class="defs">
+            <dt>Activation</dt>
+            <dd>Agent deployed, first carbon estimate visible within 1 hour. Kubernetes agents must be drop-in &mdash; if it requires a platform team sprint, adoption stalls.</dd>
+            <dt>Retention</dt>
+            <dd>Sustainability lead pulls a report at least monthly. Aligns with the natural reporting cadence.</dd>
+            <dt>Expansion</dt>
+            <dd>From 1 cluster to all production clusters within 6 months. Data cited in an actual ESG report or board presentation.</dd>
+          </dl>
+          <div class="ex">Six-month target:
+  15 companies running in production
+  3 using data in published sustainability reports
+  $200K ARR</div>
+        </div>
+      </div>
     </div>
 
     <footer>
@@ -228,6 +615,19 @@ Success metric: 3 design partners using it daily after 30 days</div>
     </footer>
 
 </div>
+
+<script>
+document.addEventListener('click', function(e) {
+  if (!e.target.matches('.tab')) return;
+  var scenario = e.target.getAttribute('data-scenario');
+  document.querySelectorAll('.tab').forEach(function(t) {
+    t.classList.toggle('active', t.getAttribute('data-scenario') === scenario);
+  });
+  document.querySelectorAll('.scenario').forEach(function(s) {
+    s.classList.toggle('active', s.getAttribute('data-scenario') === scenario);
+  });
+});
+</script>
 
 </body>
 </html>

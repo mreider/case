@@ -208,6 +208,99 @@ h1 {
   border-bottom: none;
 }
 
+/* ── Scenario legend ── */
+.scenario-legend {
+  margin: 1.5em 0 0;
+  padding: 1em 1.2em;
+  background: var(--overlay);
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.legend-item {
+  padding: 0.3em 0;
+  font-weight: 300;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
+/* ── Scenario tabs ── */
+.scenarios {
+  margin: 1.2em 0 0;
+  border: 1px solid var(--hl-med);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.tab-bar {
+  display: flex;
+  background: var(--overlay);
+  border-bottom: 1px solid var(--hl-med);
+}
+
+.tab {
+  flex: 1;
+  padding: 0.6em 0.8em;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.8em;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+  text-align: center;
+  border-right: 1px solid var(--hl-med);
+}
+
+.tab:last-child {
+  border-right: none;
+}
+
+.tab:hover {
+  color: var(--text);
+  background: var(--hl-low);
+}
+
+.tab.active {
+  color: var(--gold);
+  background: var(--surface);
+  font-weight: 500;
+}
+
+.tab.active[data-scenario="llm"] { color: var(--foam); }
+.tab.active[data-scenario="dora"] { color: var(--gold); }
+.tab.active[data-scenario="carbon"] { color: var(--iris); }
+
+.scenario {
+  display: none;
+  padding: 1em 1.2em;
+}
+
+.scenario.active {
+  display: block;
+}
+
+.scenario p {
+  margin: 0.5em 0;
+  font-weight: 300;
+}
+
+.scenario .ex {
+  margin: 0.6em 0;
+}
+
+.scenario .defs {
+  margin: 0.8em 0;
+}
+
 /* ── Notes ── */
 .note {
   font-style: italic;
@@ -261,5 +354,12 @@ footer a:hover {
   .ex {
     font-size: 0.9rem;
     padding: 0.8em 1em;
+  }
+  .tab {
+    font-size: 0.7em;
+    padding: 0.5em 0.4em;
+  }
+  .scenario {
+    padding: 0.8em;
   }
 }
