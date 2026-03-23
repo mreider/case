@@ -235,7 +235,7 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
             <dt>Workaround</dt>
             <dd>Print statements in the codebase, custom OpenTelemetry instrumentation, a shared spreadsheet where someone manually logs the monthly API bill.</dd>
           </dl>
-          <p><strong>The gap:</strong> Competing tools are tightly coupled to specific frameworks (LangSmith requires LangChain). Partial solutions lack LLM-specific context (token costs, prompt content, quality signals). The workaround gives you a monthly total but cannot tell you which query cost $8. No existing tool combines cost attribution, quality signals, and trace context in a single view.</p>
+          <p><strong>The gap:</strong> Competing tools are tightly coupled to specific frameworks (LangSmith requires LangChain). Partial solutions lack LLM-specific context (token costs, prompt content, quality signals). The workaround gives you a monthly total but cannot tell you which user request cost $8 or which LLM call in the chain was responsible. No existing tool combines cost attribution, quality signals, and trace context in a single view.</p>
         </div>
         <div class="scenario" data-scenario="dora">
           <dl class="defs">
@@ -298,7 +298,7 @@ Grafana's wedge:    open-source dashboards for Prometheus
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
         <div class="scenario active" data-scenario="llm">
-          <p><strong>The wedge:</strong> Cost-per-query tracing for LLM chains. One SDK call wraps your LLM client. Every call is traced with: model, tokens in/out, dollar cost, and latency. You see a flame graph of your RAG pipeline &mdash; retrieval, reranking, LLM call, post-processing &mdash; with cost at each step.</p>
+          <p><strong>The wedge:</strong> Cost tracing for LLM chains. A single user request &mdash; like "summarize this document" &mdash; can trigger multiple LLM calls: a retrieval step, a reranking call, the main completion, maybe a follow-up. Each call is billed by tokens (input + output). The wedge traces every call in the chain with its model, token count, dollar cost, and latency, then rolls it up so you see the total cost of that user request and where the money went.</p>
           <div class="ex">In scope:    OpenAI + Anthropic SDK auto-instrumentation,
              cost + latency breakdown, trace viewer
 
@@ -426,8 +426,8 @@ SOM year 1: 0.5% = ~$1.8M ARR</div>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
         <div class="scenario active" data-scenario="llm">
-          <p><strong>Riskiest assumption:</strong> Teams running LLMs in production cannot see their cost per query &mdash; and would pay to fix it.</p>
-          <p><strong>Validation:</strong> Interview 10 teams running LLM features. Ask: "Do you know your cost per user query? Can you trace a slow response to a specific LLM call?" If 7+ say no and express frustration, the demand is real.</p>
+          <p><strong>Riskiest assumption:</strong> Teams running LLMs in production cannot see what each user request costs in tokens and dollars &mdash; and would pay to fix it.</p>
+          <p><strong>Validation:</strong> Interview 10 teams running LLM features. Ask: "Do you know how much a single user request costs end-to-end? Can you trace a slow response to a specific LLM call in the chain?" If 7+ say no and express frustration, the demand is real.</p>
           <p><strong>Cheapest test:</strong> Open-source a Python SDK that prints cost-per-call to stdout. If developers adopt it without a product behind it, the pain is confirmed.</p>
         </div>
         <div class="scenario" data-scenario="dora">
@@ -460,7 +460,7 @@ SOM year 1: 0.5% = ~$1.8M ARR</div>
   Python SDK, auto-instruments OpenAI + Anthropic clients
   Trace viewer: flame graph of LLM call chains
   Dashboard: total cost, p50/p99 latency, error rate
-  Cost-per-query breakdown over time
+  Cost per user request over time (broken down by LLM call)
   7-day retention
 
 Out of scope:
