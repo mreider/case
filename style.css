@@ -279,6 +279,7 @@ h1 {
 .tab.active[data-scenario="llm"] { color: var(--foam); }
 .tab.active[data-scenario="dora"] { color: var(--gold); }
 .tab.active[data-scenario="carbon"] { color: var(--iris); }
+.tab.active[data-scenario="queues"] { color: var(--love); }
 
 .scenario {
   display: none;

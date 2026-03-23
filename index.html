@@ -52,11 +52,12 @@
       <p>The core observability market is roughly $3&ndash;5B today, but the major vendors &mdash; Datadog ($3.4B revenue), Dynatrace ($1.7B), Elastic ($1.5B), New Relic (~$1B), Grafana Labs ($400M+ ARR) &mdash; collectively earn over $12B by spanning APM, logs, security analytics, and infrastructure monitoring. The broader market is $25&ndash;60B depending on where you draw the boundary. Growth runs 15&ndash;20% annually, with cloud-native players growing faster. Open-source tools like Prometheus and OpenTelemetry have reshaped how telemetry is collected.</p>
       <p>The buyers are engineering teams &mdash; SREs, platform engineers, developers &mdash; and the budgets come from infrastructure or engineering leadership.</p>
       <p class="note">You do not need to memorize every number. You need to know that this is a large, crowded, growing space where differentiation matters &mdash; and that new categories keep emerging at the edges.</p>
-      <p>To make the rest of this guide concrete, we will follow three hypothetical ideas through every step. Each one represents a different emerging category in the monitoring space. Use the tabs below each section to see how the same thinking process applies to very different products.</p>
+      <p>To make the rest of this guide concrete, we will follow four hypothetical ideas through every step. Each one represents a different emerging category in the monitoring space. Use the tabs below each section to see how the same thinking process applies to very different products.</p>
       <div class="scenario-legend">
         <div class="legend-item"><span class="legend-dot" style="background:var(--foam)"></span> <strong>LLM Observability</strong> &mdash; monitoring AI-powered applications</div>
         <div class="legend-item"><span class="legend-dot" style="background:var(--gold)"></span> <strong>DORA Metrics</strong> &mdash; measuring engineering delivery performance</div>
         <div class="legend-item"><span class="legend-dot" style="background:var(--iris)"></span> <strong>Carbon Emissions</strong> &mdash; tracking infrastructure sustainability</div>
+        <div class="legend-item"><span class="legend-dot" style="background:var(--love)"></span> <strong>Message Queues</strong> &mdash; observability for Kafka and event streaming</div>
       </div>
     </div>
 
@@ -78,6 +79,7 @@
           <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+          <button class="tab" data-scenario="queues">Message Queues</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <p>The PM says: <span class="it">"We should build observability for LLM-powered applications &mdash; traces, costs, quality metrics."</span></p>
@@ -103,6 +105,14 @@
 "Are target customers mostly single-cloud or multi-cloud?"</div>
           <p>Carbon monitoring sits at the intersection of engineering and compliance. The answer to "who owns it" determines whether you're building a developer tool or an enterprise reporting product &mdash; two very different businesses.</p>
         </div>
+        <div class="scenario" data-scenario="queues">
+          <p>The PM says: <span class="it">"We should build specialized observability for message queues and event streaming infrastructure."</span></p>
+          <div class="ex">You ask:
+"Which systems &mdash; Kafka, RabbitMQ, SQS, or all of them?"
+"Who's the user &mdash; the platform team managing brokers, or app devs consuming messages?"
+"What's breaking today &mdash; consumer lag, message loss, or debugging during incidents?"</div>
+          <p>The queue ecosystem is fragmented. A Kafka-first product is a very different business than a multi-system abstraction layer. And the persona question matters enormously: platform teams want cluster health; app developers want to know why their messages are stuck.</p>
+        </div>
       </div>
     </div>
 
@@ -127,6 +137,7 @@
           <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+          <button class="tab" data-scenario="queues">Message Queues</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <p><strong>Primary:</strong> The <span class="term">AI application developer</span>. They call LLM APIs (OpenAI, Anthropic, Bedrock) to build features &mdash; chatbots, search, summarization. They ship to production and are responsible for cost, latency, and quality, but have almost no visibility into what happens inside their LLM pipeline.</p>
@@ -139,6 +150,10 @@
         <div class="scenario" data-scenario="carbon">
           <p><strong>Primary:</strong> The <span class="term">platform engineer with a sustainability mandate</span>. They already manage Kubernetes, cloud costs, and infrastructure. Carbon monitoring is a new responsibility being pushed to them by leadership or regulation.</p>
           <p><strong>Secondary:</strong> The sustainability/ESG lead who needs data for compliance reports but lacks the technical depth to collect it from infrastructure systems.</p>
+        </div>
+        <div class="scenario" data-scenario="queues">
+          <p><strong>Primary:</strong> The <span class="term">platform engineer or SRE managing Kafka clusters</span>. They own broker health, partition rebalancing, and consumer group management. When a queue backs up at 2am, they get paged.</p>
+          <p><strong>Secondary:</strong> Application developers who publish to or consume from queues. They care about whether their messages are being processed and how fast &mdash; but they do not want to learn Kafka internals to debug a stuck consumer.</p>
         </div>
       </div>
     </div>
@@ -178,6 +193,7 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
           <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+          <button class="tab" data-scenario="queues">Message Queues</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <p><strong>Severity: High.</strong> A single LLM call can cost $0.10 or $10.00 depending on the prompt, model, and token count. Teams ship an AI feature and their cloud bill triples &mdash; and they cannot tell which queries are expensive or why. Latency swings from 200ms to 30 seconds. Hallucinations reach production users and nobody knows the rate.</p>
@@ -198,6 +214,13 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
  Nobody trusts the number, but nobody has been
  asked to verify it &mdash; yet."</div>
           <p>Regulation is the forcing function. Pain that is medium today becomes severe on a known deadline.</p>
+        </div>
+        <div class="scenario" data-scenario="queues">
+          <p><strong>Severity: High.</strong> When a Kafka consumer falls behind, messages pile up by the millions. Downstream services break, orders get delayed, events get dropped. The existing monitoring &mdash; broker JMX metrics in a Grafana dashboard &mdash; shows that something is wrong but not <span class="it">why</span>. Is it a slow consumer? A hot partition? A poison message blocking progress? Teams spend hours correlating broker metrics with application logs to find the root cause.</p>
+          <div class="ex">"Consumer lag spiked to 2 million messages at 3am.
+ It took us 4 hours to figure out one bad message
+ was blocking a single partition."</div>
+          <p>This is acute, incident-driven pain. It wakes people up, and the debugging process is painful every time.</p>
         </div>
       </div>
     </div>
@@ -225,6 +248,7 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
           <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+          <button class="tab" data-scenario="queues">Message Queues</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <dl class="defs">
@@ -258,6 +282,17 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
             <dd>The sustainability team uses the cloud provider's carbon dashboard (AWS Customer Carbon Footprint Tool, GCP Carbon Sense). It is delayed by three months, aggregated at the region level, and cannot attribute emissions to any specific service or team.</dd>
           </dl>
           <p><strong>The gap:</strong> Competing tools require manual setup and produce estimates with wide error bars. The cloud provider workarounds are too coarse and too delayed for audit-ready reporting. Nobody does <span class="term">real-time, workload-level attribution</span> that integrates with the existing observability stack.</p>
+        </div>
+        <div class="scenario" data-scenario="queues">
+          <dl class="defs">
+            <dt>Competing</dt>
+            <dd>Confluent Control Center (Kafka-specific, tied to Confluent Platform), Conduktor, AKHQ &mdash; queue management and monitoring tools.</dd>
+            <dt>Partial</dt>
+            <dd>Datadog Kafka integration, Grafana + JMX exporters, CloudWatch for SQS &mdash; basic throughput and consumer lag metrics without message-level context.</dd>
+            <dt>Workaround</dt>
+            <dd>Custom Grafana dashboards built on JMX metrics, combined with manually tailing consumer logs during incidents. It works until a 3am page, when correlating across tools takes hours.</dd>
+          </dl>
+          <p><strong>The gap:</strong> Competing tools are vendor-locked (Confluent only works with Confluent Platform). Partial solutions show broker-level metrics but cannot trace an individual message through the system. Nobody gives you <span class="term">end-to-end message tracing</span> &mdash; producer to broker to consumer &mdash; with latency at each hop.</p>
         </div>
       </div>
     </div>
@@ -296,6 +331,7 @@ Grafana's wedge:    open-source dashboards for Prometheus
           <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+          <button class="tab" data-scenario="queues">Message Queues</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <p><strong>The wedge:</strong> Cost tracing for LLM chains. A single user request &mdash; like "summarize this document" &mdash; can trigger multiple LLM calls: a retrieval step, a reranking call, the main completion, maybe a follow-up. Each call is billed by tokens (input + output). The wedge traces every call in the chain with its model, token count, dollar cost, and latency, then rolls it up so you see the total cost of that user request and where the money went.</p>
@@ -321,6 +357,16 @@ Out of scope: Jira/Linear integration, custom workflow
 
 Out of scope: Scope 1 &amp; 2 emissions, supply chain carbon,
              hardware embodied carbon, optimization recs</div>
+        </div>
+        <div class="scenario" data-scenario="queues">
+          <p><strong>The wedge:</strong> End-to-end message tracing for Kafka. Instrument producers and consumers with one SDK. Every message gets a trace: publish time, broker arrival, partition assignment, consumer pickup, processing duration. When consumer lag spikes, you see exactly which messages are stuck and why.</p>
+          <div class="ex">In scope:    Kafka producer/consumer auto-instrumentation,
+             per-message trace with latency at each hop,
+             consumer lag with partition-level drill-down,
+             dead letter queue tracking
+
+Out of scope: RabbitMQ, SQS, Pub/Sub, broker management,
+             schema registry, stream processing (Flink/Spark)</div>
         </div>
       </div>
     </div>
@@ -367,6 +413,7 @@ Your SOM (obtainable in year 1-2) might be 1-2% of that.</div>
           <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+          <button class="tab" data-scenario="queues">Message Queues</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <div class="ex">Persona:  AI application developers in production
@@ -398,6 +445,16 @@ SAM:      ~$360M ARR
 SOM year 1: 0.5% = ~$1.8M ARR</div>
           <p>Smaller addressable base today, but regulation is the tailwind. EU CSRD compliance deadlines create a forcing function that grows the market on a predictable schedule. Every year, more companies fall into scope.</p>
         </div>
+        <div class="scenario" data-scenario="queues">
+          <div class="ex">Persona:  Platform engineers / SREs managing Kafka
+Count:    ~40,000 companies running Kafka or similar
+Teams:    average 3 platform engineers on queues = 120,000
+Price:    $60/seat/month
+SAM:      ~$86M ARR
+
+SOM year 1: 1-2% = $1-2M ARR</div>
+          <p>The seat-based number understates the opportunity. Usage-based pricing on messages traced is the bigger lever &mdash; companies processing billions of messages per day have massive observability needs that scale with volume.</p>
+        </div>
       </div>
     </div>
 
@@ -424,6 +481,7 @@ SOM year 1: 0.5% = ~$1.8M ARR</div>
           <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+          <button class="tab" data-scenario="queues">Message Queues</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <p><strong>Riskiest assumption:</strong> Teams running LLMs in production cannot see what each user request costs in tokens and dollars &mdash; and would pay to fix it.</p>
@@ -440,6 +498,11 @@ SOM year 1: 0.5% = ~$1.8M ARR</div>
           <p><strong>Validation:</strong> Interview 10 sustainability leads and platform engineers. Ask: "If you could see CO2 per service per hour, what would you <span class="it">do</span> with that data?" If they describe specific optimization actions, the granularity matters. If they just need a number for a report, the wedge is wrong.</p>
           <p><strong>Cheapest test:</strong> Manually build a static carbon report for one company's Kubernetes cluster. Show them per-namespace attribution. Watch their reaction.</p>
         </div>
+        <div class="scenario" data-scenario="queues">
+          <p><strong>Riskiest assumption:</strong> Teams cannot trace individual messages through their Kafka infrastructure today &mdash; and this gap is causing real incident pain, not just inconvenience.</p>
+          <p><strong>Validation:</strong> Interview 10 teams running Kafka at scale (&gt;1M messages/day). Ask: "When consumer lag spikes, how long does it take to find the root cause? Can you trace a specific message from producer to consumer?" If most describe a multi-hour, multi-tool debugging process, the pain is real.</p>
+          <p><strong>Cheapest test:</strong> Open-source a Kafka consumer lag CLI that shows partition-level detail with consumer group breakdown. If it gets GitHub stars and organic adoption, teams need better queue observability.</p>
+        </div>
       </div>
     </div>
 
@@ -454,6 +517,7 @@ SOM year 1: 0.5% = ~$1.8M ARR</div>
           <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+          <button class="tab" data-scenario="queues">Message Queues</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <div class="ex">In scope:
@@ -502,6 +566,21 @@ Success metric:
   3 companies running the agent in production,
   sustainability lead pulls monthly report after 60 days</div>
         </div>
+        <div class="scenario" data-scenario="queues">
+          <div class="ex">In scope:
+  Kafka Java + Python SDK (producer + consumer instrumentation)
+  Per-message trace: publish → broker → consume with latency
+  Consumer lag dashboard with partition-level drill-down
+  Dead letter queue tracking and alerting
+  7-day retention
+
+Out of scope:
+  RabbitMQ, SQS, Pub/Sub, broker management,
+  schema registry, stream processing, SSO
+
+Success metric:
+  5 companies tracing &gt;100K messages/day after 30 days</div>
+        </div>
       </div>
     </div>
 
@@ -526,6 +605,7 @@ Success metric:
           <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+          <button class="tab" data-scenario="queues">Message Queues</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <p><strong>Motion: Product-led.</strong> AI developers are early adopters who try open-source tools, read blog posts, and share what works on Twitter/X and Discord.</p>
@@ -555,6 +635,16 @@ Channel 3: Industry events &mdash; KubeCon sustainability track,
            GreenOps community, ESG conferences.</div>
           <p>Compliance deadlines create urgency. The sales cycle is long (3&ndash;6 months) but the contracts are large and sticky.</p>
         </div>
+        <div class="scenario" data-scenario="queues">
+          <p><strong>Motion: Hybrid.</strong> Product-led for individual platform engineers (open-source SDK, free tier). Sales-assisted for large orgs running Kafka at scale who want org-wide queue observability.</p>
+          <div class="ex">Channel 1: Open-source the SDK. Kafka community is active
+           on GitHub and Confluent Community forums.
+Channel 2: Content &mdash; "How we traced a poison message
+           across 12 partitions" resonates in DevOps Slack.
+Channel 3: Kafka Summit, KubeCon, partnership with
+           Confluent marketplace listing.</div>
+          <p>The open-source SDK gets individual platform engineers. Sales gets the VP Infrastructure who wants queue observability across all clusters.</p>
+        </div>
       </div>
     </div>
 
@@ -577,6 +667,7 @@ Channel 3: Industry events &mdash; KubeCon sustainability track,
           <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+          <button class="tab" data-scenario="queues">Message Queues</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <p><strong>Model: Usage-based</strong> on LLM spans ingested. $2 per 1,000 spans.</p>
@@ -600,6 +691,13 @@ Pro:         $1,500/month &mdash; real-time attribution,
 Enterprise:  $5,000+/month &mdash; audit-ready reports,
              multi-cloud, API, dedicated support</div>
           <p><strong>Why:</strong> The open-source core builds credibility and community in a space where trust matters (sustainability claims are scrutinized). The paid tiers unlock the features compliance teams need. Regulation creates the upgrade trigger &mdash; when the audit deadline hits, they need the Enterprise tier.</p>
+        </div>
+        <div class="scenario" data-scenario="queues">
+          <p><strong>Model: Usage-based</strong> on messages traced. $1 per million messages.</p>
+          <div class="ex">Free:       5M messages/month (a dev environment)
+Pro:        pay-as-you-go, volume discounts at scale
+Enterprise: committed spend + SSO + SLA + support</div>
+          <p><strong>Why:</strong> Message volume directly correlates with infrastructure complexity and the value of observability. A startup processing 10M messages/month pays $10. An enterprise processing 10B messages/month pays $10K. The price scales naturally with the customer's pain level.</p>
         </div>
       </div>
     </div>
@@ -643,6 +741,7 @@ Enterprise:  $5,000+/month &mdash; audit-ready reports,
           <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
+          <button class="tab" data-scenario="queues">Message Queues</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <dl class="defs">
@@ -685,6 +784,20 @@ Enterprise:  $5,000+/month &mdash; audit-ready reports,
   15 companies running in production
   3 using data in published sustainability reports
   $200K ARR</div>
+        </div>
+        <div class="scenario" data-scenario="queues">
+          <dl class="defs">
+            <dt>Activation</dt>
+            <dd>First message trace received within 20 minutes of SDK install. If instrumentation requires broker config changes, adoption stalls.</dd>
+            <dt>Retention</dt>
+            <dd>Team queries the trace view during at least one incident per month. Shows it is part of the incident response workflow, not a setup-and-forget tool.</dd>
+            <dt>Expansion</dt>
+            <dd>Account grows from 1 Kafka cluster to all production clusters within 90 days. Tool added to the incident response runbook.</dd>
+          </dl>
+          <div class="ex">Six-month target:
+  30 companies tracing messages
+  35% monthly active during incidents
+  $120K ARR</div>
         </div>
       </div>
     </div>
