@@ -32,7 +32,7 @@ html {
 }
 
 body {
-  font: 1.05rem/1.75 'JetBrains Mono', monospace;
+  font: 18px/1.8 'JetBrains Mono', monospace;
   color: var(--text);
   -webkit-font-smoothing: antialiased;
 }
@@ -46,7 +46,7 @@ body {
 
 /* ── Header ── */
 h1 {
-  font-size: 2rem;
+  font-size: 2.6rem;
   font-weight: 600;
   color: var(--gold);
   text-align: center;
@@ -57,7 +57,7 @@ h1 {
 .subtitle {
   text-align: center;
   color: var(--subtle);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 300;
   margin-bottom: 2.5em;
   font-style: italic;
@@ -72,7 +72,7 @@ h1 {
 }
 
 .toc-label {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--muted);
@@ -94,7 +94,7 @@ h1 {
 .toc a {
   color: var(--subtle);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition: color 0.15s;
 }
 
@@ -108,12 +108,12 @@ h1 {
   text-align: right;
   margin-right: 0.6em;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
 
 /* ── Phase headings ── */
 .phase {
-  font-size: 0.85rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--iris);
@@ -131,7 +131,7 @@ h1 {
 
 .entry-head {
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   color: var(--rose);
   margin-bottom: 0.3em;
 }
@@ -139,7 +139,7 @@ h1 {
 .entry-num {
   color: var(--muted);
   font-weight: 400;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   margin-right: 0.3em;
 }
 
@@ -166,7 +166,7 @@ h1 {
   border-left: 2px solid var(--pine);
   padding: 1em 1.4em;
   margin: 1em 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.65;
   white-space: pre;
   overflow-x: auto;
@@ -181,7 +181,7 @@ h1 {
   grid-template-columns: 9em 1fr;
   border-top: 1px solid var(--hl-med);
   border-bottom: 1px solid var(--hl-med);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .defs dt {
@@ -212,7 +212,7 @@ h1 {
 .note {
   font-style: italic;
   color: var(--subtle);
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin: 0.5em 0;
 }
 
@@ -222,7 +222,7 @@ footer {
   margin-top: 3em;
   padding-top: 1em;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--muted);
 }
 
@@ -237,16 +237,16 @@ footer a:hover {
 
 /* ── Responsive ── */
 @media (min-width: 1200px) {
-  body { font-size: 1.1rem; }
-  h1 { font-size: 2.4rem; }
+  body { font-size: 20px; }
+  h1 { font-size: 3rem; }
   .content { padding: 4rem 3rem 5rem; }
 }
 
 @media (max-width: 640px) {
-  body { font-size: 0.95rem; }
+  body { font-size: 16px; }
   .content { padding: 2rem 1.2rem 3rem; }
-  h1 { font-size: 1.6rem; }
-  .subtitle { font-size: 0.9rem; }
+  h1 { font-size: 1.8rem; }
+  .subtitle { font-size: 1rem; }
   .toc ol { columns: 1; }
   .defs {
     grid-template-columns: 1fr;
@@ -259,7 +259,7 @@ footer a:hover {
     padding-left: 0;
   }
   .ex {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding: 0.8em 1em;
   }
 }
