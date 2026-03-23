@@ -75,11 +75,11 @@
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab" data-scenario="llm">LLM Observability</button>
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
-        <div class="scenario" data-scenario="llm">
+        <div class="scenario active" data-scenario="llm">
           <p>The PM says: <span class="it">"We should build observability for LLM-powered applications &mdash; traces, costs, quality metrics."</span></p>
           <div class="ex">You ask:
 "Who's the primary user &mdash; ML engineers or app developers?"
@@ -124,11 +124,11 @@
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab" data-scenario="llm">LLM Observability</button>
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
-        <div class="scenario" data-scenario="llm">
+        <div class="scenario active" data-scenario="llm">
           <p><strong>Primary:</strong> The <span class="term">AI application developer</span>. They call LLM APIs (OpenAI, Anthropic, Bedrock) to build features &mdash; chatbots, search, summarization. They ship to production and are responsible for cost, latency, and quality, but have almost no visibility into what happens inside their LLM pipeline.</p>
           <p><strong>Secondary:</strong> AI platform teams who manage model-serving infrastructure across multiple application teams. They care about standardization and cost governance.</p>
         </div>
@@ -154,11 +154,11 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab" data-scenario="llm">LLM Observability</button>
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
-        <div class="scenario" data-scenario="llm">
+        <div class="scenario active" data-scenario="llm">
           <p><strong>Severity: High.</strong> A single LLM call can cost $0.10 or $10.00 depending on the prompt, model, and token count. Teams ship an AI feature and their cloud bill triples &mdash; and they cannot tell which queries are expensive or why. Latency swings from 200ms to 30 seconds. Hallucinations reach production users and nobody knows the rate.</p>
           <div class="ex">"We shipped an AI feature and our API costs tripled overnight.
  We have no idea which prompts are causing it."</div>
@@ -201,11 +201,11 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab" data-scenario="llm">LLM Observability</button>
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
-        <div class="scenario" data-scenario="llm">
+        <div class="scenario active" data-scenario="llm">
           <dl class="defs">
             <dt>Competing</dt>
             <dd>LangSmith, Helicone, Arize Phoenix, Braintrust, HumanLoop &mdash; purpose-built LLM tracing and eval tools.</dd>
@@ -257,11 +257,11 @@ Grafana's wedge:    open-source dashboards for Prometheus
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab" data-scenario="llm">LLM Observability</button>
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
-        <div class="scenario" data-scenario="llm">
+        <div class="scenario active" data-scenario="llm">
           <p><strong>The wedge:</strong> Cost-per-query tracing for LLM chains. One SDK call wraps your LLM client. Every call is traced with: model, tokens in/out, dollar cost, and latency. You see a flame graph of your RAG pipeline &mdash; retrieval, reranking, LLM call, post-processing &mdash; with cost at each step.</p>
           <div class="ex">In scope:    OpenAI + Anthropic SDK auto-instrumentation,
              cost + latency breakdown, trace viewer
@@ -304,11 +304,11 @@ Your SOM (obtainable in year 1-2) might be 1-2% of that.</div>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab" data-scenario="llm">LLM Observability</button>
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
-        <div class="scenario" data-scenario="llm">
+        <div class="scenario active" data-scenario="llm">
           <div class="ex">Persona:  AI application developers in production
 Count:    ~30,000 companies actively using LLM APIs
 Seats:    average 3 AI devs per company = 90,000
@@ -361,11 +361,11 @@ SOM year 1: 0.5% = ~$1.8M ARR</div>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab" data-scenario="llm">LLM Observability</button>
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
-        <div class="scenario" data-scenario="llm">
+        <div class="scenario active" data-scenario="llm">
           <p><strong>Riskiest assumption:</strong> Teams running LLMs in production cannot see their cost per query &mdash; and would pay to fix it.</p>
           <p><strong>Validation:</strong> Interview 10 teams running LLM features. Ask: "Do you know your cost per user query? Can you trace a slow response to a specific LLM call?" If 7+ say no and express frustration, the demand is real.</p>
           <p><strong>Cheapest test:</strong> Open-source a Python SDK that prints cost-per-call to stdout. If developers adopt it without a product behind it, the pain is confirmed.</p>
@@ -391,11 +391,11 @@ SOM year 1: 0.5% = ~$1.8M ARR</div>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab" data-scenario="llm">LLM Observability</button>
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
-        <div class="scenario" data-scenario="llm">
+        <div class="scenario active" data-scenario="llm">
           <div class="ex">In scope:
   Python SDK, auto-instruments OpenAI + Anthropic clients
   Trace viewer: flame graph of LLM call chains
@@ -463,11 +463,11 @@ Success metric:
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab" data-scenario="llm">LLM Observability</button>
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
-        <div class="scenario" data-scenario="llm">
+        <div class="scenario active" data-scenario="llm">
           <p><strong>Motion: Product-led.</strong> AI developers are early adopters who try open-source tools, read blog posts, and share what works on Twitter/X and Discord.</p>
           <div class="ex">Channel 1: Open-source the SDK. Zero-friction instrumentation.
 Channel 2: Content &mdash; "We traced our RAG pipeline and cut
@@ -514,11 +514,11 @@ Channel 3: Industry events &mdash; KubeCon sustainability track,
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab" data-scenario="llm">LLM Observability</button>
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
-        <div class="scenario" data-scenario="llm">
+        <div class="scenario active" data-scenario="llm">
           <p><strong>Model: Usage-based</strong> on LLM spans ingested. $2 per 1,000 spans.</p>
           <div class="ex">Free:       10,000 spans/month (a side project)
 Pro:        pay-as-you-go, volume discounts at scale
@@ -562,11 +562,11 @@ Enterprise:  $5,000+/month &mdash; audit-ready reports,
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab" data-scenario="llm">LLM Observability</button>
+          <button class="tab active" data-scenario="llm">LLM Observability</button>
           <button class="tab" data-scenario="dora">DORA Metrics</button>
           <button class="tab" data-scenario="carbon">Carbon Emissions</button>
         </div>
-        <div class="scenario" data-scenario="llm">
+        <div class="scenario active" data-scenario="llm">
           <dl class="defs">
             <dt>Activation</dt>
             <dd>First LLM trace received within 15 minutes of signup. If instrumentation takes longer, the SDK is too hard.</dd>
