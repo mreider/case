@@ -147,6 +147,27 @@
       <div class="entry-head"><span class="entry-num">5.</span> The Pain</div>
       <p>A product only matters if it solves a <span class="term">pain</span> that already exists. The sharper the pain, the easier the sale. So once you know the persona, ask: how badly does this problem hurt them today?</p>
       <p>Pain has levels. At the bottom, it's a mild inconvenience &mdash; something people grumble about but tolerate. At the top, it's costing real money, waking people up at night, or blocking critical work. Products that address tolerable inconveniences struggle to get adopted. Products that stop the bleeding get pulled in by customers.</p>
+      <svg class="ill" viewBox="0 0 420 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- spectrum bar -->
+        <rect x="40" y="18" width="340" height="18" rx="9" fill="none" stroke="#524f67" stroke-width="0.8"/>
+        <rect x="40" y="18" width="113" height="18" rx="9" fill="#31748f" fill-opacity="0.25"/>
+        <rect x="153" y="18" width="114" height="18" fill="#f6c177" fill-opacity="0.25"/>
+        <rect x="267" y="18" width="113" height="18" rx="9" fill="#eb6f92" fill-opacity="0.25"/>
+        <!-- fix left round corner overlap -->
+        <rect x="153" y="18" width="10" height="18" fill="#31748f" fill-opacity="0.25"/>
+        <!-- fix right round corner overlap -->
+        <rect x="257" y="18" width="10" height="18" fill="#f6c177" fill-opacity="0.25"/>
+        <!-- labels -->
+        <text x="96" y="31" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#9ccfd8" font-weight="500">Mild</text>
+        <text x="210" y="31" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#f6c177" font-weight="500">Medium</text>
+        <text x="323" y="31" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#eb6f92" font-weight="500">Severe</text>
+        <!-- descriptors -->
+        <text x="96" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#6e6a86">grumble but tolerate</text>
+        <text x="210" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#6e6a86">wastes time and money</text>
+        <text x="323" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#6e6a86">blocks critical work</text>
+        <!-- arrow -->
+        <text x="210" y="68" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#524f67">willingness to pay &#x2192;</text>
+      </svg>
       <div class="ex">Mild    "It takes a few extra clicks to correlate logs and traces."
 Medium  "We spend 2 hours per incident digging through dashboards."
 Severe  "We can't meet our SLOs and we're losing customer trust."</div>
@@ -214,7 +235,7 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
             <dt>Workaround</dt>
             <dd>Print statements in the codebase, custom OpenTelemetry instrumentation, a shared spreadsheet where someone manually logs the monthly API bill.</dd>
           </dl>
-          <p><strong>The gap:</strong> Competing tools are tightly coupled to specific frameworks (LangSmith requires LangChain). Partial solutions lack LLM-specific context (token costs, prompt content, quality signals). The workaround gives you a monthly total but cannot tell you which query cost $8. Nobody gives you cost attribution + quality + trace context in a single view.</p>
+          <p><strong>The gap:</strong> Competing tools are tightly coupled to specific frameworks (LangSmith requires LangChain). Partial solutions lack LLM-specific context (token costs, prompt content, quality signals). The workaround gives you a monthly total but cannot tell you which query cost $8. No existing tool combines cost attribution, quality signals, and trace context in a single view.</p>
         </div>
         <div class="scenario" data-scenario="dora">
           <dl class="defs">
@@ -245,6 +266,21 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
       <div class="entry-head"><span class="entry-num">7.</span> The Wedge</div>
       <p>You cannot launch a product that does everything. You need a <span class="term">wedge</span> &mdash; the smallest possible product that is dramatically better than the status quo for one specific use case.</p>
       <p>The wedge is how you get your first users. It's narrow enough that you can build it well, and sharp enough that people switch from their current tool (or non-tool) because the difference is obvious. Once you have those first users, you expand.</p>
+      <svg class="ill" viewBox="0 0 420 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- large market circle -->
+        <ellipse cx="280" cy="50" rx="120" ry="42" stroke="#524f67" stroke-width="0.8" fill="#26233a"/>
+        <text x="320" y="36" font-family="'JetBrains Mono', monospace" font-size="8" fill="#6e6a86">broad market</text>
+        <!-- wedge triangle -->
+        <polygon points="40,50 200,26 200,74" fill="#9ccfd8" fill-opacity="0.2" stroke="#9ccfd8" stroke-width="1"/>
+        <!-- wedge label -->
+        <text x="100" y="53" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#9ccfd8" font-weight="500">your wedge</text>
+        <!-- arrow showing expansion -->
+        <line x1="205" y1="50" x2="250" y2="50" stroke="#524f67" stroke-width="0.6" stroke-dasharray="3,3"/>
+        <polygon points="250,47 258,50 250,53" fill="#524f67"/>
+        <text x="255" y="42" font-family="'JetBrains Mono', monospace" font-size="7" fill="#6e6a86">then expand</text>
+        <!-- narrow + focused label -->
+        <text x="40" y="90" font-family="'JetBrains Mono', monospace" font-size="7" fill="#524f67">narrow &amp; focused</text>
+      </svg>
       <div class="ex">Datadog's wedge:    infrastructure metrics with a beautiful UI
                         (when the alternative was command-line Nagios)
 
@@ -293,6 +329,22 @@ Out of scope: Scope 1 &amp; 2 emissions, supply chain carbon,
       <div class="entry-head"><span class="entry-num">8.</span> The Market</div>
       <p>The interviewer wants to know: is this opportunity big enough to matter? You need a quick, honest <span class="term">market size</span>. Not a number from a Gartner report. A number you can defend.</p>
       <p>The simplest approach is bottom-up. Start with the persona, estimate how many of them exist, and multiply by what they'd pay.</p>
+      <svg class="ill" viewBox="0 0 420 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- TAM -->
+        <ellipse cx="210" cy="65" rx="185" ry="55" stroke="#524f67" stroke-width="0.8" fill="#26233a"/>
+        <text x="82" y="28" font-family="'JetBrains Mono', monospace" font-size="8" fill="#6e6a86">TAM</text>
+        <text x="82" y="38" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#524f67">total addressable</text>
+        <!-- SAM -->
+        <ellipse cx="210" cy="65" rx="120" ry="38" stroke="#f6c177" stroke-width="0.8" fill="#f6c177" fill-opacity="0.08"/>
+        <text x="120" y="48" font-family="'JetBrains Mono', monospace" font-size="8" fill="#f6c177">SAM</text>
+        <text x="120" y="58" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#6e6a86">serviceable</text>
+        <!-- SOM -->
+        <ellipse cx="210" cy="65" rx="55" ry="22" stroke="#9ccfd8" stroke-width="1" fill="#9ccfd8" fill-opacity="0.12"/>
+        <text x="192" y="63" font-family="'JetBrains Mono', monospace" font-size="9" fill="#9ccfd8" font-weight="500">SOM</text>
+        <text x="186" y="74" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#6e6a86">obtainable</text>
+        <!-- annotation -->
+        <text x="210" y="125" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#524f67">start with SOM &mdash; what you can actually win in year 1&#x2013;2</text>
+      </svg>
       <div class="ex">Persona:  SREs at mid-to-large companies
 Count:    ~50,000 companies with 100+ engineers globally
 Seats:    average 5 SREs per company = 250,000 SREs
@@ -548,6 +600,24 @@ Enterprise:  $5,000+/month &mdash; audit-ready reports,
       <div class="entry-head"><span class="entry-num">13.</span> Success</div>
       <p>The interviewer will want to know: how do you know this is working? You need <span class="term">success metrics</span> &mdash; specific, measurable signals that the product is on the right track.</p>
       <p>Good metrics come in pairs: a leading indicator that tells you if you're heading in the right direction, and a lagging indicator that confirms you arrived.</p>
+      <svg class="ill" viewBox="0 0 420 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- funnel steps -->
+        <polygon points="20,12 160,12 145,72 35,72" fill="#9ccfd8" fill-opacity="0.12" stroke="#9ccfd8" stroke-width="0.8"/>
+        <polygon points="165,12 290,12 270,72 175,72" fill="#f6c177" fill-opacity="0.12" stroke="#f6c177" stroke-width="0.8"/>
+        <polygon points="295,12 400,12 375,72 310,72" fill="#c4a7e7" fill-opacity="0.12" stroke="#c4a7e7" stroke-width="0.8"/>
+        <!-- labels -->
+        <text x="90" y="38" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#9ccfd8" font-weight="500">Activation</text>
+        <text x="90" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#6e6a86">did they get value?</text>
+        <text x="225" y="38" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#f6c177" font-weight="500">Retention</text>
+        <text x="225" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#6e6a86">do they come back?</text>
+        <text x="348" y="38" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#c4a7e7" font-weight="500">Expansion</text>
+        <text x="348" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#6e6a86">do accounts grow?</text>
+        <!-- arrows -->
+        <text x="162" y="44" font-family="'JetBrains Mono', monospace" font-size="12" fill="#524f67">&#x203a;</text>
+        <text x="292" y="44" font-family="'JetBrains Mono', monospace" font-size="12" fill="#524f67">&#x203a;</text>
+        <!-- annotation -->
+        <text x="210" y="86" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#524f67">leading indicators &#x2192; lagging indicators</text>
+      </svg>
       <dl class="defs">
         <dt>Activation</dt>
         <dd>Did the user get value? For a tracing product: did they send their first trace within 30 minutes of signup? Leading indicator of retention.</dd>
