@@ -79,11 +79,20 @@ h1 {
   margin-bottom: 0.8em;
 }
 
+.toc-phase {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--iris);
+  margin: 0.8em 0 0.3em;
+}
+
+.toc-phase:first-of-type {
+  margin-top: 0;
+}
+
 .toc ol {
   list-style: none;
-  columns: 2;
-  column-gap: 2em;
-  column-rule: 1px solid var(--hl-low);
 }
 
 .toc li {
@@ -121,6 +130,23 @@ h1 {
   margin: 3.5em 0 2em;
   padding-bottom: 0.6em;
   border-bottom: 1px solid var(--hl-med);
+  position: relative;
+}
+
+.back-to-top {
+  font-size: 0.7rem;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--muted);
+  text-decoration: none;
+  position: absolute;
+  right: 0;
+  bottom: 0.6em;
+  transition: color 0.15s;
+}
+
+.back-to-top:hover {
+  color: var(--foam);
 }
 
 /* ── Entries ── */
