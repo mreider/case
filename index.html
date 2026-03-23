@@ -187,16 +187,17 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
 
     <div class="entry" id="the-landscape">
       <div class="entry-head"><span class="entry-num">6.</span> The Landscape</div>
-      <p>No idea exists in a vacuum. Before you can position a product, you need to understand <span class="term">what exists today</span>. This means looking at three things:</p>
+      <p>Before you propose building something, you need to answer a basic question: <span class="term">how do people solve this problem today?</span> That is the landscape. Your job in the interview is to show that you understand what already exists, where it falls short, and why there is room for something new.</p>
+      <p>Start by listing what your persona actually does right now. This usually falls into three buckets:</p>
       <dl class="defs">
-        <dt>Direct</dt>
-        <dd>Products that solve the same problem for the same persona. If the idea is an incident management tool, that's PagerDuty, Opsgenie, Rootly, FireHydrant.</dd>
-        <dt>Adjacent</dt>
-        <dd>Products that solve a related problem and could expand into yours. Datadog started with infrastructure monitoring and moved into APM, logs, security, and incident management.</dd>
-        <dt>Do Nothing</dt>
-        <dd>The most common competitor. Spreadsheets, Slack threads, tribal knowledge. People tolerate bad processes for years. You are competing against inertia.</dd>
+        <dt>Competing products</dt>
+        <dd>Tools that directly solve the same problem for the same persona. These are the obvious names the interviewer will expect you to know.</dd>
+        <dt>Partial solutions</dt>
+        <dd>Products that solve a related problem and might expand into yours. Datadog started with infrastructure metrics and moved into APM, logs, security, and incident management. These are dangerous because they already have the customer relationship.</dd>
+        <dt>Manual workarounds</dt>
+        <dd>This is what most people actually do. Spreadsheets, Slack threads, scripts, tribal knowledge, or simply ignoring the problem. The most common "competitor" is not a product &mdash; it is inertia. If you do not understand the workaround, you will not understand what you are replacing.</dd>
       </dl>
-      <p>When you describe the landscape in your answer, don't just list names. Explain <span class="it">where the gaps are</span>. What are existing products bad at? Where do users complain? That's where the opportunity lives.</p>
+      <p>Once you have this picture, look for the <span class="term">gap</span>. What are existing tools bad at? Where do users complain? What does the manual workaround fail to do? That gap is the opportunity &mdash; and it is what you will build your wedge around in the next step.</p>
 
       <div class="scenarios">
         <div class="tab-bar">
@@ -206,36 +207,36 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
         </div>
         <div class="scenario active" data-scenario="llm">
           <dl class="defs">
-            <dt>Direct</dt>
+            <dt>Competing</dt>
             <dd>LangSmith, Helicone, Arize Phoenix, Braintrust, HumanLoop &mdash; purpose-built LLM tracing and eval tools.</dd>
-            <dt>Adjacent</dt>
-            <dd>Datadog LLM Monitoring, New Relic AI Monitoring &mdash; bolted onto existing APM. Treat LLM calls as generic HTTP spans.</dd>
-            <dt>Do Nothing</dt>
-            <dd>Print statements, custom OpenTelemetry instrumentation, spreadsheets tracking monthly API spend.</dd>
+            <dt>Partial</dt>
+            <dd>Datadog LLM Monitoring, New Relic AI Monitoring &mdash; bolted onto existing APM. They treat LLM calls as generic HTTP spans with no cost or token context.</dd>
+            <dt>Workaround</dt>
+            <dd>Print statements in the codebase, custom OpenTelemetry instrumentation, a shared spreadsheet where someone manually logs the monthly API bill.</dd>
           </dl>
-          <p><strong>The gap:</strong> Direct tools are tightly coupled to specific frameworks (LangSmith to LangChain). Adjacent tools lack LLM-specific context (token costs, prompt content, quality signals). Neither gives you cost attribution + quality + trace context in one view.</p>
+          <p><strong>The gap:</strong> Competing tools are tightly coupled to specific frameworks (LangSmith requires LangChain). Partial solutions lack LLM-specific context (token costs, prompt content, quality signals). The workaround gives you a monthly total but cannot tell you which query cost $8. Nobody gives you cost attribution + quality + trace context in a single view.</p>
         </div>
         <div class="scenario" data-scenario="dora">
           <dl class="defs">
-            <dt>Direct</dt>
+            <dt>Competing</dt>
             <dd>Sleuth, LinearB, Swarmia, Jellyfish, Faros AI &mdash; developer productivity and DORA tracking platforms.</dd>
-            <dt>Adjacent</dt>
-            <dd>GitHub Insights, GitLab Analytics, Pluralsight Flow, Backstage plugins &mdash; partial metrics within existing tools.</dd>
-            <dt>Do Nothing</dt>
-            <dd>Quarterly surveys, manual spreadsheet tracking, gut feel at retrospectives. Most common by far.</dd>
+            <dt>Partial</dt>
+            <dd>GitHub Insights, GitLab Analytics, Pluralsight Flow, Backstage plugins &mdash; they show some delivery data but do not calculate DORA metrics or benchmark against the research.</dd>
+            <dt>Workaround</dt>
+            <dd>An engineering manager spends a day each quarter pulling data from GitHub, CI, and the incident tracker into a spreadsheet. The numbers are rough and nobody fully trusts them.</dd>
           </dl>
-          <p><strong>The gap:</strong> Direct tools require extensive configuration &mdash; mapping deployments to services, tagging incidents, defining what counts as a "change." Most teams try them, get frustrated by setup time, and abandon. The gap is <span class="term">zero-config accuracy</span>.</p>
+          <p><strong>The gap:</strong> Competing tools require extensive configuration &mdash; mapping deployments to services, tagging incidents, defining what counts as a "change." Most teams try them, get frustrated by setup time, and abandon. The workaround is slow and imprecise. The gap is <span class="term">zero-config accuracy</span>: trustworthy metrics without a week of setup.</p>
         </div>
         <div class="scenario" data-scenario="carbon">
           <dl class="defs">
-            <dt>Direct</dt>
+            <dt>Competing</dt>
             <dd>Cloud Carbon Footprint (open-source, Thoughtworks), Climatiq API, Scope3 &mdash; carbon estimation tools.</dd>
-            <dt>Adjacent</dt>
-            <dd>Kubecost, CloudHealth, Vantage &mdash; cloud cost tools that could add carbon as a dimension.</dd>
-            <dt>Do Nothing</dt>
-            <dd>AWS Customer Carbon Footprint Tool, GCP Carbon Sense &mdash; delayed 3 months, region-level only, no workload attribution.</dd>
+            <dt>Partial</dt>
+            <dd>Kubecost, CloudHealth, Vantage &mdash; cloud cost tools that correlate with carbon but do not measure it. They could add carbon as a dimension tomorrow.</dd>
+            <dt>Workaround</dt>
+            <dd>The sustainability team uses the cloud provider's carbon dashboard (AWS Customer Carbon Footprint Tool, GCP Carbon Sense). It is delayed by three months, aggregated at the region level, and cannot attribute emissions to any specific service or team.</dd>
           </dl>
-          <p><strong>The gap:</strong> Open-source tools require manual setup with wide error bars. Cloud provider tools are too coarse and too delayed. Nobody does <span class="term">real-time, workload-level attribution</span> integrated with the existing observability stack.</p>
+          <p><strong>The gap:</strong> Competing tools require manual setup and produce estimates with wide error bars. The cloud provider workarounds are too coarse and too delayed for audit-ready reporting. Nobody does <span class="term">real-time, workload-level attribution</span> that integrates with the existing observability stack.</p>
         </div>
       </div>
     </div>
