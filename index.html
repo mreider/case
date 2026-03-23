@@ -15,6 +15,13 @@
     <h1>The Case Interview</h1>
     <p class="subtitle">Product Thinking for Observability</p>
 
+    <div class="mode-switcher">
+      <button class="mode-tab active" data-mode="case">Case Study</button>
+      <button class="mode-tab" data-mode="scenarios">Scenario Questions</button>
+    </div>
+
+    <div class="mode-content active" data-mode="case">
+
     <nav class="toc" id="toc">
       <div class="toc-label">Contents</div>
 
@@ -824,15 +831,435 @@ Enterprise: committed spend + SSO + SLA + support</div>
       <p>Matthew Reider &middot; <a href="https://github.com/mreider/case">Source</a></p>
     </footer>
 
+    </div>
+
+    <div class="mode-content" data-mode="scenarios">
+
+    <nav class="toc" id="toc-scenarios">
+      <div class="toc-label">Contents</div>
+
+      <div class="toc-phase">Understand the Format</div>
+      <ol>
+        <li><a href="#how-they-differ"><span class="num">1</span> How They Differ</a></li>
+        <li><a href="#the-approach"><span class="num">2</span> The Approach</a></li>
+      </ol>
+
+      <div class="toc-phase">The Scenarios</div>
+      <ol start="3">
+        <li><a href="#pricing-pushback"><span class="num">3</span> Pricing Pushback</a></li>
+        <li><a href="#the-prioritization-call"><span class="num">4</span> The Prioritization Call</a></li>
+        <li><a href="#the-feature-nobody-uses"><span class="num">5</span> The Feature Nobody Uses</a></li>
+        <li><a href="#the-escalation"><span class="num">6</span> The Escalation</a></li>
+        <li><a href="#the-competitive-threat"><span class="num">7</span> The Competitive Threat</a></li>
+      </ol>
+    </nav>
+
+    <!-- ——————————————————————————— -->
+    <div class="phase">Understand the Format</div>
+    <!-- ——————————————————————————— -->
+
+    <div class="entry" id="how-they-differ">
+      <div class="entry-head"><span class="entry-num">1.</span> How They Differ</div>
+      <p>The case study question gives you a business idea and asks you to walk through a process &mdash; from ideation to commercialization. Scenario questions are different. They drop you into <span class="term">a situation that is already in motion</span> and watch how you react.</p>
+      <p>There is no thirteen-step framework. There is a messy problem, incomplete information, and competing pressures. The interviewer wants to see your <span class="term">judgment</span> &mdash; how you think under real-world pressure, not whether you can recite a textbook.</p>
+      <p>Expect 1&ndash;3 of these in your interview. They will be situations you would actually face as a PM at an observability company:</p>
+      <div class="ex">&bull; A customer pushing back on pricing during a sales call
+&bull; Competing priorities with limited engineering capacity
+&bull; A feature you shipped that nobody is using
+&bull; A key customer threatening to leave
+&bull; A competitor making a move that disrupts your positioning</div>
+      <p>The interviewer is not looking for a right answer. They are looking for <span class="term">how you think</span>. Do you ask clarifying questions before reacting? Do you separate root causes from symptoms? Do you make a decision and own the trade-offs? Do you stay calm when the stakes are real?</p>
+    </div>
+
+    <div class="entry" id="the-approach">
+      <div class="entry-head"><span class="entry-num">2.</span> The Approach</div>
+      <p>Before diving into scenarios, here is a structure that works for almost any situational question. It is not a rigid framework &mdash; it is a checklist to keep you from skipping something important.</p>
+      <dl class="defs">
+        <dt>Clarify</dt>
+        <dd>What is actually happening? Ask 2&ndash;3 questions before you propose anything. The interviewer will give you more context if you ask. This is the single biggest differentiator between strong and weak answers.</dd>
+        <dt>Structure</dt>
+        <dd>Say your approach out loud. <span class="it">"I'd think about this in three parts&hellip;"</span> signals organized thinking and gives the interviewer a map of where you are headed.</dd>
+        <dt>Solve</dt>
+        <dd>Walk through your analysis. Generate 2&ndash;3 options with trade-offs. Pick one and explain why. Be specific &mdash; name actions, people, and sequences.</dd>
+        <dt>Measure</dt>
+        <dd>How would you know it worked? What does success look like in 30 days? 90 days? This closes the loop and shows you think in outcomes, not activities.</dd>
+      </dl>
+      <p>The key principle: <span class="term">slow down before you speed up</span>. Your instinct will be to propose a solution immediately. Resist it. The interviewer will be more impressed by a sharp clarifying question than a fast answer to the wrong problem.</p>
+      <div class="ex">Mediocre:  "I'd immediately offer them a discount to save the deal."
+
+Strong:    "Before I respond, I'd want to understand a few things.
+           What exactly are they comparing us to? Is this the
+           decision-maker or the champion? What's their timeline?"</div>
+    </div>
+
+    <!-- ——————————————————————————— -->
+    <div class="phase">The Scenarios <a href="#toc-scenarios" class="back-to-top">&uarr; top</a></div>
+    <!-- ——————————————————————————— -->
+
+    <div class="entry" id="pricing-pushback">
+      <div class="entry-head"><span class="entry-num">3.</span> Pricing Pushback</div>
+      <p>The interviewer says:</p>
+      <div class="ex">"You're on a call with a prospect evaluating your observability
+platform. They completed a successful POC &mdash; their SRE team loves
+the product. But their VP of Engineering just joined the call and
+says your usage-based pricing is 40% more expensive than a
+competitor for a similar setup. He wants you to match the price
+or he's going with the alternative. What do you do?"</div>
+
+      <p><span class="term">What they're testing:</span> Can you handle pricing pressure without panicking or immediately discounting? Do you understand value-based selling versus cost-based selling? Can you navigate a multi-stakeholder dynamic where the champion (the SRE) and the budget holder (the VP) want different things?</p>
+
+      <p><span class="term">Step 1: Understand the comparison.</span> Do not accept "40% more expensive" at face value. Observability pricing is notoriously hard to compare apples-to-apples. Different platforms meter differently &mdash; one charges per GB of logs, another per host, another per custom metric series. A "40% cheaper" comparison often collapses under scrutiny.</p>
+      <div class="ex">"Can you walk me through what's included in that comparison?
+I want to make sure we're looking at the same scope &mdash; same
+data volume, same retention period, same feature set."</div>
+
+      <p><span class="term">Step 2: Reframe around value, not cost.</span> The SRE team already chose your product. That is your strongest leverage. The question is not "how much does it cost" but "what is the cost of switching to a tool the team did not choose?"</p>
+      <div class="ex">"Your SRE team ran a thorough POC and picked us. What would
+it cost &mdash; in time and morale &mdash; to run another evaluation
+with a tool they didn't select? And if mean time to resolution
+is longer with the alternative, what's that worth per incident?"</div>
+
+      <p><span class="term">Step 3: Explore structure, not discounts.</span> If the gap is real, close it without a straight price cut: an annual commitment for a lower rate, a reduced retention window, a phased rollout that starts with fewer hosts and expands as they prove ROI.</p>
+      <div class="ex">"If we structure this as an annual commitment starting with
+your top 3 production services, I can get the per-unit cost
+significantly closer. You'd have a natural expansion path
+as you demonstrate value to the rest of the org."</div>
+
+      <p><span class="term">Step 4: Know your walk-away.</span> Not every deal is worth winning. If the prospect truly just wants the cheapest option and does not value the differentiation, it is okay to say so. Walking away with integrity signals more confidence than desperately discounting.</p>
+      <div class="ex">"It sounds like cost is the primary driver for this decision.
+We may not be the right fit for that criteria. But if
+reliability and time-to-resolution matter more than the
+lowest unit price, we should keep talking."</div>
+
+      <p><span class="term">Why this matters:</span> A straight discount signals the original price was arbitrary. It also sets a precedent &mdash; the sales team will use that exception with every future prospect. The best answer demonstrates that you protect pricing integrity while finding creative ways to meet the customer's real concern, which is usually budget predictability rather than absolute cost.</p>
+
+      <p><span class="term">Common mistakes:</span></p>
+      <div class="ex">&bull; Immediately offering a discount (signals the price was inflated)
+&bull; Badmouthing the competitor (unprofessional, VP will tune you out)
+&bull; Ignoring the VP and only addressing the SRE champion
+&bull; Getting defensive about pricing (makes the conversation adversarial)
+&bull; Treating it as a pure sales problem instead of a product value problem</div>
+    </div>
+
+    <div class="entry" id="the-prioritization-call">
+      <div class="entry-head"><span class="entry-num">4.</span> The Prioritization Call</div>
+      <p>The interviewer says:</p>
+      <div class="ex">"You're the PM for an observability product. It's planning
+season and you have engineering capacity for two medium-sized
+features next quarter. Here are the requests on the table:
+
+  (A) SSO/SAML &mdash; three enterprise prospects list it as a
+      hard requirement. $450K in pipeline depends on it.
+  (B) Slack alerting integration &mdash; 200+ upvotes on your
+      public roadmap. Most-requested feature from users.
+  (C) AI-powered anomaly detection &mdash; your CEO saw a demo
+      at a conference and is convinced this is the future.
+  (D) Migrate off the deprecated metrics store &mdash; engineering
+      says it will hit scaling limits in about 6 months.
+
+How do you decide?"</div>
+
+      <p><span class="term">What they're testing:</span> Can you evaluate trade-offs across fundamentally different axes &mdash; revenue, user satisfaction, strategic vision, technical risk? Can you say no to powerful stakeholders with a defensible rationale? Do you have a framework, or do you go with your gut?</p>
+
+      <p><span class="term">Step 1: Separate "must do" from "should do."</span> Option D is a ticking time bomb. If the metrics store hits scaling limits in 6 months and a migration takes a full quarter, you have exactly one quarter of slack. This is not a feature request &mdash; it is <span class="term">risk mitigation</span>. If you skip it and the system fails in Q3, nothing else you shipped matters.</p>
+      <p class="it">D is non-negotiable. One slot taken.</p>
+
+      <p><span class="term">Step 2: Evaluate the remaining three.</span> You have one slot left.</p>
+      <dl class="defs">
+        <dt>(A) SSO</dt>
+        <dd>$450K in pipeline is concrete. But "hard requirement" is often a negotiation tactic. Have you actually <span class="it">lost</span> deals over SSO, or do prospects use it as leverage? Ask sales to validate: would these deals close with a firm delivery date, or is SSO one of several objections?</dd>
+        <dt>(B) Slack</dt>
+        <dd>200+ upvotes sounds urgent but is often "nice to have." Are users churning over this, or requesting it while continuing to pay? High demand does not always mean high impact. Check: has any account cited this as a reason for leaving?</dd>
+        <dt>(C) AI detection</dt>
+        <dd>CEO enthusiasm is powerful but dangerous. Conference demos are inspiring &mdash; they do not validate market need. Is there customer demand, or is this a solution looking for a problem?</dd>
+      </dl>
+
+      <p><span class="term">Step 3: Make the call and own it.</span></p>
+      <div class="ex">"I'd prioritize D (metrics migration) and A (SSO).
+
+D is non-negotiable &mdash; it's a known risk with a fixed deadline.
+Delaying it is gambling product stability for a feature.
+
+A has a direct, validated revenue case. I'd confirm with sales
+that SSO is a genuine blocker (not a negotiating tactic), but
+assuming it is, this unblocks $450K in real pipeline.
+
+For B (Slack), I'd ship a lightweight webhook integration as
+a two-week side project. It's not the full integration, but
+it covers the core need and buys time.
+
+For C (AI anomaly detection), I'd propose a validation sprint:
+5 customer interviews and a design spike. If there's real
+demand, it's the top priority for Q2 with data behind it.
+This lets me tell the CEO: 'I want to build this right, and
+that means validating it first.'"</div>
+
+      <p><span class="term">Why this works:</span> You did not just rank features &mdash; you showed different <span class="it">types</span> of thinking. D was a risk judgment. A was a revenue validation. B was a creative workaround. C was a respectful pushback grounded in process. That range is what the interviewer is looking for.</p>
+
+      <p><span class="term">Common mistakes:</span></p>
+      <div class="ex">&bull; Prioritizing the CEO's pet project to avoid conflict
+&bull; Ignoring technical debt ("we'll deal with it later")
+&bull; Using a scoring framework (RICE/ICE) mechanically without
+  explaining the reasoning behind the scores
+&bull; Saying "we should do all four" (the whole point is you can't)
+&bull; Not proposing creative alternatives for the items you cut</div>
+    </div>
+
+    <div class="entry" id="the-feature-nobody-uses">
+      <div class="entry-head"><span class="entry-num">5.</span> The Feature Nobody Uses</div>
+      <p>The interviewer says:</p>
+      <div class="ex">"Three months ago your team shipped a Service Map feature
+that auto-discovers service dependencies from trace data and
+visualizes them. Two engineers worked on it for a full quarter.
+Since launch, only 8% of active users have viewed it and less
+than 2% use it more than once. Your VP of Product is asking
+what went wrong. What do you do?"</div>
+
+      <p><span class="term">What they're testing:</span> Can you diagnose a product failure without getting defensive? Do you distinguish between fundamentally different failure modes? What would you do differently next time?</p>
+
+      <p><span class="term">Step 1: Diagnose the failure mode.</span> Low usage can mean very different things. Each diagnosis leads to a completely different response.</p>
+      <dl class="defs">
+        <dt>Discovery</dt>
+        <dd>Users do not know the feature exists. It is buried in a submenu and the launch announcement went to a blog that 5% of users read. This is a distribution problem, not a product problem.</dd>
+        <dt>Usability</dt>
+        <dd>Users found it but bounced. Auto-discovery missed key services, the visualization was confusing without context, or it was too slow to load. This is a UX problem.</dd>
+        <dt>Value</dt>
+        <dd>Users found it, it works fine, but they do not need it. The problem it solves is not painful enough to change behavior. This is the hardest diagnosis and the most important one.</dd>
+      </dl>
+
+      <p><span class="term">Step 2: Gather data before answering the VP.</span></p>
+      <div class="ex">&bull; How many users saw the launch announcement or changelog?
+&bull; Of users who opened Service Map, how long did they stay?
+  Did they interact or just glance and leave?
+&bull; Who are the 2% that came back? Larger accounts?
+  Specific personas? A particular use case?
+&bull; Did any customer actually ask for this feature before
+  we built it, or was it generated internally?</div>
+
+      <p><span class="term">Step 3: Walk through each diagnosis.</span></p>
+      <p>If it is a <span class="term">discovery problem:</span></p>
+      <div class="ex">"8% viewership in 3 months means most users never
+encountered it. If it's buried under a settings submenu
+and the only announcement was a blog post, that's a
+distribution failure.
+
+Fix: add contextual entry points. When a user views a
+trace that spans multiple services, surface a 'View
+service map' link inline. Meet them where they already are."</div>
+
+      <p>If it is a <span class="term">usability problem:</span></p>
+      <div class="ex">"If users open the map once and never return, the first
+experience is not delivering value fast enough. Maybe
+auto-discovery missed their critical services, or the
+visualization is too abstract without operational context.
+
+Fix: watch 5 session recordings of first-time users
+opening the Service Map. The failure point will be
+obvious within 30 minutes of watching."</div>
+
+      <p>If it is a <span class="term">value problem:</span></p>
+      <div class="ex">"This is the hardest answer. If we built something that
+solves a problem nobody actually has, no amount of
+marketing or UX polish will save it.
+
+The 2% who use it repeatedly &mdash; talk to them. What
+makes their situation different? Either double down on
+that niche or acknowledge the miss and reallocate."</div>
+
+      <p><span class="term">Step 4: What you would do differently.</span> This is what the VP actually cares about.</p>
+      <div class="ex">"Before committing a quarter of engineering to a feature,
+I'd validate demand first. A fake door test &mdash; add a
+'Service Map' button that shows a waitlist &mdash; would tell
+us click-through rate before writing any code. Or ship
+a minimal version in two weeks and measure whether usage
+justifies the full investment."</div>
+
+      <p><span class="term">Common mistakes:</span></p>
+      <div class="ex">&bull; Blaming marketing ("we didn't promote it enough")
+  without evidence that promotion was the problem
+&bull; Immediately proposing a redesign (more engineering
+  on a potentially bad bet)
+&bull; Defending the original decision instead of analyzing it
+&bull; Not acknowledging the feature might have been wrong
+&bull; Skipping the "what I'd do differently" &mdash; that's the
+  part that shows growth</div>
+    </div>
+
+    <div class="entry" id="the-escalation">
+      <div class="entry-head"><span class="entry-num">6.</span> The Escalation</div>
+      <p>The interviewer says:</p>
+      <div class="ex">"Your second-largest customer &mdash; a fintech company paying
+$180K/year &mdash; just emailed your VP of Sales saying they're
+evaluating alternatives. They cite three things: two outages
+in the past quarter that affected their dashboards, a feature
+request from eight months ago that's still not on the roadmap,
+and slow support response times. Their contract renews in 90
+days. What do you do?"</div>
+
+      <p><span class="term">What they're testing:</span> Can you triage a multi-faceted escalation and figure out what actually matters? Do you know the difference between a customer who is venting and one who is leaving? Can you coordinate across engineering, support, and sales under pressure?</p>
+
+      <p><span class="term">Step 1: Separate signal from noise.</span> The customer listed three complaints, but they are not equal.</p>
+      <dl class="defs">
+        <dt>Outages</dt>
+        <dd>A reliability problem. Systemic, addressable, but takes time to prove you have fixed it. This is likely the real trigger.</dd>
+        <dt>Missing feature</dt>
+        <dd>A prioritization gap. Addressable if the feature is justified, but you cannot promise what you cannot deliver.</dd>
+        <dt>Slow support</dt>
+        <dd>A process problem. The easiest to fix immediately and a fast signal that you are taking the escalation seriously.</dd>
+      </dl>
+      <p>The real question: which complaint is the actual reason they are leaving, and which ones are ammunition they have been collecting? Often the trigger is one thing and the list is everything they have been frustrated about in silence.</p>
+
+      <p><span class="term">Step 2: Talk to the customer directly.</span> Not over email. Not through sales. Get on a call.</p>
+      <div class="ex">"Before anything else, I'd set up a call with the
+customer's decision-maker. Not a 'save' call &mdash; a
+listening call. Three questions:
+
+'What would need to be true for you to renew?'
+'Was there a specific incident that triggered this email?'
+'Are you actively evaluating alternatives, or signaling
+ that you need more attention from us?'"</div>
+
+      <p><span class="term">Step 3: Address each issue with specifics, not promises.</span></p>
+      <p>On <span class="term">reliability:</span></p>
+      <div class="ex">"Here are the two incidents, here's what caused each one,
+and here's what we've changed since. Here's our uptime
+for the past 30 days since the fix."
+
+Show the data. Don't promise &mdash; prove.</div>
+
+      <p>On the <span class="term">feature request:</span></p>
+      <div class="ex">"I reviewed the request from 8 months ago. Here's why it
+wasn't prioritized &mdash; [honest reason]. It's now in our Q2
+planning. I can't commit a date, but I'll send you a
+status update by [specific date]."
+
+Never bluff about the roadmap.</div>
+
+      <p>On <span class="term">support:</span></p>
+      <div class="ex">"I looked at your recent tickets. Average first response
+was [X hours]. That's not acceptable for your account tier.
+Starting this week you'll have a named support contact
+with a 2-hour SLA on P1 issues."
+
+Fix the thing you can fix today.</div>
+
+      <p><span class="term">Step 4: Coordinate internally.</span></p>
+      <dl class="defs">
+        <dt>Engineering</dt>
+        <dd>Get a post-incident review confirming the reliability fixes are real. If they are not, that is your top priority.</dd>
+        <dt>Support</dt>
+        <dd>Assign a dedicated contact. Review the account tier and SLA. This customer should not be in a general queue.</dd>
+        <dt>Sales</dt>
+        <dd>Align on whether a commercial concession is warranted &mdash; a one-month credit for the outages, not a blanket discount.</dd>
+        <dt>Product</dt>
+        <dd>Review the feature request honestly. Is it worth building for more than just this one customer? If yes, get it into planning. If no, say so.</dd>
+      </dl>
+
+      <p><span class="term">Why the sequence matters:</span> Fix support first (hours), show reliability data second (days), address the feature gap third (weeks). The customer needs to see momentum, not a grand plan that takes a quarter to materialize.</p>
+
+      <p><span class="term">Common mistakes:</span></p>
+      <div class="ex">&bull; Panicking and over-promising ("we'll build everything you want")
+&bull; Treating it as a sales problem (sending the AE with a discount)
+&bull; Not talking to the customer yourself
+&bull; Offering a discount without fixing the underlying issues
+  (a band-aid that delays churn by one renewal cycle)
+&bull; Ignoring the product signal &mdash; if this customer has the
+  problem, others likely do too and are suffering in silence</div>
+    </div>
+
+    <div class="entry" id="the-competitive-threat">
+      <div class="entry-head"><span class="entry-num">7.</span> The Competitive Threat</div>
+      <p>The interviewer says:</p>
+      <div class="ex">"Your main competitor just announced a generous free tier that
+covers roughly 80% of your product's core functionality. It's
+trending on Hacker News. Three prospects in your pipeline have
+paused their evaluations this week to try the free option. Your
+CEO wants a 'competitive response' by Friday. What do you do?"</div>
+
+      <p><span class="term">What they're testing:</span> Can you stay calm under competitive pressure? Do you know when to react and when to hold? Can you think strategically about positioning rather than reflexively copying what a competitor does?</p>
+
+      <p><span class="term">Step 1: Do not panic.</span> Competitive announcements feel like emergencies but rarely are. A press release is not a shipped product. A free tier is not the same as a better product. Your CEO is reacting to noise &mdash; your job is to bring signal.</p>
+
+      <p><span class="term">Step 2: Assess the actual threat.</span></p>
+      <div class="ex">"Before I respond, I need to understand what we're facing:
+
+&bull; What does their free tier actually include? Is it 80% of
+  our functionality, or 80% of the commodity basics?
+&bull; What are the limits? Free tiers always have constraints &mdash;
+  data retention, number of hosts, support, features behind
+  paid tiers.
+&bull; Of the 3 prospects who paused, where were they in the
+  funnel? Early evaluators pausing is noise. A prospect
+  about to sign pausing is a real problem."</div>
+
+      <p><span class="term">Step 3: Evaluate your options.</span></p>
+      <dl class="defs">
+        <dt>Match it</dt>
+        <dd>Launch your own free tier. Tempting but risky. You change your business model in reaction to a competitor. You may cannibalize existing paying customers. And you play their game on their terms.</dd>
+        <dt>Differentiate</dt>
+        <dd>Compete on what makes you better, not on price. If your product is genuinely superior for your target persona, the free tier is irrelevant for serious buyers. A free version of a worse product is still a worse product.</dd>
+        <dt>Accelerate</dt>
+        <dd>Instead of reacting to their move, invest harder in the features they cannot easily copy. Deeper integrations, better analytics, unique capabilities. Widen the moat.</dd>
+      </dl>
+      <p>In most cases, the right answer is <span class="term">differentiate</span> plus <span class="term">accelerate</span>. Matching a free tier is a last resort that should only follow careful analysis of the impact on your unit economics and existing customer base.</p>
+
+      <p><span class="term">Step 4: Give the CEO a plan, not a panic response.</span></p>
+      <div class="ex">"Here's what I'd present by Friday:
+
+1. Honest assessment &mdash; their free tier vs. our product,
+   feature by feature, with real limitations exposed.
+2. Talking points for sales &mdash; a side-by-side evaluation
+   guide to send to the three paused prospects.
+3. Competitive battle card for the broader sales team.
+4. A recommendation on whether to adjust our own free
+   tier, backed by data and unit economics &mdash; not fear.
+
+The worst thing we can do is make a permanent pricing
+decision based on a week of Hacker News anxiety."</div>
+
+      <p><span class="term">Why "by Friday" is the wrong framing:</span> The CEO wants speed because the situation feels urgent. But a hasty free tier launch that erodes your revenue is worse than a thoughtful response a week later. Your job is to acknowledge the urgency while buying time for a good decision. The battle card and sales talking points can ship Friday. The pricing decision should not.</p>
+
+      <p><span class="term">Common mistakes:</span></p>
+      <div class="ex">&bull; Immediately matching the free tier (reactive, potentially
+  destructive to revenue and existing customer relationships)
+&bull; Dismissing the threat ("our product is better, this doesn't
+  matter") without investigating whether it actually matters
+&bull; Making the response about the competitor instead of
+  about your customers and what they need
+&bull; Promising a response by Friday when the right response
+  takes two weeks of analysis and modeling</div>
+    </div>
+
+    <footer>
+      <p>Matthew Reider &middot; <a href="https://github.com/mreider/case">Source</a></p>
+    </footer>
+
+    </div>
+
 </div>
 
 <script>
 document.addEventListener('click', function(e) {
+  // Mode switching
+  if (e.target.matches('.mode-tab')) {
+    var mode = e.target.getAttribute('data-mode');
+    document.querySelectorAll('.mode-tab').forEach(function(t) {
+      t.classList.remove('active');
+    });
+    e.target.classList.add('active');
+    document.querySelectorAll('.mode-content').forEach(function(c) {
+      c.classList.remove('active');
+    });
+    document.querySelector('.mode-content[data-mode="' + mode + '"]').classList.add('active');
+    window.scrollTo(0, 0);
+    return;
+  }
+
+  // Scenario tabs (case study page)
   if (!e.target.matches('.tab')) return;
   var scenario = e.target.getAttribute('data-scenario');
   var isOpen = e.target.classList.contains('active');
 
-  // Close everything first
   document.querySelectorAll('.tab').forEach(function(t) {
     t.classList.remove('active');
   });
@@ -840,7 +1267,6 @@ document.addEventListener('click', function(e) {
     s.classList.remove('active');
   });
 
-  // If it was closed, open this scenario everywhere
   if (!isOpen) {
     document.querySelectorAll('.tab[data-scenario="' + scenario + '"]').forEach(function(t) {
       t.classList.add('active');
