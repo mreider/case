@@ -233,45 +233,37 @@ h1 {
 
 /* ── Scenario tabs ── */
 .scenarios {
-  margin: 1.2em 0 0;
-  border: 1px solid var(--hl-med);
-  border-radius: 6px;
-  overflow: hidden;
+  margin: 1.5em 0 0;
 }
 
 .tab-bar {
   display: flex;
-  background: var(--overlay);
-  border-bottom: 1px solid var(--hl-med);
+  gap: 0.5em;
+  margin-bottom: 0;
 }
 
 .tab {
-  flex: 1;
-  padding: 0.6em 0.8em;
+  padding: 0.4em 1em;
   background: none;
-  border: none;
+  border: 1px solid var(--hl-med);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
   color: var(--muted);
   font: inherit;
   font-size: 0.8em;
   font-weight: 400;
   cursor: pointer;
-  transition: color 0.15s, background 0.15s;
-  text-align: center;
-  border-right: 1px solid var(--hl-med);
-}
-
-.tab:last-child {
-  border-right: none;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
 }
 
 .tab:hover {
   color: var(--text);
-  background: var(--hl-low);
+  border-color: var(--hl-high);
 }
 
 .tab.active {
-  color: var(--gold);
-  background: var(--surface);
+  background: var(--overlay);
+  border-color: var(--hl-high);
   font-weight: 500;
 }
 
@@ -281,7 +273,10 @@ h1 {
 
 .scenario {
   display: none;
-  padding: 1em 1.2em;
+  padding: 1.2em 1.4em;
+  background: var(--overlay);
+  border: 1px solid var(--hl-high);
+  border-radius: 0 6px 6px 6px;
 }
 
 .scenario.active {
@@ -357,9 +352,12 @@ footer a:hover {
   }
   .tab {
     font-size: 0.7em;
-    padding: 0.5em 0.4em;
+    padding: 0.35em 0.6em;
   }
   .scenario {
-    padding: 0.8em;
+    padding: 0.8em 1em;
+  }
+  .tab-bar {
+    gap: 0.3em;
   }
 }
