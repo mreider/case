@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Case Interview</title>
-  <meta name="description" content="How to take a monitoring business idea from ideation to commercialization. A step-by-step guide for product thinking in observability.">
+  <meta name="description" content="How to take a product idea from ideation to commercialization. A step-by-step guide for product thinking in case interviews.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +13,7 @@
 <div class="content">
 
     <h1>The Case Interview</h1>
-    <p class="subtitle">Product Thinking for Observability</p>
+    <p class="subtitle">Product Thinking for Case Interviews</p>
 
     <div class="mode-switcher">
       <button class="mode-tab active" data-mode="case">Case Study</button>
@@ -66,24 +66,32 @@
 
     <div class="entry" id="the-question">
       <div class="entry-head"><span class="entry-num">1.</span> The Question</div>
-      <p>A product manager sits across from you and describes a business idea related to monitoring. They ask you to walk through how you'd take it from ideation to commercialization. This is the interview.</p>
+      <p>A product manager sits across from you and describes a business idea. They ask you to walk through how you'd take it from ideation to commercialization. This is the interview.</p>
       <p>The first thing to understand is what they're actually testing. It is not the quality of your idea. The PM already has the idea. They want to see <span class="term">your process</span> &mdash; how you think through an unfamiliar problem in a structured way. Can you break ambiguity into concrete steps? Do you ask the right questions? Do you make reasonable trade-offs?</p>
       <p>The ideal answer is not a pitch deck. It is a conversation. You are thinking out loud, showing your work, and making the interviewer feel like they'd want to build something with you.</p>
     </div>
 
     <div class="entry" id="the-industry">
       <div class="entry-head"><span class="entry-num">2.</span> The Industry</div>
-      <p>Before you walk into the room, you need just enough context about the monitoring industry to have a credible conversation. Not deep expertise. Just the shape of the landscape.</p>
-      <p><span class="term">Monitoring</span> means watching systems to detect problems. <span class="term">Observability</span> means understanding <span class="it">why</span> systems have problems. The industry has shifted from the first to the second over the past decade, driven by cloud-native architectures that are too dynamic and distributed for simple threshold-based alerts.</p>
-      <p>The core observability market is roughly $3&ndash;5B today, but the major vendors &mdash; Datadog ($3.4B revenue), Dynatrace ($1.7B), Elastic ($1.5B), New Relic (~$1B), Grafana Labs ($400M+ ARR) &mdash; collectively earn over $12B by spanning APM, logs, security analytics, and infrastructure monitoring. The broader market is $25&ndash;60B depending on where you draw the boundary. Growth runs 15&ndash;20% annually, with cloud-native players growing faster. Open-source tools like Prometheus and OpenTelemetry have reshaped how telemetry is collected.</p>
-      <p>The buyers are engineering teams &mdash; SREs, platform engineers, developers &mdash; and the budgets come from infrastructure or engineering leadership.</p>
-      <p class="note">You do not need to memorize every number. You need to know that this is a large, crowded, growing space where differentiation matters &mdash; and that new categories keep emerging at the edges.</p>
-      <p>To make the rest of this guide concrete, we will follow four hypothetical ideas through every step. Each one represents a different emerging category in the monitoring space. Use the tabs below each section to see how the same thinking process applies to very different products.</p>
+      <p>Before you walk into the room, you need just enough context about the industry to have a credible conversation. Not deep expertise. Just the shape of the landscape. Here is how to build that context for <span class="term">any</span> industry in an afternoon.</p>
+      <p>Start with four questions:</p>
+      <dl class="defs">
+        <dt>How big?</dt>
+        <dd>What is the market size? Is it growing, flat, or shrinking? A quick search for "[industry] market size" gives you the top-down number. You will refine this later with a bottom-up estimate.</dd>
+        <dt>Who dominates?</dt>
+        <dd>Name the top 3&ndash;5 players and roughly what they earn. This tells you how concentrated or fragmented the market is. Concentrated means hard to enter. Fragmented means hard to differentiate.</dd>
+        <dt>What shifted?</dt>
+        <dd>Every industry has a recent structural shift &mdash; a regulation, a technology change, a behavior change &mdash; that created new opportunities. Find the shift. It is usually why the interviewer chose this topic.</dd>
+        <dt>Who buys?</dt>
+        <dd>Who has the pain, and who has the budget? These are often different people. The user might be a practitioner; the buyer might be their manager. Understanding this dynamic shapes everything downstream.</dd>
+      </dl>
+      <p class="note">You do not need to memorize every number. You need to know the shape of the space: big or small, crowded or open, growing because of what. That is enough to have a credible conversation.</p>
+      <p>To make the rest of this guide concrete, we will follow four hypothetical ideas through every step. Each one is in a different industry. Use the tabs below each section to see how the same thinking process applies to very different products.</p>
       <div class="scenario-legend">
-        <div class="legend-item"><span class="legend-dot" style="background:var(--foam)"></span> <strong>LLM Observability</strong> &mdash; monitoring AI-powered applications</div>
-        <div class="legend-item"><span class="legend-dot" style="background:var(--gold)"></span> <strong>DORA Metrics</strong> &mdash; measuring engineering delivery performance</div>
-        <div class="legend-item"><span class="legend-dot" style="background:var(--iris)"></span> <strong>Carbon Emissions</strong> &mdash; tracking infrastructure sustainability</div>
-        <div class="legend-item"><span class="legend-dot" style="background:var(--love)"></span> <strong>Message Queues</strong> &mdash; observability for Kafka and event streaming</div>
+        <div class="legend-item"><span class="legend-dot" style="background:var(--foam)"></span> <strong>Collaborative Design</strong> &mdash; real-time whiteboarding for distributed product teams</div>
+        <div class="legend-item"><span class="legend-dot" style="background:var(--gold)"></span> <strong>SMB Expense Management</strong> &mdash; automated spend tracking for small businesses</div>
+        <div class="legend-item"><span class="legend-dot" style="background:var(--iris)"></span> <strong>Telemedicine</strong> &mdash; virtual care delivery for independent clinics</div>
+        <div class="legend-item"><span class="legend-dot" style="background:var(--love)"></span> <strong>Developer API</strong> &mdash; programmable notification APIs for app developers</div>
       </div>
     </div>
 
@@ -102,84 +110,84 @@
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab active" data-scenario="llm">LLM Observability</button>
-          <button class="tab" data-scenario="dora">DORA Metrics</button>
-          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
-          <button class="tab" data-scenario="queues">Message Queues</button>
+          <button class="tab active" data-scenario="llm">Collaborative Design</button>
+          <button class="tab" data-scenario="dora">SMB Expenses</button>
+          <button class="tab" data-scenario="carbon">Telemedicine</button>
+          <button class="tab" data-scenario="queues">Developer API</button>
         </div>
         <div class="scenario active" data-scenario="llm">
-          <p>The PM says: <span class="it">"We should build observability for LLM-powered applications &mdash; traces, costs, quality metrics."</span></p>
+          <p>The PM says: <span class="it">"We should build a real-time collaborative whiteboard for distributed product teams &mdash; wireframing, specs, design reviews."</span></p>
           <div class="ex">You ask:
-"Who's the primary user &mdash; ML engineers or app developers?"
-"What's the core pain &mdash; cost surprises, latency, or hallucinations?"
-"Are target customers already in production, or still prototyping?"</div>
-          <p>These questions cut to the heart of the opportunity. An ML engineer fine-tuning models needs very different tooling than an app developer calling the OpenAI API. Production teams have urgent pain; prototyping teams have curiosity.</p>
+"Who's the primary user &mdash; designers, PMs, or engineers?"
+"What's the core pain &mdash; tool fragmentation, async feedback loops, or handoff friction?"
+"Are these teams fully remote, hybrid, or just multi-office?"</div>
+          <p>These questions cut to the heart of the opportunity. A designer who needs pixel-perfect fidelity is a different user than a PM who wants to sketch a rough wireframe. Fully remote teams have different pain than hybrid teams who still whiteboard in a conference room.</p>
         </div>
         <div class="scenario" data-scenario="dora">
-          <p>The PM says: <span class="it">"We should build a product that automatically tracks DORA metrics for engineering organizations."</span></p>
+          <p>The PM says: <span class="it">"We should build automated expense tracking and approval workflows for small businesses."</span></p>
           <div class="ex">You ask:
-"Who's the buyer &mdash; eng managers or VP/Director-level?"
-"What's driving demand &mdash; internal improvement or leadership pressure?"
-"What source control and CI/CD tools are most common in our target?"</div>
-          <p>DORA metrics (Deployment Frequency, Lead Time, Change Failure Rate, MTTR) are well-defined, but the buyer and the motivation vary enormously. A team lead who wants to improve is a different user than a VP who needs a dashboard for the board.</p>
+"Who's the buyer &mdash; the founder, a finance lead, or an office manager?"
+"What's driving demand &mdash; cash flow visibility, tax prep, or policy enforcement?"
+"What size companies &mdash; 5-person startups or 50-person growth-stage?"</div>
+          <p>SMB finance tools live or die on who actually does the buying. A founder managing expenses in a spreadsheet has very different needs than a finance lead at a 50-person company who needs approval workflows and audit trails.</p>
         </div>
         <div class="scenario" data-scenario="carbon">
-          <p>The PM says: <span class="it">"We should help engineering teams track and reduce the carbon emissions of their cloud infrastructure."</span></p>
+          <p>The PM says: <span class="it">"We should build a telemedicine platform for independent clinics &mdash; video visits, scheduling, intake forms."</span></p>
           <div class="ex">You ask:
-"Who owns this problem &mdash; platform engineering, finance, or sustainability?"
-"Is demand driven by regulation or voluntary ESG commitments?"
-"Are target customers mostly single-cloud or multi-cloud?"</div>
-          <p>Carbon monitoring sits at the intersection of engineering and compliance. The answer to "who owns it" determines whether you're building a developer tool or an enterprise reporting product &mdash; two very different businesses.</p>
+"Who's the user &mdash; physicians, practice managers, or patients?"
+"Is demand driven by patient expectations or reimbursement policy?"
+"Are these clinics already using an EHR, or still mostly paper?"</div>
+          <p>Telemedicine sits at the intersection of clinical workflow and technology adoption. The answer to "who's the user" determines whether you are building a clinical tool or a practice management tool &mdash; two very different products with very different sales motions.</p>
         </div>
         <div class="scenario" data-scenario="queues">
-          <p>The PM says: <span class="it">"We should build specialized observability for message queues and event streaming infrastructure."</span></p>
+          <p>The PM says: <span class="it">"We should build a developer-first API platform for transactional notifications &mdash; SMS, email, push, one unified API."</span></p>
           <div class="ex">You ask:
-"Which systems &mdash; Kafka, RabbitMQ, SQS, or all of them?"
-"Who's the user &mdash; the platform team managing brokers, or app devs consuming messages?"
-"What's breaking today &mdash; consumer lag, message loss, or debugging during incidents?"</div>
-          <p>The queue ecosystem is fragmented. A Kafka-first product is a very different business than a multi-system abstraction layer. And the persona question matters enormously: platform teams want cluster health; app developers want to know why their messages are stuck.</p>
+"Which channels are highest priority &mdash; SMS, email, or push?"
+"Who's the user &mdash; backend developers or growth/marketing teams?"
+"What's breaking today &mdash; deliverability, carrier management, or multi-channel coordination?"</div>
+          <p>The notification API space is crowded but fragmented by channel. A developer building SMS verification needs very different tooling than a growth team orchestrating multi-channel campaigns. The persona question shapes everything.</p>
         </div>
       </div>
     </div>
 
     <div class="entry" id="the-persona">
       <div class="entry-head"><span class="entry-num">4.</span> The Persona</div>
-      <p>Every monitoring product serves a specific person. Before you can evaluate an idea, you need to know who that person is. This is the <span class="term">persona</span>.</p>
-      <p>In the monitoring industry, the common personas are:</p>
+      <p>Every product serves a specific person. Before you can evaluate an idea, you need to know who that person is. This is the <span class="term">persona</span>.</p>
+      <p>In B2B products, the common persona roles are:</p>
       <dl class="defs">
-        <dt>SRE</dt>
-        <dd>Keeps services reliable. Cares about uptime, incident response, SLOs. On-call rotation shapes their life.</dd>
-        <dt>Platform Eng.</dt>
-        <dd>Builds internal tools and infrastructure. Cares about standardization, developer experience, reducing toil.</dd>
-        <dt>Developer</dt>
-        <dd>Writes application code. Wants to debug fast and ship features. Observability is a means to an end, not a goal.</dd>
-        <dt>Eng. Manager</dt>
-        <dd>Owns budget and headcount. Cares about cost, team velocity, and whether tools are actually being used.</dd>
+        <dt>The Practitioner</dt>
+        <dd>The person who uses the product daily. Cares about speed, reliability, and whether it actually makes their job easier. They are your champion or your loudest critic.</dd>
+        <dt>The Manager</dt>
+        <dd>Owns budget and headcount for the team. Cares about cost, velocity, and reporting. They approve the purchase but rarely use the product themselves.</dd>
+        <dt>The Admin</dt>
+        <dd>Configures and maintains the tool. Cares about setup complexity, integrations, permissions, and support quality. Often the person who says "no" to new tools.</dd>
+        <dt>The Executive</dt>
+        <dd>Sets strategy and approves large spend. Cares about business outcomes, not features. Needs a one-sentence answer to "why are we paying for this?"</dd>
       </dl>
       <p>The persona determines everything downstream &mdash; the pain points you target, the channels you use to reach them, the language on your landing page, the pricing model. Get this wrong and nothing else matters.</p>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab active" data-scenario="llm">LLM Observability</button>
-          <button class="tab" data-scenario="dora">DORA Metrics</button>
-          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
-          <button class="tab" data-scenario="queues">Message Queues</button>
+          <button class="tab active" data-scenario="llm">Collaborative Design</button>
+          <button class="tab" data-scenario="dora">SMB Expenses</button>
+          <button class="tab" data-scenario="carbon">Telemedicine</button>
+          <button class="tab" data-scenario="queues">Developer API</button>
         </div>
         <div class="scenario active" data-scenario="llm">
-          <p><strong>Primary:</strong> The <span class="term">AI application developer</span>. They call LLM APIs (OpenAI, Anthropic, Bedrock) to build features &mdash; chatbots, search, summarization. They ship to production and are responsible for cost, latency, and quality, but have almost no visibility into what happens inside their LLM pipeline.</p>
-          <p><strong>Secondary:</strong> AI platform teams who manage model-serving infrastructure across multiple application teams. They care about standardization and cost governance.</p>
+          <p><strong>Primary:</strong> The <span class="term">product designer on a distributed team</span>. They create wireframes, run design reviews, and hand off specs to engineering. They currently split their work across 3&ndash;4 tools and lose hours to version confusion and async feedback loops.</p>
+          <p><strong>Secondary:</strong> Product managers who participate in design reviews and need to annotate, comment, and approve without learning a full design tool.</p>
         </div>
         <div class="scenario" data-scenario="dora">
-          <p><strong>Primary:</strong> The <span class="term">engineering manager</span>. They manage 1&ndash;3 teams, run sprint planning and retros, and are increasingly asked to quantify delivery performance. They want data to back up their instincts and advocate for their teams.</p>
-          <p><strong>Secondary:</strong> VP/Director of Engineering who needs an org-wide view to identify bottlenecks across teams and justify headcount or process changes to leadership.</p>
+          <p><strong>Primary:</strong> The <span class="term">founder or finance lead at a 10&ndash;50 person company</span>. They manage expenses in spreadsheets, chase receipts from employees, and dread month-end reconciliation. They want visibility into spend without hiring a full-time accountant.</p>
+          <p><strong>Secondary:</strong> Employees who submit expenses. They want a fast process &mdash; snap a photo of a receipt, get reimbursed. If the tool is slow or confusing, they will avoid it.</p>
         </div>
         <div class="scenario" data-scenario="carbon">
-          <p><strong>Primary:</strong> The <span class="term">platform engineer with a sustainability mandate</span>. They already manage Kubernetes, cloud costs, and infrastructure. Carbon monitoring is a new responsibility being pushed to them by leadership or regulation.</p>
-          <p><strong>Secondary:</strong> The sustainability/ESG lead who needs data for compliance reports but lacks the technical depth to collect it from infrastructure systems.</p>
+          <p><strong>Primary:</strong> The <span class="term">practice manager at an independent clinic</span> (1&ndash;10 providers). They handle scheduling, billing, and patient communications. They are not technical but are responsible for adopting new tools that improve clinic efficiency.</p>
+          <p><strong>Secondary:</strong> Physicians who conduct the virtual visits. They need the technology to be invisible &mdash; click a link, see the patient, document the visit. Anything that adds friction to the clinical workflow will be rejected.</p>
         </div>
         <div class="scenario" data-scenario="queues">
-          <p><strong>Primary:</strong> The <span class="term">platform engineer or SRE managing Kafka clusters</span>. They own broker health, partition rebalancing, and consumer group management. When a queue backs up at 2am, they get paged.</p>
-          <p><strong>Secondary:</strong> Application developers who publish to or consume from queues. They care about whether their messages are being processed and how fast &mdash; but they do not want to learn Kafka internals to debug a stuck consumer.</p>
+          <p><strong>Primary:</strong> The <span class="term">backend developer at a startup or mid-size company</span>. They need to send transactional notifications &mdash; signup confirmations, password resets, order updates &mdash; and do not want to spend weeks negotiating carrier contracts and managing deliverability.</p>
+          <p><strong>Secondary:</strong> Growth or product teams who want to send event-triggered messages (onboarding sequences, re-engagement) but lack the engineering resources to build a notification pipeline from scratch.</p>
         </div>
       </div>
     </div>
@@ -209,44 +217,47 @@
         <!-- arrow -->
         <text x="210" y="68" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#524f67">willingness to pay &#x2192;</text>
       </svg>
-      <div class="ex">Mild    "It takes a few extra clicks to correlate logs and traces."
-Medium  "We spend 2 hours per incident digging through dashboards."
-Severe  "We can't meet our SLOs and we're losing customer trust."</div>
+      <div class="ex">Mild    "It takes a few extra clicks to find what I need."
+Medium  "We waste 2 hours a week on a manual workaround."
+Severe  "We're losing customers because of this problem."</div>
       <p>In your answer, name the pain level explicitly. If the idea addresses a mild pain, acknowledge it and explain how you'd validate whether it's actually severe enough to build for. This shows maturity &mdash; not every idea is worth building.</p>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab active" data-scenario="llm">LLM Observability</button>
-          <button class="tab" data-scenario="dora">DORA Metrics</button>
-          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
-          <button class="tab" data-scenario="queues">Message Queues</button>
+          <button class="tab active" data-scenario="llm">Collaborative Design</button>
+          <button class="tab" data-scenario="dora">SMB Expenses</button>
+          <button class="tab" data-scenario="carbon">Telemedicine</button>
+          <button class="tab" data-scenario="queues">Developer API</button>
         </div>
         <div class="scenario active" data-scenario="llm">
-          <p><strong>Severity: High.</strong> A single LLM call can cost $0.10 or $10.00 depending on the prompt, model, and token count. Teams ship an AI feature and their cloud bill triples &mdash; and they cannot tell which queries are expensive or why. Latency swings from 200ms to 30 seconds. Hallucinations reach production users and nobody knows the rate.</p>
-          <div class="ex">"We shipped an AI feature and our API costs tripled overnight.
- We have no idea which prompts are causing it."</div>
-          <p>This is severe, active pain tied directly to money. Teams will pull in a solution.</p>
+          <p><strong>Severity: Medium-High.</strong> Distributed product teams run design reviews over screenshare, paste screenshots into Slack, and lose track of which Figma file has the latest version. Feedback gets buried in threads. Spec handoffs involve a designer spending half a day assembling a document that is already outdated when engineering reads it.</p>
+          <div class="ex">"We spend more time syncing about design decisions than
+ actually making them. Our specs are always a version
+ behind by the time engineering starts building."</div>
+          <p>This is chronic pain &mdash; not a crisis, but a steady drag on team velocity. The sharper the pain becomes, the easier the sale.</p>
         </div>
         <div class="scenario" data-scenario="dora">
-          <p><strong>Severity: Medium.</strong> Most engineering leaders know they should measure delivery performance but tolerate not having the data. The pain spikes during reorgs, performance reviews, or when a VP asks "how fast do we ship?" and nobody has an answer. It is chronic, not acute.</p>
-          <div class="ex">"Every quarter my VP asks for deployment frequency and
- I spend two days pulling data from three tools to give
- a rough estimate that nobody really trusts."</div>
-          <p>Medium pain means slower adoption. You need to validate whether the pain is severe enough to drive a purchase, or just a nice-to-have.</p>
+          <p><strong>Severity: High.</strong> SMB founders manage expenses in spreadsheets, discover policy violations after the fact, and lose days to month-end reconciliation. Receipts go missing. Cash flow surprises kill small businesses &mdash; 82% of small business failures involve cash flow problems.</p>
+          <div class="ex">"Every month I spend two days matching receipts to
+ bank transactions. Last quarter we missed a $4K
+ duplicate charge because nobody was tracking it."</div>
+          <p>This is severe, recurring pain tied directly to money. The more manual the process, the more urgent the solution.</p>
         </div>
         <div class="scenario" data-scenario="carbon">
-          <p><strong>Severity: Medium, trending toward severe.</strong> Today it is a compliance checkbox &mdash; annoying but manageable with rough estimates. But regulation is tightening. The EU Corporate Sustainability Reporting Directive (CSRD) requires auditable Scope 3 emissions data. Companies that cannot attribute cloud carbon to specific services will fail audits.</p>
-          <div class="ex">"We report an estimate to our sustainability team.
- Nobody trusts the number, but nobody has been
- asked to verify it &mdash; yet."</div>
-          <p>Regulation is the forcing function. Pain that is medium today becomes severe on a known deadline.</p>
+          <p><strong>Severity: High.</strong> Post-pandemic, patients expect virtual visit options, but independent clinics use consumer video tools (Zoom, FaceTime) with no scheduling integration, no intake forms, no HIPAA compliance documentation, and no billing workflow. Physicians spend 10 minutes per visit on setup instead of care. Clinics lose patients to larger health systems that offer seamless telehealth.</p>
+          <div class="ex">"We use Zoom for virtual visits. I email the patient
+ a link, they can't find it, they call the front desk,
+ and by the time we connect we've lost 15 minutes.
+ And I'm honestly not sure we're HIPAA compliant."</div>
+          <p>This is acute pain with a regulatory dimension. Compliance risk plus patient loss creates urgency.</p>
         </div>
         <div class="scenario" data-scenario="queues">
-          <p><strong>Severity: High.</strong> When a Kafka consumer falls behind, messages pile up by the millions. Downstream services break, orders get delayed, events get dropped. The existing monitoring &mdash; broker JMX metrics in a Grafana dashboard &mdash; shows that something is wrong but not <span class="it">why</span>. Is it a slow consumer? A hot partition? A poison message blocking progress? Teams spend hours correlating broker metrics with application logs to find the root cause.</p>
-          <div class="ex">"Consumer lag spiked to 2 million messages at 3am.
- It took us 4 hours to figure out one bad message
- was blocking a single partition."</div>
-          <p>This is acute, incident-driven pain. It wakes people up, and the debugging process is painful every time.</p>
+          <p><strong>Severity: High.</strong> A startup needs to send SMS verification codes. Building it from scratch means integrating with carriers, negotiating contracts, handling number provisioning, managing opt-outs, and dealing with deliverability across regions. A feature that should take a day takes a month. And when messages fail to deliver, debugging is a black box.</p>
+          <div class="ex">"We spent three weeks integrating with a carrier for
+ SMS verification. Then we expanded to Europe and had
+ to start over because the carrier didn't support
+ international numbers."</div>
+          <p>This is acute, project-blocking pain. Every developer who has built a notification system from scratch knows the cost.</p>
         </div>
       </div>
     </div>
@@ -263,7 +274,7 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
         <dt>Competing products</dt>
         <dd>Tools that directly solve the same problem for the same persona. These are the obvious names the interviewer will expect you to know.</dd>
         <dt>Partial solutions</dt>
-        <dd>Products that solve a related problem and might expand into yours. Datadog started with infrastructure metrics and moved into APM, logs, security, and incident management. These are dangerous because they already have the customer relationship.</dd>
+        <dd>Products that solve a related problem and might expand into yours. Salesforce started with CRM and moved into marketing, analytics, and platform. These are dangerous because they already have the customer relationship.</dd>
         <dt>Manual workarounds</dt>
         <dd>This is what most people actually do. Spreadsheets, Slack threads, scripts, tribal knowledge, or simply ignoring the problem. The most common "competitor" is not a product &mdash; it is inertia. If you do not understand the workaround, you will not understand what you are replacing.</dd>
       </dl>
@@ -271,54 +282,54 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab active" data-scenario="llm">LLM Observability</button>
-          <button class="tab" data-scenario="dora">DORA Metrics</button>
-          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
-          <button class="tab" data-scenario="queues">Message Queues</button>
+          <button class="tab active" data-scenario="llm">Collaborative Design</button>
+          <button class="tab" data-scenario="dora">SMB Expenses</button>
+          <button class="tab" data-scenario="carbon">Telemedicine</button>
+          <button class="tab" data-scenario="queues">Developer API</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <dl class="defs">
             <dt>Competing</dt>
-            <dd>LangSmith, Helicone, Arize Phoenix, Braintrust, HumanLoop &mdash; purpose-built LLM tracing and eval tools.</dd>
+            <dd>Figma (design), Miro (whiteboarding), Mural (workshops) &mdash; each strong in one mode but none unify wireframing, specs, and review.</dd>
             <dt>Partial</dt>
-            <dd>Datadog LLM Monitoring, New Relic AI Monitoring &mdash; bolted onto existing APM. They treat LLM calls as generic HTTP spans with no cost or token context.</dd>
+            <dd>Notion, Confluence, Google Docs &mdash; document-first tools that support embedding visuals but have no real-time co-creation canvas.</dd>
             <dt>Workaround</dt>
-            <dd>Print statements in the codebase, custom OpenTelemetry instrumentation, a shared spreadsheet where someone manually logs the monthly API bill.</dd>
+            <dd>Designers wireframe in Figma, paste screenshots into Notion, collect feedback in Slack threads, and assemble a spec doc by hand. Every handoff involves reformatting.</dd>
           </dl>
-          <p><strong>The gap:</strong> Competing tools are tightly coupled to specific frameworks (LangSmith requires LangChain). Partial solutions lack LLM-specific context (token costs, prompt content, quality signals). The workaround gives you a monthly total but cannot tell you which user request cost $8 or which LLM call in the chain was responsible. No existing tool combines cost attribution, quality signals, and trace context in a single view.</p>
+          <p><strong>The gap:</strong> Competing tools are designed for either visual creation (Figma) or brainstorming (Miro), not the <span class="term">wireframe-to-spec handoff workflow</span>. Nobody unifies rough visual thinking, structured documentation, and feedback in a single surface. The gap is the seam between ideation and implementation.</p>
         </div>
         <div class="scenario" data-scenario="dora">
           <dl class="defs">
             <dt>Competing</dt>
-            <dd>Sleuth, LinearB, Swarmia, Jellyfish, Faros AI &mdash; developer productivity and DORA tracking platforms.</dd>
+            <dd>Brex, Ramp, Divvy, Airbase &mdash; corporate card + expense platforms. Strong but often require $50K+ annual spend to qualify.</dd>
             <dt>Partial</dt>
-            <dd>GitHub Insights, GitLab Analytics, Pluralsight Flow, Backstage plugins &mdash; they show some delivery data but do not calculate DORA metrics or benchmark against the research.</dd>
+            <dd>QuickBooks, Xero, FreshBooks &mdash; accounting tools with basic expense features. Receipt capture is clunky and approval workflows are an afterthought.</dd>
             <dt>Workaround</dt>
-            <dd>An engineering manager spends a day each quarter pulling data from GitHub, CI, and the incident tracker into a spreadsheet. The numbers are rough and nobody fully trusts them.</dd>
+            <dd>A shared Google Sheet where employees log expenses, email receipts to the founder, and reconcile manually at month-end. Errors are discovered weeks late.</dd>
           </dl>
-          <p><strong>The gap:</strong> Competing tools require extensive configuration &mdash; mapping deployments to services, tagging incidents, defining what counts as a "change." Most teams try them, get frustrated by setup time, and abandon. The workaround is slow and imprecise. The gap is <span class="term">zero-config accuracy</span>: trustworthy metrics without a week of setup.</p>
+          <p><strong>The gap:</strong> Competing tools target mid-market and up &mdash; minimums, onboarding complexity, and feature bloat that overwhelm a 15-person company. Accounting tools are built for bookkeepers, not founders. The gap is <span class="term">dead-simple expense visibility for small teams</span> without requiring a corporate card program or an accounting degree.</p>
         </div>
         <div class="scenario" data-scenario="carbon">
           <dl class="defs">
             <dt>Competing</dt>
-            <dd>Cloud Carbon Footprint (open-source, Thoughtworks), Climatiq API, Scope3 &mdash; carbon estimation tools.</dd>
+            <dd>Teladoc, Amwell, Doxy.me &mdash; telehealth platforms with varying levels of clinical workflow integration.</dd>
             <dt>Partial</dt>
-            <dd>Kubecost, CloudHealth, Vantage &mdash; cloud cost tools that correlate with carbon but do not measure it. They could add carbon as a dimension tomorrow.</dd>
+            <dd>Epic MyChart, Cerner Patient Portal &mdash; EHR-embedded video, but only for clinics already on those (expensive) systems. Zoom for Healthcare &mdash; HIPAA-compliant video without clinical workflow.</dd>
             <dt>Workaround</dt>
-            <dd>The sustainability team uses the cloud provider's carbon dashboard (AWS Customer Carbon Footprint Tool, GCP Carbon Sense). It is delayed by three months, aggregated at the region level, and cannot attribute emissions to any specific service or team.</dd>
+            <dd>Clinics use consumer Zoom or FaceTime, email appointment links manually, and paste visit notes into their EHR after the call. Scheduling is by phone. Intake forms are paper scanned to PDF.</dd>
           </dl>
-          <p><strong>The gap:</strong> Competing tools require manual setup and produce estimates with wide error bars. The cloud provider workarounds are too coarse and too delayed for audit-ready reporting. Nobody does <span class="term">real-time, workload-level attribution</span> that integrates with the existing observability stack.</p>
+          <p><strong>The gap:</strong> Competing platforms are built for large health systems, not independent practices. EHR-embedded solutions require expensive EHR contracts. Consumer video works but has <span class="term">zero clinical workflow integration</span> &mdash; no scheduling, no intake, no billing. The gap is a complete virtual visit workflow for small practices.</p>
         </div>
         <div class="scenario" data-scenario="queues">
           <dl class="defs">
             <dt>Competing</dt>
-            <dd>Confluent Control Center (Kafka-specific, tied to Confluent Platform), Conduktor, AKHQ &mdash; queue management and monitoring tools.</dd>
+            <dd>Twilio, MessageBird, Vonage &mdash; full communications platforms (SMS, voice, video, contact center). Powerful but complex.</dd>
             <dt>Partial</dt>
-            <dd>Datadog Kafka integration, Grafana + JMX exporters, CloudWatch for SQS &mdash; basic throughput and consumer lag metrics without message-level context.</dd>
+            <dd>AWS SNS/SES, Firebase Cloud Messaging, Mailgun &mdash; single-channel services. Each solves one channel but you need a different integration for each.</dd>
             <dt>Workaround</dt>
-            <dd>Custom Grafana dashboards built on JMX metrics, combined with manually tailing consumer logs during incidents. It works until a 3am page, when correlating across tools takes hours.</dd>
+            <dd>Developers integrate directly with carriers for SMS, use an SMTP relay for email, and a push notification service for mobile. Three integrations, three billing relationships, three sets of documentation.</dd>
           </dl>
-          <p><strong>The gap:</strong> Competing tools are vendor-locked (Confluent only works with Confluent Platform). Partial solutions show broker-level metrics but cannot trace an individual message through the system. Nobody gives you <span class="term">end-to-end message tracing</span> &mdash; producer to broker to consumer &mdash; with latency at each hop.</p>
+          <p><strong>The gap:</strong> Competing tools are full communications platforms with hundreds of features and complex pricing. Partial solutions are single-channel. The gap is <span class="term">one unified API for transactional notifications</span> across SMS, email, and push &mdash; simple enough that a single developer can integrate it in an afternoon.</p>
         </div>
       </div>
     </div>
@@ -342,57 +353,57 @@ Severe  "We can't meet our SLOs and we're losing customer trust."</div>
         <!-- narrow + focused label -->
         <text x="40" y="90" font-family="'JetBrains Mono', monospace" font-size="7" fill="#524f67">narrow &amp; focused</text>
       </svg>
-      <div class="ex">Datadog's wedge:    infrastructure metrics with a beautiful UI
-                        (when the alternative was command-line Nagios)
+      <div class="ex">Slack's wedge:      team chat that replaced internal email
+                        (when the alternative was reply-all threads)
 
-Honeycomb's wedge:  high-cardinality event exploration
-                        (when everyone else pre-aggregated data)
+Figma's wedge:      browser-based collaborative design
+                        (when the alternative was emailing Sketch files)
 
-Grafana's wedge:    open-source dashboards for Prometheus
-                        (when the alternative was PromQL in a terminal)</div>
+Stripe's wedge:     7 lines of code to accept a payment
+                        (when the alternative was a bank integration)</div>
       <p>In your answer, define the wedge clearly. Say what's in scope and what's explicitly out. A good wedge makes the interviewer nod &mdash; it's so focused that it's obviously right for that one use case.</p>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab active" data-scenario="llm">LLM Observability</button>
-          <button class="tab" data-scenario="dora">DORA Metrics</button>
-          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
-          <button class="tab" data-scenario="queues">Message Queues</button>
+          <button class="tab active" data-scenario="llm">Collaborative Design</button>
+          <button class="tab" data-scenario="dora">SMB Expenses</button>
+          <button class="tab" data-scenario="carbon">Telemedicine</button>
+          <button class="tab" data-scenario="queues">Developer API</button>
         </div>
         <div class="scenario active" data-scenario="llm">
-          <p><strong>The wedge:</strong> Cost tracing for LLM chains. A single user request &mdash; like "summarize this document" &mdash; can trigger multiple LLM calls: a retrieval step, a reranking call, the main completion, maybe a follow-up. Each call is billed by tokens (input + output). The wedge traces every call in the chain with its model, token count, dollar cost, and latency, then rolls it up so you see the total cost of that user request and where the money went.</p>
-          <div class="ex">In scope:    OpenAI + Anthropic SDK auto-instrumentation,
-             cost + latency breakdown, trace viewer
+          <p><strong>The wedge:</strong> Real-time collaborative wireframing for product specs. Not full visual design (that is Figma). Not general-purpose whiteboarding (that is Miro). Specifically the workflow where a product team sketches a rough wireframe together, annotates it with requirements, and hands it off to engineering &mdash; all in one surface, all in real time.</p>
+          <div class="ex">In scope:    collaborative canvas, component library,
+             inline comments, version history, link sharing
 
-Out of scope: quality/eval scoring, fine-tuning analytics,
-             custom model hosting, prompt management</div>
+Out of scope: high-fidelity design, prototyping, design
+             systems, developer handoff with CSS specs</div>
         </div>
         <div class="scenario" data-scenario="dora">
-          <p><strong>The wedge:</strong> Zero-config DORA metrics from GitHub + CI. Connect your GitHub org and CI tool. Within five minutes, see all four DORA metrics &mdash; deployment frequency, lead time, change failure rate, MTTR &mdash; benchmarked against the DORA report's Elite/High/Medium/Low categories. No manual tagging required.</p>
-          <div class="ex">In scope:    GitHub + GitHub Actions + CircleCI integration,
-             auto-detection of deploys and failures,
-             DORA benchmark comparison
+          <p><strong>The wedge:</strong> One-click receipt capture with real-time spend dashboard. Employee snaps a photo &rarr; OCR extracts amount, vendor, date &rarr; auto-categorized &rarr; founder sees a live dashboard of company spend. No manual data entry. No month-end surprise.</p>
+          <div class="ex">In scope:    mobile receipt capture (OCR), auto-categorization,
+             real-time spend dashboard, basic approval workflow,
+             QuickBooks/Xero export
 
-Out of scope: Jira/Linear integration, custom workflow
-             definitions, sprint velocity, code quality</div>
+Out of scope: corporate cards, bill pay, payroll,
+             multi-entity accounting, AP automation</div>
         </div>
         <div class="scenario" data-scenario="carbon">
-          <p><strong>The wedge:</strong> Real-time carbon attribution per Kubernetes workload. A lightweight agent reads resource usage per pod, maps it to the cloud region's grid carbon intensity, and produces a CO2-per-service estimate updated hourly. Integrates as a Grafana datasource or OTLP exporter.</p>
-          <div class="ex">In scope:    Kubernetes, AWS/GCP/Azure region grid data,
-             namespace-level CO2 attribution, hourly updates
+          <p><strong>The wedge:</strong> HIPAA-compliant video visits with integrated scheduling. Patient books online &rarr; gets SMS reminder &rarr; clicks a link &rarr; fills intake form &rarr; sees the physician &rarr; visit summary auto-generated. The entire virtual visit workflow in one product for independent practices.</p>
+          <div class="ex">In scope:    HIPAA-compliant video, online scheduling,
+             SMS reminders, digital intake forms,
+             visit summary for EHR paste
 
-Out of scope: Scope 1 &amp; 2 emissions, supply chain carbon,
-             hardware embodied carbon, optimization recs</div>
+Out of scope: EHR replacement, e-prescribing, billing/claims,
+             patient portal, chronic care management</div>
         </div>
         <div class="scenario" data-scenario="queues">
-          <p><strong>The wedge:</strong> End-to-end message tracing for Kafka. Instrument producers and consumers with one SDK. Every message gets a trace: publish time, broker arrival, partition assignment, consumer pickup, processing duration. When consumer lag spikes, you see exactly which messages are stuck and why.</p>
-          <div class="ex">In scope:    Kafka producer/consumer auto-instrumentation,
-             per-message trace with latency at each hop,
-             consumer lag with partition-level drill-down,
-             dead letter queue tracking
+          <p><strong>The wedge:</strong> One API for transactional notifications across SMS, email, and push. A single REST call with a channel parameter. Automatic carrier selection for SMS, deliverability optimization for email, and a template engine so developers define messages once and send to any channel.</p>
+          <div class="ex">In scope:    REST API, Python + Node SDKs, SMS + email + push,
+             template engine, delivery webhooks,
+             basic analytics dashboard
 
-Out of scope: RabbitMQ, SQS, Pub/Sub, broker management,
-             schema registry, stream processing (Flink/Spark)</div>
+Out of scope: voice, video, contact center, marketing
+             campaigns, audience segmentation, A/B testing</div>
         </div>
       </div>
     </div>
@@ -425,10 +436,10 @@ Out of scope: RabbitMQ, SQS, Pub/Sub, broker management,
         <!-- annotation -->
         <text x="210" y="125" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#524f67">start with SOM &mdash; what you can actually win in year 1&#x2013;2</text>
       </svg>
-      <div class="ex">Persona:  SREs at mid-to-large companies
-Count:    ~50,000 companies with 100+ engineers globally
-Seats:    average 5 SREs per company = 250,000 SREs
-Price:    $50/seat/month = $150M ARR addressable
+      <div class="ex">Persona:  Operations managers at mid-size companies
+Count:    ~80,000 companies with 100-1,000 employees in the US
+Seats:    average 3 ops managers per company = 240,000
+Price:    $50/seat/month = $144M ARR addressable
 
 This is your SAM (Serviceable Addressable Market).
 Your SOM (obtainable in year 1-2) might be 1-2% of that.</div>
@@ -436,50 +447,50 @@ Your SOM (obtainable in year 1-2) might be 1-2% of that.</div>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab active" data-scenario="llm">LLM Observability</button>
-          <button class="tab" data-scenario="dora">DORA Metrics</button>
-          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
-          <button class="tab" data-scenario="queues">Message Queues</button>
+          <button class="tab active" data-scenario="llm">Collaborative Design</button>
+          <button class="tab" data-scenario="dora">SMB Expenses</button>
+          <button class="tab" data-scenario="carbon">Telemedicine</button>
+          <button class="tab" data-scenario="queues">Developer API</button>
         </div>
         <div class="scenario active" data-scenario="llm">
-          <div class="ex">Persona:  AI application developers in production
-Count:    ~30,000 companies actively using LLM APIs
-Seats:    average 3 AI devs per company = 90,000
-Price:    usage-based, ~$100/seat equiv/month
-SAM:      ~$108M ARR
+          <div class="ex">Persona:  Product designers on distributed teams
+Count:    ~200,000 companies with 50+ employees and
+          distributed product teams
+Seats:    average 4 designers + PMs per company = 800,000
+Price:    $20/seat/month
+SAM:      ~$192M ARR
 
-SOM year 1: 1-2% = $1-2M ARR</div>
-          <p>But the real lever is usage-based pricing &mdash; heavy users trace millions of LLM calls. Top-down, the AI infrastructure market is $10B+ and growing 40%+ annually. Observability is a fast-growing slice of that.</p>
+SOM year 1: 0.5% = ~$1M ARR</div>
+          <p>The design tools market is $16B+ and growing. But the wedge is narrow &mdash; wireframe-to-spec, not full design. Start small and expand as teams adopt the product for more of their workflow.</p>
         </div>
         <div class="scenario" data-scenario="dora">
-          <div class="ex">Persona:  Engineering managers at 50+ dev orgs
-Count:    ~80,000 companies with 50+ engineers
-Seats:    $30/contributor/month, avg 60 contributors
-Price:    ~$1,800/month per org
-SAM:      ~$1.7B ARR
+          <div class="ex">Persona:  Founders &amp; finance leads at 10-100 person companies
+Count:    ~5M small businesses in this range (US alone)
+Price:    ~$50/month average
+SAM:      ~$3B ARR
 
-SOM year 1: 0.5% = ~$8.5M ARR</div>
-          <p>Large SAM, but medium pain means slower conversion. The question to answer for the interviewer: is the TAM growing because more orgs <span class="it">want</span> DORA metrics, or because they're being <span class="it">required</span> to measure them? The forcing function matters.</p>
+SOM year 1: 0.01% = ~$3M ARR</div>
+          <p>Enormous TAM, but SMBs are notoriously hard to reach and retain. High churn, low willingness to pay, and price sensitivity. The question for the interviewer: can you acquire customers cheaply enough that unit economics work at $50/month?</p>
         </div>
         <div class="scenario" data-scenario="carbon">
-          <div class="ex">Persona:  Platform eng + sustainability at cloud-heavy orgs
-Count:    ~15,000 companies with &gt;$1M cloud spend
-          AND sustainability reporting obligations
-Price:    ~$2,000/month avg contract value
-SAM:      ~$360M ARR
+          <div class="ex">Persona:  Practice managers at independent clinics
+Count:    ~250,000 independent practices in the US
+          (1-10 providers each)
+Price:    ~$200/month avg contract value
+SAM:      ~$600M ARR
 
-SOM year 1: 0.5% = ~$1.8M ARR</div>
-          <p>Smaller addressable base today, but regulation is the tailwind. EU CSRD compliance deadlines create a forcing function that grows the market on a predictable schedule. Every year, more companies fall into scope.</p>
+SOM year 1: 0.3% = ~$1.8M ARR</div>
+          <p>Healthcare is a large but slow-moving market. Sales cycles are long, trust matters enormously, and regulatory compliance is table stakes. The tailwind is patient demand &mdash; 76% of patients say they want virtual visit options from their provider.</p>
         </div>
         <div class="scenario" data-scenario="queues">
-          <div class="ex">Persona:  Platform engineers / SREs managing Kafka
-Count:    ~40,000 companies running Kafka or similar
-Teams:    average 3 platform engineers on queues = 120,000
-Price:    $60/seat/month
-SAM:      ~$86M ARR
+          <div class="ex">Persona:  Backend developers sending transactional notifications
+Count:    ~500,000 companies building apps with notifications
+Devs:     average 3 developers per company = 1.5M
+Price:    usage-based, ~$200/month avg per company
+SAM:      ~$1.2B ARR
 
-SOM year 1: 1-2% = $1-2M ARR</div>
-          <p>The seat-based number understates the opportunity. Usage-based pricing on messages traced is the bigger lever &mdash; companies processing billions of messages per day have massive observability needs that scale with volume.</p>
+SOM year 1: 0.1% = ~$1.2M ARR</div>
+          <p>The usage-based lever is significant &mdash; a startup sending 10K messages/month pays almost nothing, but a growing company sending 10M/month becomes a high-value account organically. The market grows with every new app built.</p>
         </div>
       </div>
     </div>
@@ -504,30 +515,30 @@ SOM year 1: 1-2% = $1-2M ARR</div>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab active" data-scenario="llm">LLM Observability</button>
-          <button class="tab" data-scenario="dora">DORA Metrics</button>
-          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
-          <button class="tab" data-scenario="queues">Message Queues</button>
+          <button class="tab active" data-scenario="llm">Collaborative Design</button>
+          <button class="tab" data-scenario="dora">SMB Expenses</button>
+          <button class="tab" data-scenario="carbon">Telemedicine</button>
+          <button class="tab" data-scenario="queues">Developer API</button>
         </div>
         <div class="scenario active" data-scenario="llm">
-          <p><strong>Riskiest assumption:</strong> Teams running LLMs in production cannot see what each user request costs in tokens and dollars &mdash; and would pay to fix it.</p>
-          <p><strong>Validation:</strong> Interview 10 teams running LLM features. Ask: "Do you know how much a single user request costs end-to-end? Can you trace a slow response to a specific LLM call in the chain?" If 7+ say no and express frustration, the demand is real.</p>
-          <p><strong>Cheapest test:</strong> Open-source a Python SDK that prints cost-per-call to stdout. If developers adopt it without a product behind it, the pain is confirmed.</p>
+          <p><strong>Riskiest assumption:</strong> Distributed product teams want to wireframe and spec in the same tool &mdash; and the current Figma/Notion/Slack patchwork is painful enough to switch.</p>
+          <p><strong>Validation:</strong> Interview 10 product teams. Ask: "Walk me through how a wireframe becomes a spec that engineering builds from. How many tools are involved? Where does it break down?" If 7+ describe a fragmented, frustrating process, the demand is real.</p>
+          <p><strong>Cheapest test:</strong> A Figma plugin that auto-generates a spec doc from a wireframe with annotations. If designers install it and share it with their teams, the workflow pain is confirmed.</p>
         </div>
         <div class="scenario" data-scenario="dora">
-          <p><strong>Riskiest assumption:</strong> Engineering managers will trust automated DORA metrics without manual configuration or tagging.</p>
-          <p><strong>Validation:</strong> Build a read-only GitHub App that analyzes 90 days of history for a single repo. Show the output to 10 eng managers. Ask: "Are these numbers accurate? Would you show this to your VP?"</p>
-          <p><strong>Cheapest test:</strong> A free web tool &mdash; "Paste your GitHub org URL, get your DORA score in 5 minutes." Measure how many people use it and share it.</p>
+          <p><strong>Riskiest assumption:</strong> SMB founders will adopt a dedicated expense tool instead of continuing to tolerate their spreadsheet.</p>
+          <p><strong>Validation:</strong> Interview 10 founders at 10&ndash;50 person companies. Ask: "How do you track expenses today? How long does month-end take? Have you ever been surprised by a charge?" If they describe hours of manual work and missed charges, the pain is real.</p>
+          <p><strong>Cheapest test:</strong> A free receipt-scanning app (just OCR + categorization, no dashboard) distributed in founder communities. If people use it weekly, the habit exists.</p>
         </div>
         <div class="scenario" data-scenario="carbon">
-          <p><strong>Riskiest assumption:</strong> Sustainability leads will act on workload-level carbon data, rather than just needing a single aggregate number for compliance.</p>
-          <p><strong>Validation:</strong> Interview 10 sustainability leads and platform engineers. Ask: "If you could see CO2 per service per hour, what would you <span class="it">do</span> with that data?" If they describe specific optimization actions, the granularity matters. If they just need a number for a report, the wedge is wrong.</p>
-          <p><strong>Cheapest test:</strong> Manually build a static carbon report for one company's Kubernetes cluster. Show them per-namespace attribution. Watch their reaction.</p>
+          <p><strong>Riskiest assumption:</strong> Independent clinics will pay for a telehealth platform rather than continuing to use free/cheap consumer video tools.</p>
+          <p><strong>Validation:</strong> Interview 10 practice managers. Ask: "How do you handle virtual visits today? What breaks? Have you lost patients to clinics with better telehealth?" If they describe missed appointments, HIPAA anxiety, and patient complaints, the willingness to pay is there.</p>
+          <p><strong>Cheapest test:</strong> Offer to run 5 virtual visits for a single clinic using a basic prototype (Calendly + HIPAA Zoom + Google Form for intake). If the clinic's workflow improves visibly, the integrated product is worth building.</p>
         </div>
         <div class="scenario" data-scenario="queues">
-          <p><strong>Riskiest assumption:</strong> Teams cannot trace individual messages through their Kafka infrastructure today &mdash; and this gap is causing real incident pain, not just inconvenience.</p>
-          <p><strong>Validation:</strong> Interview 10 teams running Kafka at scale (&gt;1M messages/day). Ask: "When consumer lag spikes, how long does it take to find the root cause? Can you trace a specific message from producer to consumer?" If most describe a multi-hour, multi-tool debugging process, the pain is real.</p>
-          <p><strong>Cheapest test:</strong> Open-source a Kafka consumer lag CLI that shows partition-level detail with consumer group breakdown. If it gets GitHub stars and organic adoption, teams need better queue observability.</p>
+          <p><strong>Riskiest assumption:</strong> Developers will switch from Twilio or raw carrier integrations to a simpler, unified notification API.</p>
+          <p><strong>Validation:</strong> Interview 10 developers who have built notification systems. Ask: "How long did SMS integration take? How many channels do you support? What breaks?" If most describe weeks of integration work and ongoing deliverability headaches, the pain is real.</p>
+          <p><strong>Cheapest test:</strong> Publish a well-documented open-source library that wraps multiple carrier APIs into one interface. If developers star it and contribute, the simplification has value.</p>
         </div>
       </div>
     </div>
@@ -540,72 +551,74 @@ SOM year 1: 1-2% = $1-2M ARR</div>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab active" data-scenario="llm">LLM Observability</button>
-          <button class="tab" data-scenario="dora">DORA Metrics</button>
-          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
-          <button class="tab" data-scenario="queues">Message Queues</button>
+          <button class="tab active" data-scenario="llm">Collaborative Design</button>
+          <button class="tab" data-scenario="dora">SMB Expenses</button>
+          <button class="tab" data-scenario="carbon">Telemedicine</button>
+          <button class="tab" data-scenario="queues">Developer API</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <div class="ex">In scope:
-  Python SDK, auto-instruments OpenAI + Anthropic clients
-  Trace viewer: flame graph of LLM call chains
-  Dashboard: total cost, p50/p99 latency, error rate
-  Cost per user request over time (broken down by LLM call)
-  7-day retention
+  Web app, real-time collaborative canvas
+  Basic component library (boxes, arrows, text, images)
+  Inline comments and @mentions
+  Version history with visual diff
+  Shareable link (view + edit permissions)
 
 Out of scope:
-  Quality/eval scoring, prompt versioning, JS SDK,
-  custom model support, alerting, SSO
+  High-fidelity design tools, prototyping, animations,
+  design system management, developer handoff, SSO
 
 Success metric:
-  5 design partners sending &gt;1,000 traces/day after 30 days</div>
+  10 teams creating and sharing wireframes weekly
+  after 30 days</div>
         </div>
         <div class="scenario" data-scenario="dora">
           <div class="ex">In scope:
-  GitHub App (read-only, installs in 2 minutes)
-  All four DORA metrics, auto-detected from git + CI
-  Weekly trend charts
-  Team-level breakdown
-  DORA benchmark comparison (Elite/High/Medium/Low)
+  Mobile app (iOS + Android) with receipt photo capture
+  OCR: extracts amount, vendor, date automatically
+  Auto-categorization (meals, travel, software, etc.)
+  Real-time spend dashboard for the founder
+  Basic approval workflow (request &rarr; approve &rarr; done)
+  CSV export for QuickBooks/Xero
 
 Out of scope:
-  GitLab/Bitbucket, Jira integration, custom deploy
-  detection rules, alerting, API access, SSO
+  Corporate cards, bill pay, payroll, AP automation,
+  multi-currency, audit trail, SSO
 
 Success metric:
-  10 orgs installed, eng manager views dashboard
-  weekly after 30 days</div>
+  20 companies with &gt;10 receipts/week after 30 days</div>
         </div>
         <div class="scenario" data-scenario="carbon">
           <div class="ex">In scope:
-  Kubernetes DaemonSet, collects CPU/memory per pod
-  Maps to cloud region grid carbon intensity
-    (electricityMap / WattTime public data)
-  Dashboard: CO2 by namespace, by hour, 30-day trend
-  CSV export for sustainability reporting
+  HIPAA-compliant video (WebRTC, encrypted, BAA)
+  Online scheduling with calendar widget for clinic website
+  Automated SMS appointment reminders
+  Digital intake forms (patient fills out before visit)
+  Visit summary template (paste into any EHR)
 
 Out of scope:
-  Multi-cloud, non-K8s workloads, Scope 1 &amp; 2,
-  embodied carbon, automated optimization, alerting
+  EHR integration, e-prescribing, insurance billing,
+  patient portal, chronic care, multi-location
 
 Success metric:
-  3 companies running the agent in production,
-  sustainability lead pulls monthly report after 60 days</div>
+  5 clinics conducting &gt;10 virtual visits/week
+  after 60 days</div>
         </div>
         <div class="scenario" data-scenario="queues">
           <div class="ex">In scope:
-  Kafka Java + Python SDK (producer + consumer instrumentation)
-  Per-message trace: publish → broker → consume with latency
-  Consumer lag dashboard with partition-level drill-down
-  Dead letter queue tracking and alerting
-  7-day retention
+  REST API with Python + Node SDKs
+  SMS (US + EU) + email delivery
+  Template engine (define once, send to any channel)
+  Delivery status webhooks (sent, delivered, failed)
+  Dashboard: volume, delivery rate, latency by channel
 
 Out of scope:
-  RabbitMQ, SQS, Pub/Sub, broker management,
-  schema registry, stream processing, SSO
+  Push notifications, voice, contact center, marketing
+  campaigns, audience management, A/B testing, SSO
 
 Success metric:
-  5 companies tracing &gt;100K messages/day after 30 days</div>
+  50 developers sending &gt;1,000 messages/day
+  after 30 days</div>
         </div>
       </div>
     </div>
@@ -616,114 +629,118 @@ Success metric:
 
     <div class="entry" id="go-to-market">
       <div class="entry-head"><span class="entry-num">11.</span> Go-to-Market</div>
-      <p>You have a product. Now it needs to reach the right people. This is your <span class="term">go-to-market</span> strategy, and in the monitoring industry, it usually follows one of two patterns.</p>
+      <p>You have a product. Now it needs to reach the right people. This is your <span class="term">go-to-market</span> strategy, and in B2B it usually follows one of two patterns.</p>
       <dl class="defs">
         <dt>Product-Led</dt>
-        <dd>Users find the product, try it for free, and adopt it bottom-up. Self-serve signup, generous free tier, quick time-to-value. This is how Grafana and Prometheus grew &mdash; developers chose them before anyone signed a contract.</dd>
+        <dd>Users find the product, try it for free, and adopt it bottom-up. Self-serve signup, generous free tier, quick time-to-value. This is how Slack and Figma grew &mdash; practitioners chose them before anyone signed a contract.</dd>
         <dt>Sales-Led</dt>
-        <dd>An outbound sales team targets engineering leadership. Demos, POCs, procurement cycles. This is how Dynatrace and Splunk sell &mdash; large contracts, long cycles, high deal sizes.</dd>
+        <dd>An outbound sales team targets decision-makers. Demos, POCs, procurement cycles. This is how Salesforce and Workday sell &mdash; large contracts, long cycles, high deal sizes.</dd>
       </dl>
-      <p>Most modern observability companies use a <span class="term">hybrid</span>: product-led adoption to get in the door, sales-assisted expansion to grow the account. The free tier converts developers. The sales team converts their managers.</p>
-      <p>In your answer, pick a GTM motion that matches your persona and wedge. If you're targeting individual developers, product-led is right. If you're targeting platform teams at large enterprises, you'll need sales. Explain why.</p>
+      <p>Most modern B2B companies use a <span class="term">hybrid</span>: product-led adoption to get in the door, sales-assisted expansion to grow the account. The free tier converts practitioners. The sales team converts their managers.</p>
+      <p>In your answer, pick a GTM motion that matches your persona and wedge. If you're targeting individual practitioners, product-led is right. If you're targeting executives at large organizations, you'll need sales. Explain why.</p>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab active" data-scenario="llm">LLM Observability</button>
-          <button class="tab" data-scenario="dora">DORA Metrics</button>
-          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
-          <button class="tab" data-scenario="queues">Message Queues</button>
+          <button class="tab active" data-scenario="llm">Collaborative Design</button>
+          <button class="tab" data-scenario="dora">SMB Expenses</button>
+          <button class="tab" data-scenario="carbon">Telemedicine</button>
+          <button class="tab" data-scenario="queues">Developer API</button>
         </div>
         <div class="scenario active" data-scenario="llm">
-          <p><strong>Motion: Product-led.</strong> AI developers are early adopters who try open-source tools, read blog posts, and share what works on Twitter/X and Discord.</p>
-          <div class="ex">Channel 1: Open-source the SDK. Zero-friction instrumentation.
-Channel 2: Content &mdash; "We traced our RAG pipeline and cut
-           LLM costs 60%" gets shared in every AI Discord.
-Channel 3: Framework integrations &mdash; LangChain, LlamaIndex,
-           Haystack plugins.</div>
-          <p>Free tier converts individual developers. They prove value internally. Their manager approves the paid tier.</p>
+          <p><strong>Motion: Product-led.</strong> Designers share links to wireframes. Every link is a product demo &mdash; recipients see the tool in action and sign up to collaborate.</p>
+          <div class="ex">Channel 1: Shareable links &mdash; every wireframe shared is
+           a free product demo for the recipient.
+Channel 2: Content &mdash; "How we replaced 4 tools with one
+           wireframe-to-spec workflow" on design blogs.
+Channel 3: Integrations &mdash; Figma import, Notion embed,
+           Slack notifications for comments.</div>
+          <p>Free tier converts individual designers. They invite their team. The team lead upgrades when they hit the project limit.</p>
         </div>
         <div class="scenario" data-scenario="dora">
-          <p><strong>Motion: Hybrid.</strong> Product-led for small teams (install the GitHub App, see your metrics). Sales-assisted for org-wide rollout when a VP wants it across 20 teams.</p>
-          <div class="ex">Channel 1: Free tool &mdash; "Get your DORA score in 5 minutes."
-Channel 2: Conference talks at DevOpsDays, QCon, LeadDev
-           targeting eng managers who feel the pain.
-Channel 3: Partnerships with consulting firms who do
-           engineering effectiveness assessments.</div>
-          <p>The free tier acquires eng managers. Sales converts the VP who wants the org-wide view.</p>
+          <p><strong>Motion: Hybrid.</strong> Product-led for tiny teams (download the app, snap receipts). Sales-assisted for 30+ employee companies that need approval workflows and accounting integration.</p>
+          <div class="ex">Channel 1: App store optimization &mdash; "expense tracker
+           for small business" is a high-intent search.
+Channel 2: Partnerships with accountants and bookkeepers
+           who recommend tools to their SMB clients.
+Channel 3: Content &mdash; "The founder's guide to month-end
+           close in 30 minutes" in startup communities.</div>
+          <p>The free app acquires founders. Sales converts the growing company that needs controls and reporting.</p>
         </div>
         <div class="scenario" data-scenario="carbon">
-          <p><strong>Motion: Sales-led.</strong> The buyer (VP Platform or Sustainability Lead) has budget, a compliance deadline, and needs a vendor they can point auditors to. This is not a bottom-up developer tool.</p>
-          <div class="ex">Channel 1: Direct outreach to companies with public
-           sustainability commitments and cloud-heavy infra.
-Channel 2: Partnerships with cloud providers' sustainability
-           programs (AWS, GCP, Azure partner networks).
-Channel 3: Industry events &mdash; KubeCon sustainability track,
-           GreenOps community, ESG conferences.</div>
-          <p>Compliance deadlines create urgency. The sales cycle is long (3&ndash;6 months) but the contracts are large and sticky.</p>
+          <p><strong>Motion: Sales-led.</strong> The buyer (practice manager or physician-owner) needs to see the product, understand HIPAA compliance, and trust the vendor. This is not a self-serve signup.</p>
+          <div class="ex">Channel 1: Direct outreach to independent practices via
+           medical associations and practice management groups.
+Channel 2: Partnerships with EHR consultants who help
+           clinics adopt technology.
+Channel 3: Medical conferences &mdash; MGMA, HIMSS, state
+           medical association events.</div>
+          <p>Healthcare sales cycles are long (2&ndash;4 months) but retention is very high. Once a clinic adopts your workflow, switching costs are significant.</p>
         </div>
         <div class="scenario" data-scenario="queues">
-          <p><strong>Motion: Hybrid.</strong> Product-led for individual platform engineers (open-source SDK, free tier). Sales-assisted for large orgs running Kafka at scale who want org-wide queue observability.</p>
-          <div class="ex">Channel 1: Open-source the SDK. Kafka community is active
-           on GitHub and Confluent Community forums.
-Channel 2: Content &mdash; "How we traced a poison message
-           across 12 partitions" resonates in DevOps Slack.
-Channel 3: Kafka Summit, KubeCon, partnership with
-           Confluent marketplace listing.</div>
-          <p>The open-source SDK gets individual platform engineers. Sales gets the VP Infrastructure who wants queue observability across all clusters.</p>
+          <p><strong>Motion: Product-led.</strong> Developers find APIs through documentation, Stack Overflow answers, and "how to send SMS in Python" tutorials. Great docs are the GTM.</p>
+          <div class="ex">Channel 1: Documentation &mdash; best-in-class quick-start
+           guides. "Send your first SMS in 5 minutes."
+Channel 2: Content &mdash; SEO-optimized tutorials for common
+           use cases (verification, receipts, alerts).
+Channel 3: Open-source SDKs and community libraries
+           that lower the integration barrier.</div>
+          <p>Free tier converts individual developers. Usage grows with their app. When volume crosses the threshold, billing starts automatically.</p>
         </div>
       </div>
     </div>
 
     <div class="entry" id="pricing">
       <div class="entry-head"><span class="entry-num">12.</span> Pricing</div>
-      <p>How monitoring products make money is not obvious from the outside. The industry uses several models, and each one sends a different signal about what the product values.</p>
+      <p>How B2B products make money is not always obvious from the outside. The most common models each send a different signal about what the product values.</p>
       <dl class="defs">
         <dt>Usage-based</dt>
-        <dd>Pay for what you ingest or query. GB of logs, millions of spans, custom metric time series. Datadog and New Relic use this. It scales with the customer but makes bills unpredictable.</dd>
+        <dd>Pay for what you consume. API calls, messages sent, storage used. Twilio and AWS use this. It scales with the customer but makes bills unpredictable.</dd>
         <dt>Seat-based</dt>
         <dd>Pay per user. Simple and predictable. But it creates friction &mdash; teams limit who gets access, which limits adoption and value.</dd>
         <dt>Tier-based</dt>
-        <dd>Free, Pro, Enterprise. Features unlock at each tier. Grafana Cloud uses this. Good for product-led growth because the free tier gets people in.</dd>
+        <dd>Free, Pro, Enterprise. Features unlock at each tier. Slack and Notion use this. Good for product-led growth because the free tier gets people in.</dd>
       </dl>
       <p><span class="term">Pricing signals value.</span> If you charge by data volume, you're saying the product is about data. If you charge by seat, you're saying it's about collaboration. If you charge by tier, you're saying advanced capabilities are the premium.</p>
       <p>In your answer, pick a model and explain the trade-off. There's no right answer &mdash; but there should be a reason.</p>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab active" data-scenario="llm">LLM Observability</button>
-          <button class="tab" data-scenario="dora">DORA Metrics</button>
-          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
-          <button class="tab" data-scenario="queues">Message Queues</button>
+          <button class="tab active" data-scenario="llm">Collaborative Design</button>
+          <button class="tab" data-scenario="dora">SMB Expenses</button>
+          <button class="tab" data-scenario="carbon">Telemedicine</button>
+          <button class="tab" data-scenario="queues">Developer API</button>
         </div>
         <div class="scenario active" data-scenario="llm">
-          <p><strong>Model: Usage-based</strong> on LLM spans ingested. $2 per 1,000 spans.</p>
-          <div class="ex">Free:       10,000 spans/month (a side project)
-Pro:        pay-as-you-go, volume discounts at scale
-Enterprise: committed spend + SSO + support</div>
-          <p><strong>Why:</strong> LLM costs already scale with usage, so observability costs should too. A startup tracing 50K calls/month pays ~$100. An enterprise tracing 10M calls/month pays ~$20K. This feels fair relative to their LLM spend and creates natural expansion as adoption grows.</p>
+          <p><strong>Model: Seat-based</strong> with a generous free tier. $15/editor/month.</p>
+          <div class="ex">Free:       3 projects, unlimited viewers, 2 editors
+Pro:        $15/editor/month, unlimited projects
+Enterprise: custom pricing + SSO + admin controls</div>
+          <p><strong>Why:</strong> Collaboration tools live or die on adoption. The free tier must include enough for a small team to get hooked. Viewers are always free &mdash; you want every stakeholder seeing wireframes, not just the editors. Revenue scales with team size and the number of active creators.</p>
         </div>
         <div class="scenario" data-scenario="dora">
-          <p><strong>Model: Seat-based</strong> per contributor tracked. $15/contributor/month.</p>
-          <div class="ex">Free:       up to 10 contributors
-Pro:        $15/contributor/month
-Enterprise: custom pricing + SSO + API access</div>
-          <p><strong>Why:</strong> DORA metrics scale with team size, not data volume. An org with 200 engineers pays ~$3K/month &mdash; easily justified if it eliminates one "how fast do we ship?" fire drill per quarter. Seat-based also aligns incentives: you want the org to add more teams, not worry about data volume.</p>
+          <p><strong>Model: Tier-based</strong> by company size.</p>
+          <div class="ex">Free:       up to 5 employees, basic receipt capture
+Pro:        $49/month, up to 25 employees, approvals + reporting
+Business:   $149/month, up to 100 employees, integrations + audit
+Enterprise: custom pricing + SSO + multi-entity</div>
+          <p><strong>Why:</strong> SMBs need predictable pricing. Per-receipt or per-transaction billing creates anxiety in a market where cash flow visibility is the whole point. Flat tiers by company size are simple to understand and easy to budget for. The upgrade trigger is headcount growth &mdash; exactly when expense management gets harder.</p>
         </div>
         <div class="scenario" data-scenario="carbon">
-          <p><strong>Model: Tier-based</strong> with an open-source core.</p>
-          <div class="ex">Open source: basic estimation, single cluster, community
-Pro:         $1,500/month &mdash; real-time attribution,
-             multi-cluster, team breakdown
-Enterprise:  $5,000+/month &mdash; audit-ready reports,
-             multi-cloud, API, dedicated support</div>
-          <p><strong>Why:</strong> The open-source core builds credibility and community in a space where trust matters (sustainability claims are scrutinized). The paid tiers unlock the features compliance teams need. Regulation creates the upgrade trigger &mdash; when the audit deadline hits, they need the Enterprise tier.</p>
+          <p><strong>Model: Tier-based</strong> per provider.</p>
+          <div class="ex">Solo:       $99/month, 1 provider, basic scheduling + video
+Practice:   $249/month, up to 5 providers, intake forms,
+            SMS reminders, visit summaries
+Enterprise: custom, 6+ providers, EHR integration,
+            multi-location, dedicated support</div>
+          <p><strong>Why:</strong> Healthcare buyers want predictable costs they can expense monthly. Per-visit pricing would penalize the clinics using the product most. Tier-based per provider aligns the price with the size of the practice and creates a natural upgrade path as the clinic grows or adds specialties.</p>
         </div>
         <div class="scenario" data-scenario="queues">
-          <p><strong>Model: Usage-based</strong> on messages traced. $1 per million messages.</p>
-          <div class="ex">Free:       5M messages/month (a dev environment)
-Pro:        pay-as-you-go, volume discounts at scale
-Enterprise: committed spend + SSO + SLA + support</div>
-          <p><strong>Why:</strong> Message volume directly correlates with infrastructure complexity and the value of observability. A startup processing 10M messages/month pays $10. An enterprise processing 10B messages/month pays $10K. The price scales naturally with the customer's pain level.</p>
+          <p><strong>Model: Usage-based</strong> per message sent. $0.01/SMS, $0.001/email.</p>
+          <div class="ex">Free:       1,000 messages/month (prototyping)
+Pay-as-go:  per-message pricing, no minimums
+Growth:     volume discounts starting at 100K messages/month
+Enterprise: committed spend + SLA + dedicated support</div>
+          <p><strong>Why:</strong> Notification volume directly correlates with app growth and the value the API provides. A side project pays nothing. A growing startup pays proportionally. An enterprise sending millions of messages per day pays serious money &mdash; but it is still cheaper than building and maintaining the infrastructure themselves.</p>
         </div>
       </div>
     </div>
@@ -752,78 +769,78 @@ Enterprise: committed spend + SSO + SLA + support</div>
       </svg>
       <dl class="defs">
         <dt>Activation</dt>
-        <dd>Did the user get value? For a tracing product: did they send their first trace within 30 minutes of signup? Leading indicator of retention.</dd>
+        <dd>Did the user get value? For a collaboration tool: did they invite a teammate within 24 hours of signup? Leading indicator of retention.</dd>
         <dt>Retention</dt>
-        <dd>Do they keep coming back? Weekly active users who query traces at least once. The core health metric for any product.</dd>
+        <dd>Do they keep coming back? Weekly active users who perform a core action at least once. The core health metric for any product.</dd>
         <dt>Expansion</dt>
-        <dd>Do accounts grow over time? More seats, more data, upgraded tiers. This is how monitoring products become large revenue streams.</dd>
+        <dd>Do accounts grow over time? More seats, more usage, upgraded tiers. This is how B2B products become large revenue streams.</dd>
         <dt>NPS / CSAT</dt>
-        <dd>Do users recommend it? A qualitative signal that complements the quantitative ones. Especially important in developer tools, where word-of-mouth drives adoption.</dd>
+        <dd>Do users recommend it? A qualitative signal that complements the quantitative ones. Especially important in B2B products, where word-of-mouth drives adoption.</dd>
       </dl>
       <p>End your answer here. Name two or three metrics, explain what each one tells you, and describe what "good" looks like in the first six months. This closes the loop &mdash; you started with a vague idea and ended with a measurable plan.</p>
 
       <div class="scenarios">
         <div class="tab-bar">
-          <button class="tab active" data-scenario="llm">LLM Observability</button>
-          <button class="tab" data-scenario="dora">DORA Metrics</button>
-          <button class="tab" data-scenario="carbon">Carbon Emissions</button>
-          <button class="tab" data-scenario="queues">Message Queues</button>
+          <button class="tab active" data-scenario="llm">Collaborative Design</button>
+          <button class="tab" data-scenario="dora">SMB Expenses</button>
+          <button class="tab" data-scenario="carbon">Telemedicine</button>
+          <button class="tab" data-scenario="queues">Developer API</button>
         </div>
         <div class="scenario active" data-scenario="llm">
           <dl class="defs">
             <dt>Activation</dt>
-            <dd>First LLM trace received within 15 minutes of signup. If instrumentation takes longer, the SDK is too hard.</dd>
+            <dd>First wireframe shared with a teammate within 24 hours of signup. If the product is compelling, the first thing a designer does is show someone.</dd>
             <dt>Retention</dt>
-            <dd>User queries the trace viewer at least once per week. Shows it's part of their workflow, not a one-time curiosity.</dd>
+            <dd>User creates or edits a wireframe at least once per week. Shows the tool is part of their workflow, not a one-time experiment.</dd>
             <dt>Expansion</dt>
-            <dd>Account grows from 1 instrumented service to 3+ within 60 days. Cost data is being shared in team Slack channels.</dd>
+            <dd>Account grows from 1 editor to 3+ within 30 days. Team invites PMs and engineers as collaborators.</dd>
           </dl>
           <div class="ex">Six-month target:
-  200 teams sending traces
-  40% weekly retention
-  $150K ARR</div>
+  500 active teams
+  45% weekly retention
+  $100K ARR</div>
         </div>
         <div class="scenario" data-scenario="dora">
           <dl class="defs">
             <dt>Activation</dt>
-            <dd>GitHub App installed and first DORA metrics visible within 1 day. If it takes longer, zero-config is not working.</dd>
+            <dd>First 10 receipts captured within the first week. If the app feels faster than the old process, they will keep using it.</dd>
             <dt>Retention</dt>
-            <dd>Engineering manager views dashboard at least once per week. Shows the metrics are influencing decisions, not collecting dust.</dd>
+            <dd>At least one receipt captured per week. Shows the habit is forming and the tool is replacing the spreadsheet.</dd>
             <dt>Expansion</dt>
-            <dd>Org grows from 1 team tracked to 5+ teams within 90 days. VP asks for org-wide rollout.</dd>
+            <dd>Founder invites employees to submit expenses within 30 days. The account upgrades from Free to Pro when they hit the employee limit.</dd>
           </dl>
           <div class="ex">Six-month target:
-  50 orgs active
-  30% weekly retention among eng managers
+  300 active companies
+  50% weekly receipt capture rate
   $80K ARR</div>
         </div>
         <div class="scenario" data-scenario="carbon">
           <dl class="defs">
             <dt>Activation</dt>
-            <dd>Agent deployed, first carbon estimate visible within 1 hour. Kubernetes agents must be drop-in &mdash; if it requires a platform team sprint, adoption stalls.</dd>
+            <dd>First virtual visit conducted within 7 days of signup. If setup takes longer, the onboarding is too complex for a small practice.</dd>
             <dt>Retention</dt>
-            <dd>Sustainability lead pulls a report at least monthly. Aligns with the natural reporting cadence.</dd>
+            <dd>Clinic conducts at least 5 virtual visits per week. Shows the platform is part of the care workflow, not a backup option.</dd>
             <dt>Expansion</dt>
-            <dd>From 1 cluster to all production clusters within 6 months. Data cited in an actual ESG report or board presentation.</dd>
+            <dd>Clinic upgrades from Solo to Practice tier as additional providers adopt within 90 days. Scheduling widget added to the clinic's website.</dd>
           </dl>
           <div class="ex">Six-month target:
-  15 companies running in production
-  3 using data in published sustainability reports
-  $200K ARR</div>
+  50 clinics active
+  80% monthly retention
+  $120K ARR</div>
         </div>
         <div class="scenario" data-scenario="queues">
           <dl class="defs">
             <dt>Activation</dt>
-            <dd>First message trace received within 20 minutes of SDK install. If instrumentation requires broker config changes, adoption stalls.</dd>
+            <dd>First API call within 30 minutes of signup. If the quick-start guide takes longer, the developer experience has failed.</dd>
             <dt>Retention</dt>
-            <dd>Team queries the trace view during at least one incident per month. Shows it is part of the incident response workflow, not a setup-and-forget tool.</dd>
+            <dd>Developer sends messages at least weekly. Shows the API is in a production or staging workflow, not a sandbox experiment.</dd>
             <dt>Expansion</dt>
-            <dd>Account grows from 1 Kafka cluster to all production clusters within 90 days. Tool added to the incident response runbook.</dd>
+            <dd>Account adds a second channel (e.g., email after starting with SMS) within 60 days. Usage volume grows 20%+ month over month.</dd>
           </dl>
           <div class="ex">Six-month target:
-  30 companies tracing messages
-  35% monthly active during incidents
-  $120K ARR</div>
+  500 active developers
+  60% weekly active
+  $80K ARR</div>
         </div>
       </div>
     </div>
@@ -863,7 +880,7 @@ Enterprise: committed spend + SSO + SLA + support</div>
       <div class="entry-head"><span class="entry-num">1.</span> How They Differ</div>
       <p>The case study question gives you a business idea and asks you to walk through a process &mdash; from ideation to commercialization. Scenario questions are different. They drop you into <span class="term">a situation that is already in motion</span> and watch how you react.</p>
       <p>There is no thirteen-step framework. There is a messy problem, incomplete information, and competing pressures. The interviewer wants to see your <span class="term">judgment</span> &mdash; how you think under real-world pressure, not whether you can recite a textbook.</p>
-      <p>Expect 1&ndash;3 of these in your interview. They will be situations you would actually face as a PM at an observability company:</p>
+      <p>Expect 1&ndash;3 of these in your interview. They will be situations you would actually face as a PM at a B2B technology company:</p>
       <div class="ex">&bull; A customer pushing back on pricing during a sales call
 &bull; Competing priorities with limited engineering capacity
 &bull; A feature you shipped that nobody is using
@@ -900,25 +917,25 @@ Strong:    "Before I respond, I'd want to understand a few things.
     <div class="entry" id="pricing-pushback">
       <div class="entry-head"><span class="entry-num">3.</span> Pricing Pushback</div>
       <p>The interviewer says:</p>
-      <div class="ex">"You're on a call with a prospect evaluating your observability
-platform. They completed a successful POC &mdash; their SRE team loves
+      <div class="ex">"You're on a call with a prospect evaluating your B2B SaaS
+platform. They completed a successful POC &mdash; the end users love
 the product. But their VP of Engineering just joined the call and
 says your usage-based pricing is 40% more expensive than a
 competitor for a similar setup. He wants you to match the price
 or he's going with the alternative. What do you do?"</div>
 
-      <p><span class="term">What they're testing:</span> Can you handle pricing pressure without panicking or immediately discounting? Do you understand value-based selling versus cost-based selling? Can you navigate a multi-stakeholder dynamic where the champion (the SRE) and the budget holder (the VP) want different things?</p>
+      <p><span class="term">What they're testing:</span> Can you handle pricing pressure without panicking or immediately discounting? Do you understand value-based selling versus cost-based selling? Can you navigate a multi-stakeholder dynamic where the champion (the end user) and the budget holder (the VP) want different things?</p>
 
-      <p><span class="term">Step 1: Understand the comparison.</span> Do not accept "40% more expensive" at face value. Observability pricing is notoriously hard to compare apples-to-apples. Different platforms meter differently &mdash; one charges per GB of logs, another per host, another per custom metric series. A "40% cheaper" comparison often collapses under scrutiny.</p>
+      <p><span class="term">Step 1: Understand the comparison.</span> Do not accept "40% more expensive" at face value. B2B pricing is notoriously hard to compare apples-to-apples. Different platforms meter differently &mdash; one charges per seat, another per usage, another by feature tier. A "40% cheaper" comparison often collapses under scrutiny.</p>
       <div class="ex">"Can you walk me through what's included in that comparison?
 I want to make sure we're looking at the same scope &mdash; same
 data volume, same retention period, same feature set."</div>
 
-      <p><span class="term">Step 2: Reframe around value, not cost.</span> The SRE team already chose your product. That is your strongest leverage. The question is not "how much does it cost" but "what is the cost of switching to a tool the team did not choose?"</p>
-      <div class="ex">"Your SRE team ran a thorough POC and picked us. What would
-it cost &mdash; in time and morale &mdash; to run another evaluation
-with a tool they didn't select? And if mean time to resolution
-is longer with the alternative, what's that worth per incident?"</div>
+      <p><span class="term">Step 2: Reframe around value, not cost.</span> The end users already chose your product. That is your strongest leverage. The question is not "how much does it cost" but "what is the cost of switching to a tool the team did not choose?"</p>
+      <div class="ex">"Your team ran a thorough POC and picked us. What would it
+cost &mdash; in time and morale &mdash; to run another evaluation
+with a tool they didn't select? And if productivity drops
+with the alternative, what's that worth per quarter?"</div>
 
       <p><span class="term">Step 3: Explore structure, not discounts.</span> If the gap is real, close it without a straight price cut: an annual commitment for a lower rate, a reduced retention window, a phased rollout that starts with fewer hosts and expands as they prove ROI.</p>
       <div class="ex">"If we structure this as an annual commitment starting with
@@ -937,7 +954,7 @@ lowest unit price, we should keep talking."</div>
       <p><span class="term">Common mistakes:</span></p>
       <div class="ex">&bull; Immediately offering a discount (signals the price was inflated)
 &bull; Badmouthing the competitor (unprofessional, VP will tune you out)
-&bull; Ignoring the VP and only addressing the SRE champion
+&bull; Ignoring the VP and only addressing the end-user champion
 &bull; Getting defensive about pricing (makes the conversation adversarial)
 &bull; Treating it as a pure sales problem instead of a product value problem</div>
     </div>
@@ -945,7 +962,7 @@ lowest unit price, we should keep talking."</div>
     <div class="entry" id="the-prioritization-call">
       <div class="entry-head"><span class="entry-num">4.</span> The Prioritization Call</div>
       <p>The interviewer says:</p>
-      <div class="ex">"You're the PM for an observability product. It's planning
+      <div class="ex">"You're the PM for a B2B SaaS product. It's planning
 season and you have engineering capacity for two medium-sized
 features next quarter. Here are the requests on the table:
 
@@ -1009,12 +1026,12 @@ that means validating it first.'"</div>
     <div class="entry" id="the-feature-nobody-uses">
       <div class="entry-head"><span class="entry-num">5.</span> The Feature Nobody Uses</div>
       <p>The interviewer says:</p>
-      <div class="ex">"Three months ago your team shipped a Service Map feature
-that auto-discovers service dependencies from trace data and
-visualizes them. Two engineers worked on it for a full quarter.
-Since launch, only 8% of active users have viewed it and less
-than 2% use it more than once. Your VP of Product is asking
-what went wrong. What do you do?"</div>
+      <div class="ex">"Three months ago your team shipped an Activity Dashboard
+that visualizes team-wide usage patterns and surfaces
+insights automatically. Two engineers worked on it for a full
+quarter. Since launch, only 8% of active users have viewed it
+and less than 2% use it more than once. Your VP of Product is
+asking what went wrong. What do you do?"</div>
 
       <p><span class="term">What they're testing:</span> Can you diagnose a product failure without getting defensive? Do you distinguish between fundamentally different failure modes? What would you do differently next time?</p>
 
@@ -1030,7 +1047,7 @@ what went wrong. What do you do?"</div>
 
       <p><span class="term">Step 2: Gather data before answering the VP.</span></p>
       <div class="ex">&bull; How many users saw the launch announcement or changelog?
-&bull; Of users who opened Service Map, how long did they stay?
+&bull; Of users who opened Activity Dashboard, how long did they stay?
   Did they interact or just glance and leave?
 &bull; Who are the 2% that came back? Larger accounts?
   Specific personas? A particular use case?
@@ -1045,17 +1062,17 @@ and the only announcement was a blog post, that's a
 distribution failure.
 
 Fix: add contextual entry points. When a user views a
-trace that spans multiple services, surface a 'View
+action that spans multiple features, surface a 'View
 service map' link inline. Meet them where they already are."</div>
 
       <p>If it is a <span class="term">usability problem:</span></p>
-      <div class="ex">"If users open the map once and never return, the first
-experience is not delivering value fast enough. Maybe
-auto-discovery missed their critical services, or the
-visualization is too abstract without operational context.
+      <div class="ex">"If users open the dashboard once and never return, the
+first experience is not delivering value fast enough. Maybe
+the insights are too generic, or the visualization is too
+abstract without context about what they should do next.
 
 Fix: watch 5 session recordings of first-time users
-opening the Service Map. The failure point will be
+opening the dashboard. The failure point will be
 obvious within 30 minutes of watching."</div>
 
       <p>If it is a <span class="term">value problem:</span></p>
@@ -1070,7 +1087,7 @@ that niche or acknowledge the miss and reallocate."</div>
       <p><span class="term">Step 4: What you would do differently.</span> This is what the VP actually cares about.</p>
       <div class="ex">"Before committing a quarter of engineering to a feature,
 I'd validate demand first. A fake door test &mdash; add a
-'Service Map' button that shows a waitlist &mdash; would tell
+'Activity Dashboard' button that shows a waitlist &mdash; would tell
 us click-through rate before writing any code. Or ship
 a minimal version in two weeks and measure whether usage
 justifies the full investment."</div>
@@ -1277,7 +1294,7 @@ decision based on a week of Hacker News anxiety."</div>
       <div class="entry-head"><span class="entry-num">1.</span> Why Pivot</div>
       <p>Everything in the Case Study tab teaches you to think about external products &mdash; products sold to customers outside your company. Personas, wedges, pricing, go-to-market. That is one half of the product management world.</p>
       <p>The other half builds products for people inside the company. <span class="term">Internal platform PM</span> is one of the fastest-growing roles in software. Gartner predicts that by 2027, 80% of large software organizations will have dedicated platform engineering teams, up from 45% in 2022. These teams need product managers who think like product people, not like infrastructure administrators.</p>
-      <p>If you have spent your career building external-facing products &mdash; especially in monitoring and observability &mdash; you already have most of the skills. The customer discovery, the prioritization, the trade-off thinking. What changes is the <span class="term">context</span>: who your customer is, how you reach them, how you measure success, and what "go-to-market" means when there is no market.</p>
+      <p>If you have spent your career building external-facing products &mdash; especially in B2B SaaS or developer tools &mdash; you already have most of the skills. The customer discovery, the prioritization, the trade-off thinking. What changes is the <span class="term">context</span>: who your customer is, how you reach them, how you measure success, and what "go-to-market" means when there is no market.</p>
       <p>This section teaches you how to make that pivot. Each entry covers one concept that is different about internal platform PM, so you can walk into an interview and speak the language fluently.</p>
     </div>
 
@@ -1312,7 +1329,7 @@ compelling internal product."</div>
         <dt>Self-service</dt>
         <dd>Developers provision, deploy, monitor, and debug without filing tickets or waiting for another team.</dd>
         <dt>Opinionated</dt>
-        <dd>The platform makes choices so developers do not have to. Which language runtime. Which observability stack. Which deploy pipeline. Opinions reduce decisions.</dd>
+        <dd>The platform makes choices so developers do not have to. Which language runtime. Which monitoring stack. Which deploy pipeline. Opinions reduce decisions.</dd>
         <dt>Escape hatches</dt>
         <dd>For the 20% of cases where the opinion does not fit, the platform provides a way out. The goal is easy defaults, not rigid mandates.</dd>
       </dl>
@@ -1333,7 +1350,7 @@ Fills in three fields: service name, team, and language.
 What they get in 90 seconds:
   &bull; A new repo with a Hello World project, pre-configured
   &bull; CI/CD pipeline already running the first build
-  &bull; Observability baked in &mdash; logging, metrics, tracing
+  &bull; Observability baked in &mdash; logging, metrics, alerting
   &bull; Security policies embedded in the deploy pipeline
   &bull; Production-ready Kubernetes configs
 
@@ -1473,11 +1490,11 @@ Tracking Wrong Metrics:  Measuring portal logins instead of
 
     <div class="entry" id="translate-your-story">
       <div class="entry-head"><span class="entry-num">9.</span> Translate Your Story</div>
-      <p>If you have been an external-facing PM &mdash; especially in observability or developer tools &mdash; your experience maps directly to internal platform work. The interviewer may not see the connection unless you draw it for them. This is the <span class="term">translation</span> step.</p>
+      <p>If you have been an external-facing PM &mdash; especially in B2B SaaS or developer tools &mdash; your experience maps directly to internal platform work. The interviewer may not see the connection unless you draw it for them. This is the <span class="term">translation</span> step.</p>
       <p>Here is how external PM skills map to internal platform skills:</p>
       <dl class="defs">
         <dt>User research</dt>
-        <dd>You interviewed SREs and developers to understand pain points. Now you shadow internal engineers, run developer experience surveys, and analyze support ticket patterns. Same muscle, different gym.</dd>
+        <dd>You interviewed customers and users to understand pain points. Now you shadow internal engineers, run developer experience surveys, and analyze support ticket patterns. Same muscle, different gym.</dd>
         <dt>Prioritization</dt>
         <dd>You balanced revenue impact, user demand, and technical debt. Now you balance developer time saved, platform reliability, and migration urgency. The frameworks are identical &mdash; the inputs change.</dd>
         <dt>Go-to-market</dt>
@@ -1490,22 +1507,22 @@ Tracking Wrong Metrics:  Measuring portal logins instead of
       <p>The <span class="term">one thing that is genuinely new</span>: you lose your support apparatus. External PMs have sales teams, customer success, documentation teams, and marketing. Internal platform PMs are their own marketer, trainer, evangelist, and support team. You write the strategy memos. You run the migration workshops. You present to senior leadership. If this sounds like more work, it is. But it also means you control the full experience in a way external PMs rarely can.</p>
       <div class="ex">How to frame your experience in an interview:
 
-External:  "I grew our observability product from 50 to 500
-           customers through product-led growth."
+External:  "I grew our SaaS product from 50 to 500 customers
+           through product-led growth."
 Internal:  "I understand bottom-up adoption. I've built the
            funnels, measured the activation metrics, and learned
-           that developers adopt tools that save them time, not
+           that people adopt tools that save them time, not
            tools that are mandated."
 
-External:  "I ran customer discovery for our APM product by
-           interviewing 30 SRE teams."
-Internal:  "I have deep experience with the persona you're
-           building for. I've interviewed dozens of platform
-           engineers and SREs about their workflows, tooling
-           pain, and what they actually want from infrastructure."
+External:  "I ran customer discovery for our product by
+           interviewing 30 target customers."
+Internal:  "I have deep experience running user research at
+           scale. I've interviewed dozens of practitioners
+           about their workflows, tooling pain, and what they
+           actually want from the tools they use daily."
 
-External:  "I defined usage-based pricing for a monitoring
-           product at scale."
+External:  "I defined usage-based pricing for a B2B product
+           at scale."
 Internal:  "I know how to articulate the value of developer
            tooling in business terms &mdash; time saved, incidents
            reduced, velocity gained &mdash; because I've done it
