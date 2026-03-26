@@ -18,6 +18,7 @@
     <div class="mode-switcher">
       <button class="mode-tab active" data-mode="case">Case Study</button>
       <button class="mode-tab" data-mode="scenarios">Scenario Questions</button>
+      <button class="mode-tab" data-mode="pivot">The Pivot</button>
     </div>
 
     <div class="mode-content active" data-mode="case">
@@ -1228,6 +1229,324 @@ decision based on a week of Hacker News anxiety."</div>
   about your customers and what they need
 &bull; Promising a response by Friday when the right response
   takes two weeks of analysis and modeling</div>
+    </div>
+
+    <footer>
+      <p>Matthew Reider &middot; <a href="https://github.com/mreider/case">Source</a></p>
+    </footer>
+
+    </div>
+
+    <div class="mode-content" data-mode="pivot">
+
+    <nav class="toc" id="toc-pivot">
+      <div class="toc-label">Contents</div>
+
+      <div class="toc-phase">Understand the Shift</div>
+      <ol>
+        <li><a href="#why-pivot"><span class="num">1</span> Why Pivot</a></li>
+        <li><a href="#your-new-customer"><span class="num">2</span> Your New Customer</a></li>
+      </ol>
+
+      <div class="toc-phase">Learn the Language</div>
+      <ol start="3">
+        <li><a href="#platform-as-product"><span class="num">3</span> Platform as Product</a></li>
+        <li><a href="#the-paved-road"><span class="num">4</span> The Paved Road</a></li>
+        <li><a href="#cognitive-load"><span class="num">5</span> Cognitive Load</a></li>
+      </ol>
+
+      <div class="toc-phase">Reframe Your Toolkit</div>
+      <ol start="6">
+        <li><a href="#measure-differently"><span class="num">6</span> Measure Differently</a></li>
+        <li><a href="#earn-adoption"><span class="num">7</span> Earn Adoption</a></li>
+        <li><a href="#the-ai-layer"><span class="num">8</span> The AI Layer</a></li>
+      </ol>
+
+      <div class="toc-phase">Interview Differently</div>
+      <ol start="9">
+        <li><a href="#translate-your-story"><span class="num">9</span> Translate Your Story</a></li>
+        <li><a href="#the-questions"><span class="num">10</span> The Questions They Ask</a></li>
+      </ol>
+    </nav>
+
+    <!-- ——————————————————————————— -->
+    <div class="phase">Understand the Shift</div>
+    <!-- ——————————————————————————— -->
+
+    <div class="entry" id="why-pivot">
+      <div class="entry-head"><span class="entry-num">1.</span> Why Pivot</div>
+      <p>Everything in the Case Study tab teaches you to think about external products &mdash; products sold to customers outside your company. Personas, wedges, pricing, go-to-market. That is one half of the product management world.</p>
+      <p>The other half builds products for people inside the company. <span class="term">Internal platform PM</span> is one of the fastest-growing roles in software. Gartner predicts that by 2027, 80% of large software organizations will have dedicated platform engineering teams, up from 45% in 2022. These teams need product managers who think like product people, not like infrastructure administrators.</p>
+      <p>If you have spent your career building external-facing products &mdash; especially in monitoring and observability &mdash; you already have most of the skills. The customer discovery, the prioritization, the trade-off thinking. What changes is the <span class="term">context</span>: who your customer is, how you reach them, how you measure success, and what "go-to-market" means when there is no market.</p>
+      <p>This section teaches you how to make that pivot. Each entry covers one concept that is different about internal platform PM, so you can walk into an interview and speak the language fluently.</p>
+    </div>
+
+    <div class="entry" id="your-new-customer">
+      <div class="entry-head"><span class="entry-num">2.</span> Your New Customer</div>
+      <p>When you build external products, reaching your customer is hard. You run surveys, schedule user interviews, build landing pages, and hope someone fills out a form. When you build internal platforms, your customers sit in the same Slack workspace. You can message them directly, see their calendars, and get feedback in minutes.</p>
+      <p>This sounds like an advantage. It is &mdash; and it is also a trap.</p>
+      <p>The trap is the <span class="term">captive audience problem</span>. External customers vote with their wallets. If your product is bad, they leave. Internal users often cannot leave &mdash; they are told to use the platform. When adoption is mandatory, feedback loses signal. A team that is forced to use your platform will file tickets, comply with migration deadlines, and never tell you the product is actually making their lives harder.</p>
+      <div class="ex">The bright-line test for a real customer (Joshua Arnold):
+
+1. They have genuine choice &mdash; they can walk away
+2. They exchange something of value &mdash; time, attention, effort
+
+Without both, the feedback you collect is performance, not signal.</div>
+      <p>The best internal platform PMs treat this problem seriously. They build platforms that are <span class="term">compelling to use, not mandated</span>. If every team in the company would choose your platform even if they had alternatives, you are doing the job right. If adoption depends on a mandate from leadership, you have a compliance tool, not a product.</p>
+      <p>In an interview, this is one of the most powerful things you can say: <span class="it">"I believe the best internal platforms earn adoption. If engineers would not choose it voluntarily, the platform is not good enough."</span></p>
+    </div>
+
+    <!-- ——————————————————————————— -->
+    <div class="phase">Learn the Language <a href="#toc-pivot" class="back-to-top">&uarr; top</a></div>
+    <!-- ——————————————————————————— -->
+
+    <div class="entry" id="platform-as-product">
+      <div class="entry-head"><span class="entry-num">3.</span> Platform as Product</div>
+      <p>The defining statement of modern platform engineering comes from Evan Bottcher (2018):</p>
+      <div class="ex">"A digital platform is a foundation of self-service APIs, tools,
+services, knowledge, and support which are arranged as a
+compelling internal product."</div>
+      <p>Every word matters. <span class="term">Self-service</span> means developers can use it without filing a ticket. <span class="term">Knowledge and support</span> means documentation and help are part of the product, not afterthoughts. <span class="term">Compelling</span> means it must be good enough that people want to use it.</p>
+      <p>The practical framework is the <span class="term">Thinnest Viable Platform</span> (TVP), from Team Topologies. A TVP is the smallest set of APIs, documentation, and tools needed to accelerate teams. It could be as minimal as a wiki page listing which cloud provider you use and how to provision a service. The key insight: TVP applies across the lifetime of the platform &mdash; you keep it as thin as possible permanently, not just at launch.</p>
+      <dl class="defs">
+        <dt>Self-service</dt>
+        <dd>Developers provision, deploy, monitor, and debug without filing tickets or waiting for another team.</dd>
+        <dt>Opinionated</dt>
+        <dd>The platform makes choices so developers do not have to. Which language runtime. Which observability stack. Which deploy pipeline. Opinions reduce decisions.</dd>
+        <dt>Escape hatches</dt>
+        <dd>For the 20% of cases where the opinion does not fit, the platform provides a way out. The goal is easy defaults, not rigid mandates.</dd>
+      </dl>
+      <p>Martin Fowler identifies five prerequisites for platform success: business value, product thinking, operational excellence, software engineering excellence, and healthy teams. In an interview, naming these shows you understand that a platform is not just infrastructure &mdash; it is an organizational capability.</p>
+      <p>The CNCF Platform Engineering Maturity Model provides a useful vocabulary. It defines four levels &mdash; Provisional, Operational, Scalable, and Optimizing &mdash; across five dimensions: investment, adoption, interfaces, operations, and measurement. Most organizations are at level 1 or 2. Knowing where you are tells you what to build next.</p>
+    </div>
+
+    <div class="entry" id="the-paved-road">
+      <div class="entry-head"><span class="entry-num">4.</span> The Paved Road</div>
+      <p>A <span class="term">paved road</span> (also called a "golden path") is the opinionated, supported path to accomplish a common task &mdash; build a backend service, deploy a web app, create a data pipeline. It codifies organizational knowledge into a repeatable workflow that anyone can follow.</p>
+      <p>The term comes from large-scale engineering organizations that discovered a problem: as autonomous teams multiplied, so did the ways to do everything. Every team picked their own language, framework, CI tool, and deployment method. Finding out how to do something required asking a colleague. One company called this <span class="it">"rumour-driven development."</span></p>
+      <p>The paved road is the fix. It is not a mandate &mdash; it is the <span class="term">easiest path</span>. Teams can go off-road, but they lose the guardrails, the documentation, and the support. The principle is: <span class="it">make it easy to do the right things, and hard to do the wrong things.</span></p>
+      <div class="ex">What a paved road looks like in practice:
+
+A developer opens the internal portal. Selects "New Backend Service."
+Fills in three fields: service name, team, and language.
+
+What they get in 90 seconds:
+  &bull; A new repo with a Hello World project, pre-configured
+  &bull; CI/CD pipeline already running the first build
+  &bull; Observability baked in &mdash; logging, metrics, tracing
+  &bull; Security policies embedded in the deploy pipeline
+  &bull; Production-ready Kubernetes configs
+
+What used to take three weeks now takes minutes.</div>
+      <p>The results at companies that have implemented this are dramatic. One organization reported a 40% reduction in developer cognitive load, 30% faster onboarding, and 70% reduction in infrastructure setup time. Another reduced environment provisioning from 3 days to 15 minutes while maintaining 99.99% uptime. A third cut on-call fatigue by 50% and increased deployment frequency by 400%.</p>
+      <p>In an interview, use the paved road as your anchor metaphor. When they ask about strategy, talk about which roads you would pave first and why. When they ask about adoption, explain that a well-paved road does not need a mandate &mdash; it is simply faster than the alternative.</p>
+    </div>
+
+    <div class="entry" id="cognitive-load">
+      <div class="entry-head"><span class="entry-num">5.</span> Cognitive Load</div>
+      <p>The reason internal platforms exist is to reduce <span class="term">cognitive load</span> &mdash; the mental processing required to perform a task. When cognitive load is high, developers spend their energy managing tools, environments, and processes instead of solving domain problems. The DevEx research framework (Noda, Forsgren, Storey, Greiler) identifies three core dimensions of developer experience:</p>
+      <dl class="defs">
+        <dt>Feedback Loops</dt>
+        <dd>The speed and quality of responses to developer actions. Build times, CI duration, code review turnaround, deploy confirmation. Fast feedback enables efficient development. Slow loops cause frustration and context loss.</dd>
+        <dt>Cognitive Load</dt>
+        <dd>The mental overhead of the work environment. Poorly documented systems, too many tools, unclear processes. When cognitive load is high, developers spend extra time and effort completing tasks and avoiding mistakes.</dd>
+        <dt>Flow State</dt>
+        <dd>The state of being fully immersed in focused work. Frequent flow leads to higher productivity, innovation, and satisfaction. Interruptions, context-switching, and unclear requirements destroy it.</dd>
+      </dl>
+      <p>Team Topologies breaks cognitive load into three types:</p>
+      <dl class="defs">
+        <dt>Intrinsic</dt>
+        <dd>The inherent complexity of the domain problem. This is irreducible &mdash; understanding payment processing or content delivery is just hard. You cannot eliminate this and should not try.</dd>
+        <dt>Extraneous</dt>
+        <dd>Unnecessary complexity from poor tooling, process, or environment. "How do I deploy this?" "Where are the logs?" "Which version of the SDK should I use?" This is what platforms eliminate.</dd>
+        <dt>Germane</dt>
+        <dd>Productive learning that builds lasting knowledge. Understanding <span class="it">why</span> the architecture works a certain way, not just <span class="it">how</span> to use it. Good platforms preserve this.</dd>
+      </dl>
+      <p>The job of an internal platform PM is to <span class="term">relentlessly reduce extraneous load</span> so engineers can focus on intrinsic and germane load. Every design decision, every abstraction, every default should be evaluated through this lens: does this reduce the number of things a developer has to hold in their head?</p>
+      <p>A critical nuance: cognitive load is not eliminated &mdash; it is <span class="term">relocated</span>. When developer cognitive load decreases, the platform team absorbs that complexity. This means the platform team's own experience matters just as much. Burnout on the platform team defeats the purpose.</p>
+    </div>
+
+    <!-- ——————————————————————————— -->
+    <div class="phase">Reframe Your Toolkit <a href="#toc-pivot" class="back-to-top">&uarr; top</a></div>
+    <!-- ——————————————————————————— -->
+
+    <div class="entry" id="measure-differently">
+      <div class="entry-head"><span class="entry-num">6.</span> Measure Differently</div>
+      <p>When you build external products, the success metrics are obvious: revenue, conversion, churn, NPS. When you build internal platforms, you cannot point to ARR. Your impact is <span class="term">indirect</span> &mdash; you multiply other people's output rather than generating direct revenue. This is the single hardest adjustment for PMs making the pivot.</p>
+      <p>The SPACE framework (Forsgren, Storey, Maddila, Zimmermann, Houck) provides the vocabulary. Five dimensions, each capturing a different facet of developer productivity:</p>
+      <dl class="defs">
+        <dt>Satisfaction</dt>
+        <dd>Developer happiness. NPS scores, retention rates, burnout indicators. The leading signal &mdash; if developers hate the platform, nothing else matters.</dd>
+        <dt>Performance</dt>
+        <dd>Quality of outcomes. Code quality, reliability, customer impact. The lagging confirmation that the platform is enabling good work.</dd>
+        <dt>Activity</dt>
+        <dd>Concrete actions. Deployments, code reviews, commits, services created. Easy to measure but dangerous alone &mdash; activity without satisfaction is just churn.</dd>
+        <dt>Communication</dt>
+        <dd>Knowledge sharing. PR review quality, documentation contributions, cross-team collaboration. Platforms should make collaboration easier, not harder.</dd>
+        <dt>Efficiency</dt>
+        <dd>Workflow smoothness. Context-switching frequency, wait times, time-to-deploy. The most directly platform-influenced dimension.</dd>
+      </dl>
+      <p>The key insight from recent research: productivity signals only emerge when multiple dimensions are analyzed together. Teams see 20&ndash;30% improvement when measuring across all five dimensions rather than focusing solely on activity.</p>
+      <p>For platform-specific metrics, start with these:</p>
+      <div class="ex">Time to first deploy:
+  How long from "new engineer joins" to "code in production"?
+  Best-in-class: under one day. Most orgs: over two months.
+
+Service creation time:
+  End-to-end setup for a new service. Before platform: 3 weeks.
+  After paved road: 15 minutes. This is your headline number.
+
+Developer independence (DORA 2024):
+  Can engineers accomplish tasks autonomously? A 5% productivity
+  gain at both individual and team levels.
+
+Developer time saved:
+  50 devs x 2 hrs/week saved x $75/hr x 52 weeks = $390K/year.
+  This is how you justify the platform team's existence.</div>
+      <p>In an interview, translate everything into business language. Not "we reduced YAML configuration" but <span class="it">"we cut deployment time from 45 minutes to under 10, which recovered 200 engineering hours per month across the org."</span></p>
+    </div>
+
+    <div class="entry" id="earn-adoption">
+      <div class="entry-head"><span class="entry-num">7.</span> Earn Adoption</div>
+      <p>The hardest part of internal platform PM is not building the platform. It is getting people to use it. You cannot buy ads. You cannot offer free trials. You have to <span class="term">earn adoption</span> from engineers who are busy, skeptical, and have strong opinions about their tools.</p>
+      <p>Research shows that 36% of organizations rely on mandates to drive platform adoption. This approach is declining in effectiveness. Mandated adoption tells you nothing about actual value &mdash; compliance is not the same as satisfaction. The alternative is earning it:</p>
+      <dl class="defs">
+        <dt>Land and expand</dt>
+        <dd>Choose one painful workflow. Make the paved road demonstrably faster than the old way. Show benchmarks developers can feel. Convert early adopters into champions who evangelize for you.</dd>
+        <dt>Inner-source it</dt>
+        <dd>Let engineers contribute to and customize the platform. When people can build on it, they become invested in it. Contribution creates ownership.</dd>
+        <dt>Kill the ticket</dt>
+        <dd>If developers have to file a ticket to use the platform, it is not self-service. Every ticket is a failure of design. Measure success by tickets eliminated, not tickets resolved faster.</dd>
+      </dl>
+      <p>There are well-documented anti-patterns that kill adoption:</p>
+      <div class="ex">The Field of Dreams:  "Build it and they will come."
+  They will not. Even great platforms need active evangelism.
+
+The Magpie Platform:  Chasing bleeding-edge tech instead of
+  solving boring production problems. Kubernetes service mesh
+  is exciting; fixing the deploy pipeline is useful.
+
+Mandated Migration:  Forcing everyone onto the new platform
+  by a deadline. Creates resentment and hides real feedback.
+
+Building the Portal First:  Confusing a pretty UI with a
+  real platform. A clunky CLI that automates a 3-hour task
+  beats a beautiful portal that does not actually work yet.
+
+Tracking Wrong Metrics:  Measuring portal logins instead of
+  time saved. Counting services onboarded instead of asking
+  whether engineers are happier.</div>
+      <p>The most powerful pattern for driving adoption is <span class="term">influence without authority</span>. You are not the engineers' manager. You cannot require them to use anything. Instead, you partner with engineering leaders, identify pioneering teams, create narratives around early wins, and convert advocates into champions. This is how internal platforms cross the chasm &mdash; Geoffrey Moore's framework applies internally just as it does externally.</p>
+      <p>In an interview, describe adoption as a product problem, not a rollout plan. <span class="it">"How would you drive migration from a legacy system?"</span> is not asking for a Gantt chart. It is asking whether you understand that migration is fundamentally about trust.</p>
+    </div>
+
+    <div class="entry" id="the-ai-layer">
+      <div class="entry-head"><span class="entry-num">8.</span> The AI Layer</div>
+      <p>The most significant shift happening in developer platforms right now is the integration of <span class="term">AI-native capabilities</span>. This is not about adding a chatbot to the developer portal. It is about rethinking the entire software development lifecycle with AI as a first-class participant.</p>
+      <p>The numbers are moving fast. 80% of developers now use AI coding agents in their workflows. 41% of code written in 2025 was AI-generated. Average time saved is 3.6 hours per week per developer. But there is a trust gap &mdash; trust in AI accuracy dropped from 40% to 29% year-over-year, and AI-coauthored pull requests show roughly 1.7x more issues than human-only PRs.</p>
+      <p>This creates a specific job for platform teams: <span class="term">make AI productive and safe at the same time</span>.</p>
+      <dl class="defs">
+        <dt>AI-assisted development</dt>
+        <dd>Coding assistants integrated into the IDE and CLI. The platform's role: standardize which tools are approved, ensure they have access to internal context (docs, APIs, patterns), and measure their actual impact on productivity.</dd>
+        <dt>AI-driven workflows</dt>
+        <dd>Automated code review, test generation, incident triage, documentation. The platform's role: embed these into existing pipelines so they are invisible friction reducers, not new tools to learn.</dd>
+        <dt>Agentic infrastructure</dt>
+        <dd>AI agents that autonomously provision resources, run deployments, or debug issues. The platform's role: define guardrails &mdash; RBAC, resource quotas, governance policies &mdash; so agents cannot cause more harm than they prevent.</dd>
+      </dl>
+      <p>A critical finding from DORA research: <span class="term">when platform quality is high, AI adoption strongly improves organizational performance. When platform quality is low, AI adoption has negligible or even negative effects.</span> The platform is the prerequisite. Without standardized pipelines, clean abstractions, and reliable infrastructure, AI tools amplify chaos instead of reducing it.</p>
+      <div class="ex">The emerging platform responsibilities for AI:
+
+  &bull; Define "agent golden paths" &mdash; standard patterns for how
+    AI agents interact with infrastructure
+  &bull; Auto-remediate AI-generated configs that pass linting
+    but fail in production
+  &bull; Provide pre-deployment cost gates for AI workloads
+    (token costs, inference costs, GPU budgets)
+  &bull; Ensure AI tools have access to internal documentation
+    and API contracts, not just public training data</div>
+      <p>In an interview, demonstrate <span class="term">high AI literacy with operational realism</span>. Do not pitch AI as magic. Instead, show that you understand the governance challenge: how do you give developers powerful AI tools while preventing the tools from introducing security vulnerabilities, inflating costs, or creating code that nobody on the team can maintain?</p>
+    </div>
+
+    <!-- ——————————————————————————— -->
+    <div class="phase">Interview Differently <a href="#toc-pivot" class="back-to-top">&uarr; top</a></div>
+    <!-- ——————————————————————————— -->
+
+    <div class="entry" id="translate-your-story">
+      <div class="entry-head"><span class="entry-num">9.</span> Translate Your Story</div>
+      <p>If you have been an external-facing PM &mdash; especially in observability or developer tools &mdash; your experience maps directly to internal platform work. The interviewer may not see the connection unless you draw it for them. This is the <span class="term">translation</span> step.</p>
+      <p>Here is how external PM skills map to internal platform skills:</p>
+      <dl class="defs">
+        <dt>User research</dt>
+        <dd>You interviewed SREs and developers to understand pain points. Now you shadow internal engineers, run developer experience surveys, and analyze support ticket patterns. Same muscle, different gym.</dd>
+        <dt>Prioritization</dt>
+        <dd>You balanced revenue impact, user demand, and technical debt. Now you balance developer time saved, platform reliability, and migration urgency. The frameworks are identical &mdash; the inputs change.</dd>
+        <dt>Go-to-market</dt>
+        <dd>You drove adoption through product-led growth, content marketing, and sales enablement. Now you drive adoption through paved roads, internal evangelism, and champion networks. The funnel looks different but the psychology is the same.</dd>
+        <dt>Pricing</dt>
+        <dd>You designed pricing models that captured value. Now you build internal business cases that justify the platform team's headcount. The skill is value articulation &mdash; whether the currency is dollars or engineering hours.</dd>
+        <dt>Success metrics</dt>
+        <dd>You tracked activation, retention, and expansion. Now you track time-to-first-deploy, developer satisfaction, and service creation time. The thinking is the same: leading indicators that predict lagging outcomes.</dd>
+      </dl>
+      <p>The <span class="term">one thing that is genuinely new</span>: you lose your support apparatus. External PMs have sales teams, customer success, documentation teams, and marketing. Internal platform PMs are their own marketer, trainer, evangelist, and support team. You write the strategy memos. You run the migration workshops. You present to senior leadership. If this sounds like more work, it is. But it also means you control the full experience in a way external PMs rarely can.</p>
+      <div class="ex">How to frame your experience in an interview:
+
+External:  "I grew our observability product from 50 to 500
+           customers through product-led growth."
+Internal:  "I understand bottom-up adoption. I've built the
+           funnels, measured the activation metrics, and learned
+           that developers adopt tools that save them time, not
+           tools that are mandated."
+
+External:  "I ran customer discovery for our APM product by
+           interviewing 30 SRE teams."
+Internal:  "I have deep experience with the persona you're
+           building for. I've interviewed dozens of platform
+           engineers and SREs about their workflows, tooling
+           pain, and what they actually want from infrastructure."
+
+External:  "I defined usage-based pricing for a monitoring
+           product at scale."
+Internal:  "I know how to articulate the value of developer
+           tooling in business terms &mdash; time saved, incidents
+           reduced, velocity gained &mdash; because I've done it
+           from the other side of the table."</div>
+      <p>The interviewer is looking for a signal that you understand <span class="term">the customer deeply</span>. Having been on the external side selling to the same persona you would now serve internally is a genuine advantage. Name it explicitly.</p>
+    </div>
+
+    <div class="entry" id="the-questions">
+      <div class="entry-head"><span class="entry-num">10.</span> The Questions They Ask</div>
+      <p>Internal platform PM interviews test different things than external PM interviews. The case study question &mdash; "take an idea from ideation to commercialization" &mdash; is replaced by questions about <span class="term">strategy, adoption, measurement, and trade-offs</span> within an organization. Here are the patterns you will see.</p>
+
+      <p><strong>The Cold Start:</strong></p>
+      <div class="ex">"You join a company with 500 developers and no platform team.
+Where do you start?"</div>
+      <p>This tests whether you understand discovery before action. A strong answer: talk to engineers first, not architects. Find the three most painful workflows by shadowing teams, reading support tickets, and running a developer experience survey. Then pick the single workflow where a paved road would save the most time, and build the thinnest viable platform that solves it. Show results in 90 days. Expand from there.</p>
+
+      <p><strong>The Business Case:</strong></p>
+      <div class="ex">"The CFO asks why the platform team costs $2M annually.
+How do you justify it?"</div>
+      <p>This tests whether you can connect platform work to business outcomes. A strong answer: frame it as leverage. If 8 platform engineers save 200 application engineers 2 hours per week each, that is 200 &times; 2 &times; $75 &times; 52 = $1.56M in recovered engineering capacity per year &mdash; and that is just the direct time savings, before you count faster onboarding, fewer incidents, and reduced attrition from developer frustration.</p>
+
+      <p><strong>The Migration:</strong></p>
+      <div class="ex">"How would you drive adoption from a legacy system to
+your new platform?"</div>
+      <p>This tests whether you understand change management. A strong answer acknowledges that migration is about trust, not timelines. Start with a team that is already in pain on the old system &mdash; they are motivated to move. Make the migration path absurdly easy for that first team. Document everything they hit. Use their success as social proof. Then expand to the next ring of teams. Never mandate &mdash; earn. The metric is not "teams migrated" but "teams that chose to stay."</p>
+
+      <p><strong>The Abstraction Trade-off:</strong></p>
+      <div class="ex">"How do you decide what to abstract away versus expose
+to developers?"</div>
+      <p>This tests your <span class="term">no-ops philosophy</span>. A strong answer: abstract everything that is the same across teams (deploy pipeline, observability, security policies) and expose everything that is different (business logic, data models, domain-specific configuration). The litmus test is whether the developer <span class="it">needs</span> to understand it to do their job. If they do not, hide it. If hiding it would prevent them from debugging a production issue, expose it with sensible defaults.</p>
+
+      <p><strong>The AI Question:</strong></p>
+      <div class="ex">"How would you integrate AI into the developer platform?
+What does an AI-native development workflow look like?"</div>
+      <p>This tests AI literacy without naivety. A strong answer: start with the workflows that are already painful &mdash; code review, test generation, incident triage, documentation &mdash; and layer AI into existing tools rather than introducing new ones. Define governance first: which AI tools are approved, what data they can access, how generated code is reviewed. Measure impact rigorously &mdash; DORA research shows AI only improves outcomes when platform quality is already high. The platform must be the foundation, not an afterthought.</p>
+
+      <p><strong>The Behavioral:</strong></p>
+      <div class="ex">"Tell me about a time you had to drive adoption of something
+engineers were resistant to."</div>
+      <p>This tests influence without authority. The best answers follow a pattern: you identified the resistance (usually a real concern, not stubbornness), addressed it directly (changed the product, not the messaging), found early adopters who had the most to gain, and used their success to create momentum. End with the metric: what was adoption before and after, and how did you know the resistance was resolved versus merely suppressed?</p>
+      <p class="note">The common thread across all these questions: they want to see that you think about <span class="term">internal platforms as products that must delight their users</span>. Not infrastructure. Not tickets. Not mandates. Products. If you can demonstrate that mindset consistently across every answer, you will stand out.</p>
     </div>
 
     <footer>
